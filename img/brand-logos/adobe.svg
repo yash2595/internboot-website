@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="96" viewBox="0 0 240 96" role="img" aria-labelledby="title">
+  <title id="title">Adobe logo</title>
+  <rect width="240" height="96" rx="14" fill="#fff"/>
+  <rect x="46" y="24" width="42" height="48" rx="6" fill="#fa0f00"/>
+  <path d="M67 34 L82 64 H73 L69 55 H58 L54 64 H46 L61 34 Z M61 49 H66 L64 42 Z" fill="#fff"/>
+  <text x="102" y="57" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#111827">Adobe</text>
+</svg>

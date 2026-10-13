@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internship Opportunities - InternBoot</title>
+    <!-- SEO Meta Tags -->
+    <meta name="title" content="Internship Opportunities - InternBoot" />
+    <meta
+      name="description"
+      content="Explore a wide range of internship opportunities across various fields. InternBoot connects students with top companies offering internships in India, Delhi, Noida and Gurgaon. Apply now and kickstart your career!"
+    />
+    <meta
+      name="keywords"
+      content="internboot, intern boot, internship from home, internships, internship for student, remote internship, data Science internship, AI internship, HR internship, Software Development internship, Web Development internship, Digital Marketing internship, Content Writing internship, Business Development internship, Social Media Marketing internship, Sales and Marketing internship"
+    />
+    <meta name="author" content="EmploymentExpress Verband LLP" />
+    <meta name="robots" content="internship, follow" />
+    <meta name="publisher" content="InternBoot" />
+    <link rel="canonical" href="https://internboot.com/internship.html" />
+    <meta property="og:title" content="Internship Opportunities - InternBoot" />
+    <meta
+      property="og:description"
+      content="Explore a wide range of internship opportunities across various fields. InternBoot connects students with top companies offering internships in India, Delhi, and Gurgaon. Apply now and kickstart your career!"
+    />
+    <meta
+      property="og:image"
+      content="https://internboot.com/img/logos/internboot-official-logo.jpeg"
+    />
+    <meta property="og:url" content="https://internboot.com/internship.html" />
+    <meta property="og:type" content="website" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="img/logos/internboot-official-logo.jpeg" />
+    <link rel="apple-touch-icon" href="img/logos/internboot-official-logo.jpeg" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-8504842908769623" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504842908769623"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/floating-button.css" />
+  <link rel="stylesheet" href="css/navbar.css">
+    <style>
+      /* Additional styles for Internship page */
+      .internship-hero {
+        padding: 80px 0 56px;
+        background-color: #f8f9fa;
+        background-image: radial-gradient(#e9ecef 1px, transparent 1px),
+          radial-gradient(#e9ecef 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-title {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #3e69c5;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto;
+        color: #6c757d;
+      }
+
+      /* Certificate Slider Styles */
+      .certificate-slider-container {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 15px 0;
+        height: 320px;
+        overflow: visible; /* Ensure navigation buttons are visible outside container */
+      }
+
+      .certificate-slider {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+        padding: 20px 0;
+      }
+
+      .certificate-slider .swiper-slide {
+        width: 320px;
+        height: auto;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        transform: scale(0.85) translateZ(-100px);
+        filter: blur(1px);
+        perspective: 1000px;
+      }
+
+      .certificate-slider .swiper-slide-active {
+        opacity: 1;
+        transform: scale(1) translateZ(0);
+        z-index: 2;
+        filter: blur(0);
+      }
+
+      .certificate-slider .swiper-slide-prev,
+      .certificate-slider .swiper-slide-next {
+        opacity: 0.8;
+        transform: scale(0.9) translateZ(-50px);
+        filter: blur(0.5px);
+      }
+
+      .certificate-card {
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 8px;
+        border: 1px solid #eaeaea;
+      }
+
+      .certificate-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s;
+        border-radius: 8px;
+      }
+
+      .certificate-card:hover img {
+        transform: scale(1.02);
+      }
+
+      .certificate-navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 20px;
+        position: relative;
+        z-index: 20;
+      }
+
+      .certificate-button-prev,
+      .certificate-button-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        color: #c9ccd0;
+        z-index: 10;
+        opacity: 1 !important; /* Make buttons always visible */
+        visibility: visible !important; /* Ensure visibility */
+        font-size: 1rem; /* Increase icon size */
+        border: 2px solid var(--primary-color); /* Add border for more visibility */
+      }
+
+      .certificate-button-prev:hover,
+      .certificate-button-next:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .certificate-pagination {
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .certificate-pagination .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background-color: #ccc;
+        opacity: 0.7;
+        margin: 0 4px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .certificate-pagination .swiper-pagination-bullet-active {
+        background-color: var(--primary-color);
+        opacity: 1;
+        width: 10px;
+        height: 10px;
+      }
+
+      .certificate-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: linear-gradient(135deg, #ff5722, #ff9800);
+        color: white;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        border: 2px solid white;
+        z-index: 2;
+      }
+
+      @media (max-width: 768px) {
+        .certificate-slider-container {
+          height: 280px;
+        }
+
+        .certificate-slider-container{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          gap: 20px;
+        }
+        .certificate-slider .swiper-slide {
+          width: 280px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .certificate-slider-container {
+          height: 250px;
+        }
+        .certificate-slider .swiper-slide {
+          width: 240px;
+        }
+
+        .certificate-button-prev,
+        .certificate-button-next {
+          width: 35px;
+          height: 35px;
+          opacity: 1 !important;
+          visibility: visible !important;
+          border-width: 1px;
+        }
+
+        .certificate-button-prev,
+        .certificate-button-next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 10;
+        }
+
+        .certificate-badge {
+          width: 25px;
+          height: 25px;
+          font-size: 0.8rem;
+        }
+      }
+
+      .internship-card {
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+        overflow: hidden;
+        background-color: white;
+      }
+
+      .internship-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .internship-card .card-body {
+        padding: 20px;
+      }
+
+      .company-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 15px;
+      }
+
+      .internship-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .company-name {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 15px;
+      }
+
+      .internship-details {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+      }
+
+      .detail-item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        margin-bottom: 10px;
+      }
+
+      .detail-item i {
+        color: var(--primary-color);
+        margin-right: 8px;
+      }
+
+      #internship-listings {
+        padding-top: 2rem !important;
+      }
+
+      .filter-column {
+        margin-bottom: 2rem;
+      }
+
+      .filter-section {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(13, 110, 253, 0.12);
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 18px 45px rgba(21, 54, 110, 0.1);
+        max-width: 940px;
+        margin: 0 auto;
+      }
+
+      .filter-title {
+        font-size: 1.35rem;
+        font-weight: 800;
+        margin-bottom: 18px;
+        color: #111827;
+        text-align: left;
+      }
+
+      .filter-section form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        align-items: end;
+      }
+
+      .filter-field {
+        margin: 0;
+      }
+
+      .filter-section .form-label {
+        color: #1f2937;
+        font-size: 0.92rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .filter-section .form-select {
+        min-height: 50px;
+        border-radius: 12px;
+        border: 1px solid #d9e2ef;
+        padding: 0.72rem 2.5rem 0.72rem 0.95rem;
+        color: #111827;
+        background-color: #ffffff;
+        box-shadow: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .filter-section .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
+      }
+
+      @media (max-width: 991.98px) {
+        .internship-hero {
+          padding-bottom: 44px;
+        }
+
+        .filter-section {
+          padding: 22px;
+        }
+
+        .filter-section form {
+          grid-template-columns: 1fr;
+        }
+
+      }
+
+      @media (max-width: 575.98px) {
+        #internship-listings {
+          padding-top: 1.4rem !important;
+        }
+
+        .filter-section {
+          padding: 20px 16px;
+          border-radius: 16px;
+        }
+
+        .filter-title {
+          font-size: 1.18rem;
+          text-align: center;
+        }
+
+        .filter-section form {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+      }
+
+      .internship-hero {
+        padding: 48px 0 34px;
+      }
+
+      .internship-hero .container {
+        max-width: 1080px;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 0.75rem !important;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.65;
+        max-width: 720px;
+        margin-bottom: 1rem !important;
+      }
+
+      .internship-hero .alert {
+        max-width: 920px;
+        margin: 0 auto 1rem !important;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        border-color: rgba(13, 202, 240, 0.28);
+        background: rgba(207, 244, 252, 0.76);
+      }
+
+      #internship-listings {
+        padding: 34px 0 64px !important;
+        background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%) !important;
+      }
+
+      #internship-listings .container {
+        max-width: 1140px;
+      }
+
+      .listing-layout {
+        row-gap: 18px;
+        --bs-gutter-x: 0;
+      }
+
+      .filter-column {
+        margin-bottom: 0;
+      }
+
+      .filter-section {
+        max-width: none;
+        margin: 0;
+        padding: 22px;
+        border-radius: 16px;
+        box-shadow: 0 16px 36px rgba(21, 54, 110, 0.09);
+      }
+
+      .filter-title {
+        margin-bottom: 14px;
+        font-size: 1.18rem;
+      }
+
+      .listing-column {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(13, 110, 253, 0.08);
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 18px 44px rgba(21, 54, 110, 0.08);
+      }
+
+      .listing-header {
+        padding-bottom: 18px;
+        border-bottom: 1px solid #e7edf6;
+      }
+
+      .listing-header h2 {
+        font-size: clamp(1.55rem, 2.5vw, 2rem);
+        font-weight: 850;
+        color: #111827;
+      }
+
+      .listing-subtitle {
+        margin: 0.35rem 0 0;
+        max-width: 640px;
+        color: #64748b;
+        line-height: 1.55;
+      }
+
+      .duration-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin: 0 0 18px;
+        padding: 12px 14px;
+        border: 1px solid rgba(13, 110, 253, 0.12);
+        border-radius: 12px;
+        background: #f4f8ff;
+        color: #475569;
+        font-size: 0.93rem;
+        line-height: 1.55;
+      }
+
+      .duration-note i {
+        color: #0d6efd;
+        margin-top: 3px;
+      }
+
+      .internship-card {
+        border: 1px solid #e6edf7;
+        border-radius: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+      }
+
+      .internship-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 34px rgba(15, 23, 42, 0.1);
+      }
+
+      .internship-card .card-body {
+        padding: 22px;
+      }
+
+      .internship-card .bg-light.rounded-circle {
+        width: 52px;
+        height: 52px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        background: #eef5ff !important;
+        flex: 0 0 auto;
+      }
+
+      .internship-title {
+        color: #111827;
+        font-size: 1.12rem;
+        font-weight: 800;
+      }
+
+      .internship-details {
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .detail-item {
+        margin: 0;
+        padding: 7px 10px;
+        border-radius: 999px;
+        background: #f4f7fb;
+        color: #4b5563;
+        font-size: 0.9rem;
+      }
+
+      .internship-card p.mb-3 {
+        color: #5f6b7a;
+        line-height: 1.62;
+      }
+
+      .internship-card .badge {
+        border-radius: 999px;
+        padding: 0.55rem 0.75rem;
+        font-weight: 750;
+      }
+
+      .internship-card .btn-outline-primary {
+        border-radius: 11px;
+        font-weight: 800;
+        padding: 0.55rem 1.1rem;
+      }
+
+      .internship-card .mt-2.text-end a {
+        font-weight: 750;
+      }
+
+      .pagination .page-link {
+        border-radius: 10px;
+        margin: 0 3px;
+        border-color: #d9e2ef;
+      }
+
+      .certificate-cta-section {
+        padding: 0 0 64px;
+        background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
+      }
+
+      .certificate-cta-card {
+        max-width: 960px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 22px;
+        align-items: center;
+        padding: 28px;
+        border: 1px solid rgba(13, 110, 253, 0.12);
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow: 0 18px 44px rgba(21, 54, 110, 0.1);
+      }
+
+      .certificate-cta-icon {
+        width: 64px;
+        height: 64px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        background: #eef5ff;
+        color: #0d6efd;
+        font-size: 1.55rem;
+      }
+
+      .certificate-cta-card h2 {
+        margin: 0 0 8px;
+        color: #111827;
+        font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+        font-weight: 850;
+      }
+
+      .certificate-cta-card p {
+        margin: 0;
+        color: #5f6b7a;
+        line-height: 1.6;
+      }
+
+      .certificate-trust-note {
+        display: block;
+        margin-top: 10px;
+        color: #64748b;
+        font-size: 0.9rem;
+      }
+
+      .certificate-cta-button {
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border-radius: 12px;
+        padding: 0.75rem 1.25rem;
+        font-weight: 800;
+        white-space: nowrap;
+        box-shadow: 0 12px 24px rgba(13, 110, 253, 0.2);
+      }
+
+      @media (max-width: 991.98px) {
+        .internship-hero {
+          padding: 42px 0 30px;
+        }
+
+        .listing-column {
+          padding: 20px;
+        }
+
+        .certificate-cta-card {
+          grid-template-columns: auto 1fr;
+        }
+
+        .certificate-cta-button {
+          grid-column: 1 / -1;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 575.98px) {
+        .internship-hero {
+          padding: 32px 0 24px;
+        }
+
+        .listing-column {
+          padding: 16px;
+          border-radius: 16px;
+        }
+
+        .listing-header {
+          align-items: stretch !important;
+        }
+
+        .certificate-cta-section {
+          padding-bottom: 44px;
+        }
+
+        .certificate-cta-card {
+          grid-template-columns: 1fr;
+          padding: 22px;
+          text-align: center;
+        }
+
+        .certificate-cta-icon {
+          margin: 0 auto;
+        }
+
+        .internship-card .d-flex.justify-content-between.align-items-center {
+          gap: 12px;
+          align-items: stretch !important;
+          flex-direction: column;
+        }
+
+        .internship-card .mt-2.text-end {
+          text-align: left !important;
+        }
+      }
+
+      .internship-content-container {
+        width: 100% !important;
+        max-width: var(--internship-navbar-width, calc(100% - 32px)) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      @media (max-width: 575.98px) {
+        .internship-content-container {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+        }
+      }
+    </style>
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "InternBoot",
+        "url": "https://internboot.com/internship.html",
+        "sameAs": [
+          "https://www.linkedin.com/showcase/internboot/",
+          "https://www.instagram.com/employmentexpressllp/"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Navbar Container -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section -->
+    <section class="internship-hero">
+      <div class="container internship-content-container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h1 class="hero-title mb-3">
+              Find Your Perfect <span class="text-primary">Internship</span>
+            </h1>
+            <p class="hero-subtitle text-muted mb-4">
+              Discover opportunities that match your skills and interests. Take
+              the first step towards building your career with hands-on
+              experience and real-world project exposure.
+            </p>
+            <div class="alert alert-info mb-4">
+              <i class="fas fa-info-circle me-2"></i> All internships are fully
+              remote, allowing you to work from anywhere!
+              <a href="about.html#remote-work" class="alert-link"
+                >Learn more about our remote work policy</a
+              >.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Internship Listings Section -->
+    <section id="internship-listings" class="py-5 bg-light">
+      <div class="container internship-content-container">
+        <div class="row listing-layout">
+          <!-- Filters Column -->
+          <div class="col-12 filter-column">
+            <div class="filter-section">
+              <h4 class="filter-title">Filter Internships</h4>
+              <form>
+                <div class="filter-field">
+                  <label class="form-label fw-bold">Category</label>
+                  <select class="form-select" id="categoryFilter">
+                    <option selected>All Categories</option>
+                    <option>Financial Analyst</option>
+                    <option>Human Resource</option>
+                    <option>Web Development</option>
+                    <option>Cyber Security</option>
+                    <option>Software Development</option>
+                    <option>Data Science &amp; Data Analyst</option>
+                    <option>Digital Marketing</option>
+                    <option>Sales &amp; Marketing</option>
+                    <option>Business Development</option>
+                    <option>Portfolio Management</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Internships Column -->
+          <div class="col-12 listing-column">
+            <div class="listing-header d-flex justify-content-between align-items-start gap-3 mb-4">
+              <div>
+                <h2 class="mb-0">Available Internships</h2>
+                <p class="listing-subtitle">
+                  Browse remote internship programs and open each program page
+                  for detailed learning outcomes.
+                </p>
+              </div>
+            </div>
+            <div class="duration-note">
+              <i class="fas fa-info-circle"></i>
+              <span>
+                Internship duration is flexible and can be selected by the
+                student during registration, ranging from 45 days to 6 months.
+              </span>
+            </div>
+
+            <!-- Internship Cards -->
+            <div class="internship-card">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-light rounded-circle p-3 me-3">
+                    <i class="fas fa-chart-line text-primary fs-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="internship-title">Financial Analyst</h5>
+                  </div>
+                </div>
+                <div class="internship-details">
+                  <div class="detail-item">
+                    <i class="fas fa-home"></i>
+                    <span>Remote</span>
+                  </div>
+                </div>
+                <p class="mb-3">
+                  Build practical skills in financial modeling, budgeting, forecasting, data analysis, and business reporting through remote project-based finance work.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-success">Actively Hiring</span>
+                  <a
+                    href="https://stuportal.internboot.com/"
+                    class="btn btn-outline-primary"
+                    data-id="1"
+                    >Apply</a
+                  >
+                </div>
+                <div class="mt-2 text-end">
+                  <small
+                    ><a
+                      href="internships/financial-analyst.html"
+                      class="text-decoration-none"
+                      >View Program Details</a
+                    ></small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="internship-card">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-light rounded-circle p-3 me-3">
+                    <i class="fas fa-users text-primary fs-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="internship-title">Human Resource</h5>
+                  </div>
+                </div>
+                <div class="internship-details">
+                  <div class="detail-item">
+                    <i class="fas fa-home"></i>
+                    <span>Remote</span>
+                  </div>
+                </div>
+                <p class="mb-3">
+                  Gain hands-on exposure to recruitment, onboarding, employee engagement, HR operations, documentation, and workplace communication.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-success">Actively Hiring</span>
+                  <a
+                    href="https://stuportal.internboot.com/"
+                    class="btn btn-outline-primary"
+                    data-id="2"
+                    >Apply</a
+                  >
+                </div>
+                <div class="mt-2 text-end">
+                  <small
+                    ><a
+                      href="internships/human-resource.html"
+                      class="text-decoration-none"
+                      >View Program Details</a
+                    ></small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="internship-card">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-light rounded-circle p-3 me-3">
+                    <i class="fas fa-laptop-code text-primary fs-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="internship-title">Web Development</h5>
+                  </div>
+                </div>
+                <div class="internship-details">
+                  <div class="detail-item">
+                    <i class="fas fa-home"></i>
+                    <span>Remote</span>
+                  </div>
+                </div>
+                <p class="mb-3">
+                  Learn to build responsive web experiences using front-end and back-end development practices, modern tooling, and real project workflows.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-success">Actively Hiring</span>
+                  <a
+                    href="https://stuportal.internboot.com/"
+                    class="btn btn-outline-primary"
+                    data-id="3"
+                    >Apply</a
+                  >
+                </div>
+                <div class="mt-2 text-end">
+                  <small
+                    ><a
+                      href="internships/web-development.html"
+                      class="text-decoration-none"
+                      >View Program Details</a
+                    ></small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="internship-card">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-light rounded-circle p-3 me-3">
+                    <i class="fas fa-shield-alt text-primary fs-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="internship-title">Cyber Security</h5>
+                  </div>
+                </div>
+                <div class="internship-details">
+                  <div class="detail-item">
+                    <i class="fas fa-home"></i>
+                    <span>Remote</span>
+                  </div>
+                </div>
+                <p class="mb-3">
+                  Develop foundations in vulnerability assessment, threat awareness, security monitoring, policy basics, and protecting digital systems.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-success">Actively Hiring</span>
+                  <a
+                    href="https://stuportal.internboot.com/"
+                    class="btn btn-outline-primary"
+                    data-id="4"
+                    >Apply</a
+                  >
+                </div>
+                <div class="mt-2 text-end">
+                  <small
+                    ><a
+                      href="internships/cyber.html"
+                      class="text-decoration-none"
+                      >View Program Details</a
+                    ></small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="internship-card">
+              <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                  <div class="bg-light rounded-circle p-3 me-3">
+                    <i class="fas fa-code text-primary fs-4"></i>
+                  </div>
+                  <div>
+                    <h5 class="internship-title">Software Development</h5>
+                  </div>
+                </div>
+                <div class="internship-details">
+                  <div class="detail-item">
+                    <i class="fas fa-home"></i>
+                    <span>Remote</span>
+                  </div>
+                </div>
+                <p class="mb-3">
+                  Practice software design, coding, debugging, version control, testing basics, and application development through structured assignments.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="badge bg-success">Actively Hiring</span>
+                  <a
+                    href="https://stuportal.internboot.com/"
+                    class="btn btn-outline-primary"
+                    data-id="5"
+                    >Apply</a
+                  >
+                </div>
+                <div class="mt-2 text-end">
+                  <small
+                    ><a
+                      href="internships/software-development.html"
+                      class="text-decoration-none"
+                      >View Program Details</a
+                    ></small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="mt-4">
+              <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" href="internship.html">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="internship-page2.html">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="internship-page2.html">Next</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="text-center mt-4">
+              <p class="text-muted">
+                Can't find what you're looking for?
+                <a href="contact.html" class="text-decoration-none"
+                  >Get in touch</a
+                >
+                or check our
+                <a href="index.html#categories" class="text-decoration-none"
+                  >internship categories</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate CTA Section -->
+    <section class="certificate-cta-section">
+      <div class="container internship-content-container">
+        <div class="certificate-cta-card">
+          <div class="certificate-cta-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div>
+            <h2>Internship Completion Certificate</h2>
+            <p>
+              Successfully completed your internship program? Access and
+              download your verified internship certificate through our
+              certificate portal.
+            </p>
+            <small class="certificate-trust-note">
+              Certificates are issued after successful completion and
+              verification of internship requirements.
+            </small>
+          </div>
+          <a href="https://stuportal.internboot.com/" class="btn btn-primary certificate-cta-button">
+            <i class="fas fa-certificate"></i>
+            Get Your Certificate
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Image Fallback Handler -->
+    <script src="js/image-fallback.js"></script>
+    <!-- Components JS -->
+    <script src="js/components.js"></script>
+    <script>
+      function syncInternshipContentWidthToNavbar() {
+        const navbarCard = document.querySelector('#navbar-container .navbar-container');
+        if (!navbarCard) return;
+
+        const navbarWidth = Math.round(navbarCard.getBoundingClientRect().width);
+        if (navbarWidth > 0) {
+          document.documentElement.style.setProperty('--internship-navbar-width', `${navbarWidth}px`);
+        }
+      }
+
+      syncInternshipContentWidthToNavbar();
+      window.addEventListener('load', syncInternshipContentWidthToNavbar);
+      window.addEventListener('resize', syncInternshipContentWidthToNavbar);
+
+      if ('ResizeObserver' in window) {
+        const navbarCard = document.querySelector('#navbar-container .navbar-container');
+        if (navbarCard) {
+          new ResizeObserver(syncInternshipContentWidthToNavbar).observe(navbarCard);
+        }
+      }
+    </script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <!-- Custom JS for Internship Functionality -->
+    <script src="js/internship.js"></script>
+    <script src="js/floating-button.js"></script>
+  </body>
+</html>

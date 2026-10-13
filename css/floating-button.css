@@ -1,0 +1,71 @@
+/* Floating Apply Now Button Styles */
+:root {
+    --apply-now-bottom: 30px;
+    --apply-now-right: 30px;
+    --apply-now-footer-offset: 0px;
+}
+
+.apply-now-floating,
+.floating-apply-button {
+    position: fixed;
+    bottom: calc(var(--apply-now-bottom) + var(--apply-now-footer-offset));
+    right: var(--apply-now-right);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f72585 0%, #ff0676 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(247, 37, 133, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, bottom 0.25s ease;
+    text-decoration: none;
+    animation: none;
+}
+
+.apply-now-floating:hover,
+.apply-now-floating:focus-visible,
+.floating-apply-button:hover,
+.floating-apply-button:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(247, 37, 133, 0.5);
+    color: white;
+    text-decoration: none;
+    animation: none;
+}
+
+.apply-now-floating i,
+.floating-apply-button i {
+    margin-right: 8px;
+}
+
+/* Pulse animation for the button */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(247, 37, 133, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(247, 37, 133, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --apply-now-bottom: 20px;
+        --apply-now-right: 20px;
+    }
+
+    .apply-now-floating,
+    .floating-apply-button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}

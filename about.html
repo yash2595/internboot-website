@@ -1,0 +1,3177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – InternBoot</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    rel="stylesheet">
+  <linkFF
+    href="https://fonts.googleapis.com/css2?family=poppins:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQK70L4hP4pJxDg+qD4r6rCHW5I7xU=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/shikshit.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/floating-button.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --sky: #38BFFF;
+      --sky-light: #7DD6FA;
+      --sky-pale: #E0F5FF;
+      --sky-ultra: #F0FBFF;
+      --sky-mid: #0EA5E9;
+      --sky-deep: #0284C7;
+      --violet-light: #EDE9FE;
+      --purple-light: #F3E8FF;
+      --white: #FFFFFF;
+      --black: #0D1117;
+      --ink: #1E293B;
+      --muted: #64748B;
+      --border: rgba(56, 191, 255, 0.18);
+      --glass: rgba(255, 255, 255, 0.72);
+      --shadow-sky: 0 8px 40px rgba(56, 191, 255, 0.18);
+    }
+
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      overflow-x: hidden;
+      padding-top: 80px;
+    }
+
+    /* ─── NAV ─── */
+    .about-page-unused-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 5vw;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--sky);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .nav-logo-text {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--black);
+    }
+
+    .nav-logo-text span {
+      color: var(--sky);
+    }
+
+    .nav-cta {
+      background: var(--sky);
+      color: #fff;
+      border: none;
+      padding: .55rem 1.4rem;
+      border-radius: 50px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: .88rem;
+      cursor: pointer;
+      transition: all .3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--sky-deep);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sky);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 48px 5vw 5rem;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 191, 255, .22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-blob {
+      display: none !important;
+    }
+
+    .hero-blob.b1 {
+      width: 600px;
+      height: 600px;
+      top: -120px;
+      left: -120px;
+      animation: pulse 7s ease-in-out infinite;
+    }
+
+    .hero-blob.b2 {
+      width: 500px;
+      height: 500px;
+      bottom: -100px;
+      right: -80px;
+      animation: pulse 9s ease-in-out infinite reverse;
+    }
+
+    .hero-blob.b3 {
+      width: 300px;
+      height: 300px;
+      top: 40%;
+      left: 40%;
+      animation: pulse 5s ease-in-out infinite 2s;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .6;
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: .4rem 1.1rem;
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--sky-deep);
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+      animation: fadeUp .8s ease both;
+    }
+
+    .hero-badge::before {
+      content: '✦';
+      color: var(--sky);
+    }
+
+    .hero-h1 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 750;
+      font-size: clamp(5rem, 10vw, 5rem);
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 1.2rem;
+      animation: fadeUp .9s ease .1s both;
+    }
+
+    .hero-h1 .sky {
+      color: var(--sky);
+    }
+
+    .hero-h1 .outline {
+      -webkit-text-stroke: 2px var(--sky);
+      color: transparent;
+    }
+
+    .hero-sub {
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      animation: fadeUp .9s ease .2s both;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      animation: fadeUp .9s ease .35s both;
+    }
+
+    .hero-stat {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.8rem;
+      backdrop-filter: blur(12px);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .hero-stat:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-sky);
+    }
+
+    .hero-stat-num {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--sky);
+    }
+
+    .hero-stat-label {
+      font-size: .8rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── SECTION BASE ─── */
+    section {
+      padding: 6rem 5vw;
+    }
+
+    .section-label {
+      display: block;
+      width: fit-content;
+      align-items: center;
+      gap: .4rem;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--sky-deep);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin: 0 auto .8rem;
+      text-align: center;
+    }
+
+    .section-label::before {
+      content: none;
+      display: none;
+    }
+
+    .section-title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.15;
+      color: var(--black);
+      margin: 0 auto 1.25rem;
+      text-align: center;
+      position: relative;
+      display: block;
+    }
+
+    .section-title::after {
+      content: none;
+      display: none;
+    }
+
+    .section-title .sky {
+      color: var(--sky);
+    }
+
+    .section-desc {
+      max-width: 580px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-card-main {
+      background: linear-gradient(135deg, var(--sky) 0%, var(--sky-deep) 100%);
+      border-radius: 24px;
+      padding: 2.5rem;
+      color: #fff;
+      box-shadow: 0 20px 60px rgba(56, 191, 255, .3);
+    }
+
+    .about-card-main h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+    }
+
+    .about-card-main p {
+      font-size: .95rem;
+      line-height: 1.7;
+      opacity: .9;
+    }
+
+    .about-floating {
+      position: absolute;
+      top: auto;
+      bottom: -34px;
+      right: -24px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 1rem 1.4rem;
+      box-shadow: var(--shadow-sky);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+    }
+
+    .about-floating-icon {
+      font-size: 1.6rem;
+    }
+
+    .about-floating-text strong {
+      display: block;
+      font-family: 'Sora', sans-serif;
+      font-size: 1.1rem;
+      color: var(--sky);
+    }
+
+    .about-floating-text span {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    .about-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1.5rem;
+    }
+
+    .chip {
+      background: var(--sky-pale);
+      color: var(--sky-deep);
+      border-radius: 50px;
+      padding: .35rem 1rem;
+      font-size: .82rem;
+      font-weight: 500;
+      border: 1px solid rgba(56, 191, 255, .25);
+      transition: all .3s;
+    }
+
+    .chip:hover {
+      background: var(--sky);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ─── PHILOSOPHY ─── */
+    .philosophy {
+      background: var(--sky-ultra);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .phil-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: all .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phil-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--sky), var(--sky-light));
+      transform: scaleX(0);
+      transition: transform .35s;
+      transform-origin: left;
+    }
+
+    .phil-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .phil-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-sky);
+    }
+
+    .phil-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .phil-card h4 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: .6rem;
+    }
+
+    .phil-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ─── SERVICES ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .svc-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all .35s;
+      cursor: default;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-sky);
+      background: var(--sky);
+      color: #fff;
+    }
+
+    .svc-card:hover .svc-icon-wrap {
+      background: rgba(255, 255, 255, .2);
+    }
+
+    .svc-card:hover p {
+      color: rgba(255, 255, 255, .85);
+    }
+
+    .svc-card:hover h4 {
+      color: #fff;
+    }
+
+    .svc-icon-wrap {
+      width: 56px;
+      height: 56px;
+      background: var(--sky-pale);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin: 0 auto 1rem;
+      transition: all .35s;
+    }
+
+    .svc-card h4 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .5rem;
+    }
+
+    .svc-card p {
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      transition: color .3s;
+    }
+
+    /* ─── 7 STEPS ─── */
+    .steps-section {
+      background: var(--sky-ultra);
+    }
+
+    .steps-container {
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      position: relative;
+    }
+
+    .steps-line {
+      position: absolute;
+      top: 32px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--sky-pale), var(--sky), var(--sky-pale));
+      z-index: 0;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-item {
+      text-align: center;
+    }
+
+    .step-num {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sky), var(--sky-deep));
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      box-shadow: 0 4px 20px rgba(56, 191, 255, .3);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .step-item:hover .step-num {
+      transform: scale(1.12);
+      box-shadow: 0 8px 30px rgba(56, 191, 255, .45);
+    }
+
+    .step-item h5 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: .82rem;
+      margin-bottom: .4rem;
+    }
+
+    .step-item p {
+      font-size: .75rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* ─── JOURNEY ─── */
+    .journey-timeline {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      position: relative;
+    }
+
+    .journey-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--sky), var(--sky-light), var(--sky-pale));
+      transform: translateX(-50%);
+    }
+
+    .journey-item {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      align-items: flex-start;
+    }
+
+    .journey-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .journey-content {
+      flex: 1;
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+      transition: all .3s;
+    }
+
+    .journey-content:hover {
+      box-shadow: var(--shadow-sky);
+      transform: translateY(-3px);
+    }
+
+    .journey-year {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--sky);
+      margin-bottom: .4rem;
+    }
+
+    .journey-content h4 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .6rem;
+    }
+
+    .journey-content p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .journey-dot {
+      width: 48px;
+      height: 48px;
+      background: var(--sky);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 6px var(--sky-pale), var(--shadow-sky);
+      margin-top: .4rem;
+    }
+
+    .journey-spacer {
+      flex: 1;
+    }
+
+    /* ─── FOUNDER ─── */
+
+    .founder-section {
+      background: var(--sky-ultra);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1000px;
+      margin: 2.5rem auto 0;
+    }
+
+    .founder-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--sky), var(--sky-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(56, 191, 255, .3);
+    }
+
+    /* .founder-avatar::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 28px;
+      border: 2px solid var(--sky-light);
+      z-index: -1;
+    } */
+
+    .founder-name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: .3rem;
+    }
+
+    .founder-title {
+      color: var(--sky-deep);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .founder-tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .founder-tag {
+      background: var(--sky-pale);
+      color: var(--sky-deep);
+      border-radius: 50px;
+      padding: .25rem .9rem;
+      font-size: .78rem;
+      font-weight: 500;
+    }
+
+    .founder-bio {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: .95rem;
+    }
+
+
+    /* ─── ADVISORY BOARD ─── */
+    .board-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+    }
+
+    .board-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      transition: all .35s;
+    }
+
+    .board-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-sky);
+      border-color: var(--sky-light);
+    }
+
+    .board-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--sky-pale), var(--sky-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: 'Sora', sans-serif;
+      color: var(--sky-deep);
+      border: 2px solid var(--sky-light);
+    }
+
+    .board-avatar img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .board-info h4 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: .98rem;
+      margin-bottom: .3rem;
+    }
+
+    .board-info p {
+      font-size: .8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .board-info .org {
+      font-size: .75rem;
+      color: var(--sky-deep);
+      font-weight: 600;
+      margin-top: .3rem;
+    }
+
+    /* ─── TRAINERS ─── */
+    .trainers-section {
+      background: var(--sky-ultra);
+    }
+
+    .trainers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 1500px;
+      margin: 2rem auto 0;
+    }
+
+    .trainer-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all .35s;
+    }
+
+    .trainer-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-sky);
+    }
+
+    .trainer-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      background: linear-gradient(135deg, var(--sky), var(--sky-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .trainer-name {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: .25rem;
+    }
+
+    .trainer-desig {
+      font-size: .8rem;
+      color: var(--sky-deep);
+      font-weight: 500;
+      margin-bottom: .25rem;
+    }
+
+    .trainer-email {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-bottom: .75rem;
+      word-break: break-all;
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: .9rem;
+      margin-bottom: .3rem;
+    }
+
+    .star-count {
+      font-size: .75rem;
+      color: var(--muted);
+    }
+
+    /* ─── TEAM PHOTO SLIDER ─── */
+    .slider-outer {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 1.2rem;
+      animation: scroll-left 30s linear infinite;
+      width: max-content;
+    }
+
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-left {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .mq-wrap {
+      margin-top: 2rem;
+      overflow: hidden;
+      position: relative;
+      padding: .5rem 0;
+    }
+
+    .mq-wrap::before,
+    .mq-wrap::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 110px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .mq-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0));
+    }
+
+    .mq-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #fff, rgba(255, 255, 255, 0));
+    }
+
+    .mq-track {
+      display: flex;
+      gap: 1rem;
+      width: max-content;
+      animation: scroll-left 42s linear infinite;
+    }
+
+    .mq-track:hover {
+      animation-play-state: paused;
+    }
+
+    .mq-pill {
+      width: 156px;
+      min-height: 84px;
+      flex: 0 0 156px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem .9rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .mq-pill:hover {
+      transform: translateY(-3px);
+      border-color: var(--sky-light);
+      box-shadow: var(--shadow-sky);
+    }
+
+    .mq-logo {
+      width: 124px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mq-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .team-photo-card {
+      width: 240px;
+      height: 180px;
+      border-radius: 16px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      position: relative;
+      background: linear-gradient(135deg, var(--sky-pale), var(--violet-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s;
+    }
+
+    .team-photo-card:hover {
+      transform: scale(1.03);
+    }
+
+    .team-photo-placeholder {
+      text-align: center;
+    }
+
+    .team-photo-placeholder .team-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: .6rem;
+      border-radius: 14px;
+      color: var(--sky-deep);
+      background: linear-gradient(135deg, rgba(56, 191, 255, .16), rgba(125, 214, 250, .08));
+      border: 1px solid rgba(56, 191, 255, .26);
+      box-shadow: 0 10px 24px rgba(56, 191, 255, .12);
+      font-size: 1.45rem;
+    }
+
+    .team-photo-placeholder span {
+      display: block;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .slider-fade-left,
+    .slider-fade-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .slider-fade-left {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+
+    .slider-fade-right {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+
+    /* ─── MAP SECTION ─── */
+    .map-section {
+      background: var(--sky-ultra);
+    }
+
+    .map-content {
+      max-width: 1160px;
+      margin: 2.5rem auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(210px, .8fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .presence-map-column {
+      width: 94%;
+      justify-self: end;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .presence-map-card {
+      background: linear-gradient(135deg, #1eb2db 0%, #1eb2db 100%);
+      border: 1px solid rgba(30, 178, 219, .28);
+      border-radius: 12px;
+      box-shadow: 0 18px 44px rgba(30, 64, 175, .14);
+      overflow: hidden;
+      padding: .35rem;
+      flex: 1;
+    }
+
+    .presence-map-header {
+      background: #fff;
+      border-radius: 16px;
+      margin-bottom: .85rem;
+      padding: .65rem .75rem 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+    }
+
+    .presence-map-title {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      color: var(--ink);
+      font-size: 1.12rem;
+      margin-bottom: .25rem;
+    }
+
+    .presence-map-subtitle {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    #internbootPresenceMap {
+      width: 100%;
+      height: 505px;
+      border-radius: 9px;
+      overflow: hidden;
+      background: #dbeafe;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .map-geography-label {
+      border: 0 !important;
+      background: transparent !important;
+      pointer-events: none !important;
+    }
+
+    .map-geography-label span {
+      display: block;
+      width: max-content;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, .95),
+        1px 0 0 rgba(255, 255, 255, .95),
+        0 -1px 0 rgba(255, 255, 255, .95),
+        -1px 0 0 rgba(255, 255, 255, .95),
+        0 2px 6px rgba(15, 23, 42, .16);
+      white-space: nowrap;
+    }
+
+    .map-geography-label.continent span {
+      color: #334155;
+      font-family: 'Sora', sans-serif;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .035em;
+      text-transform: uppercase;
+    }
+
+    .map-geography-label.ocean span {
+      color: rgba(2, 132, 199, .78);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .62rem;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .presence-dot {
+      border: 1.5px solid rgba(255, 255, 255, .95);
+      border-radius: 999px;
+      background: #38bfff;
+      box-shadow: 0 0 0 2px rgba(56, 191, 255, .16), 0 2px 8px rgba(0, 0, 0, .42);
+    }
+
+    .presence-tooltip {
+      border: 1px solid rgba(56, 191, 255, .22) !important;
+      border-radius: 10px !important;
+      background: #fff !important;
+      color: var(--sky-deep) !important;
+      box-shadow: 0 10px 22px rgba(15, 23, 42, .14) !important;
+      font-size: .75rem;
+      padding: .45rem .62rem !important;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .presence-tooltip strong {
+      display: block;
+      color: var(--ink);
+      font-family: 'Sora', sans-serif;
+      font-size: .78rem;
+      margin-bottom: .1rem;
+    }
+
+    .presence-tooltip span {
+      color: var(--sky-deep);
+      font-weight: 800;
+    }
+
+    .presence-tooltip::before {
+      border-top-color: #fff !important;
+    }
+
+    .leaflet-container {
+      font-family: 'DM Sans', sans-serif;
+      background: #dbeafe;
+      overflow: hidden;
+    }
+
+    .leaflet-pane,
+    .leaflet-tile,
+    .leaflet-marker-icon,
+    .leaflet-marker-shadow,
+    .leaflet-tile-container,
+    .leaflet-pane>svg,
+    .leaflet-pane>canvas,
+    .leaflet-image-layer,
+    .leaflet-layer,
+    .leaflet-zoom-box {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .leaflet-tile {
+      border: 0;
+      user-select: none;
+    }
+
+    .leaflet-pane {
+      z-index: 400;
+    }
+
+    .leaflet-tile-pane {
+      z-index: 200;
+    }
+
+    .leaflet-overlay-pane {
+      z-index: 400;
+    }
+
+    .leaflet-shadow-pane {
+      z-index: 500;
+    }
+
+    .leaflet-marker-pane {
+      z-index: 600;
+    }
+
+    .leaflet-tooltip-pane {
+      z-index: 650;
+    }
+
+    .leaflet-popup-pane {
+      z-index: 700;
+    }
+
+    .leaflet-control-container {
+      position: relative;
+      z-index: 800;
+    }
+
+    .leaflet-top,
+    .leaflet-bottom {
+      position: absolute;
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    .leaflet-top {
+      top: 10px;
+    }
+
+    .leaflet-left {
+      left: 10px;
+    }
+
+    .leaflet-right {
+      right: 10px;
+    }
+
+    .leaflet-bottom {
+      bottom: 10px;
+    }
+
+    .leaflet-control {
+      position: relative;
+      z-index: 800;
+      pointer-events: auto;
+      float: left;
+      clear: both;
+    }
+
+    .leaflet-control-zoom {
+      border: none !important;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .14) !important;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .leaflet-control-zoom a {
+      width: 34px !important;
+      height: 34px !important;
+      border: 1px solid rgba(56, 191, 255, .22) !important;
+      color: var(--sky-deep) !important;
+      font-family: 'Sora', sans-serif !important;
+      font-weight: 800 !important;
+      line-height: 32px !important;
+    }
+
+    .leaflet-control-attribution {
+      font-size: 10px;
+    }
+
+    .map-stats-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      align-items: stretch;
+      height: 100%;
+      min-height: 0;
+    }
+
+    .map-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, minmax(0, 1fr));
+      gap: .85rem;
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-stat-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.15rem 1rem;
+      border: 1px solid var(--border);
+      transition: all .3s;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .map-stat-card:hover {
+      box-shadow: var(--shadow-sky);
+      transform: translateY(-3px);
+    }
+
+    .map-stat-num {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: var(--sky);
+    }
+
+    .map-stat-label {
+      font-size: .78rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: .2rem;
+    }
+
+    .map-states {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      grid-column: span 2;
+      margin-top: .4rem;
+    }
+
+    .map-states h4 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      margin-bottom: .8rem;
+      color: var(--ink);
+    }
+
+    .state-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .45rem;
+    }
+
+    .state-pill {
+      background: var(--sky-pale);
+      color: var(--sky-deep);
+      border-radius: 50px;
+      padding: .25rem .75rem;
+      font-size: .75rem;
+      font-weight: 500;
+    }
+
+    /* ─── NUMBERS ─── */
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+    }
+
+    .num-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 1.8rem 1rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: all .35s;
+      cursor: default;
+    }
+
+    .num-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: var(--shadow-sky);
+      background: var(--sky);
+    }
+
+    .num-card:hover .num-val {
+      color: #fff;
+    }
+
+    .num-card:hover .num-label {
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .num-val {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.7rem;
+      color: var(--sky);
+      transition: color .3s;
+    }
+
+    .num-label {
+      font-size: .75rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: .3rem;
+      line-height: 1.4;
+      transition: color .3s;
+    }
+
+     
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+      text-align: center;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-h1 {
+        font-size: 60px;
+      }
+
+      .trainers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .numbers-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .steps-line {
+        display: none;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .hero {
+        padding-top: 42px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .about-grid,
+      .founder-grid,
+      .map-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .board-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey-timeline::before {
+        left: 24px;
+      }
+
+      .journey-item,
+      .journey-item:nth-child(even) {
+        flex-direction: column;
+        padding-left: 3rem;
+      }
+
+      .journey-dot {
+        position: absolute;
+        left: 0;
+      }
+
+      .journey-item {
+        position: relative;
+      }
+
+      .map-stats-panel {
+        height: auto;
+        min-height: auto;
+      }
+
+      .map-stats-grid {
+        grid-template-rows: none;
+        height: auto;
+      }
+
+      .presence-map-column {
+        width: 100%;
+      }
+
+      #internbootPresenceMap {
+        height: 470px;
+      }
+
+      .map-states {
+        grid-column: span 1;
+      }
+
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .hero {
+        padding-top: 32px;
+      }
+    }
+
+    .hero {
+      border-top: none !important;
+      box-shadow: none !important;
+      margin-top: 0 !important;
+      background: #ffffff !important;
+    }
+
+    .hero::before,
+    .hero::after {
+      display: none !important;
+    }
+
+     
+    @media (max-width:768px) {
+
+      .section-desc {
+        max-width: min(100%, 320px);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+    }
+
+    .founder-avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(56, 191, 255, .3);
+    }
+
+    .founder-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .trainer-avatar img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+    }
+ 
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <!-- <nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">IB</div>
+    <div class="nav-logo-text">Intern<span>Boot</span></div>
+  </div>
+  <button class="nav-cta" onclick="window.open('https://internboot.com','_blank')">Join Now →</button>
+</nav> -->
+  <div id="navbar-container"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob b1"></div>
+    <div class="hero-blob b2"></div>
+    <div class="hero-blob b3"></div>
+    <div style="position:relative;z-index:1;">
+      <div class="hero-badge">Powered by Employment Express · Est. 2022</div>
+      <h1 class="hero-h1">Bridging the Gap from<br><span class="sky">Classroom</span> to <span
+          class="outline">Corporate</span><br>"tak"</h1>
+      <p class="hero-sub">InternBoot is India's premier virtual internship platform, transforming students and freshers
+        into industry-ready professionals through structured, hands-on learning — at zero cost.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">1.5L+</div>
+          <div class="hero-stat-label">Candidates Trained</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2.5L+</div>
+          <div class="hero-stat-label">Internships Provided</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2.0L+</div>
+          <div class="hero-stat-label">Candidates Placed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">650+</div>
+          <div class="hero-stat-label">Corporate Partners</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">57,000+</div>
+          <div class="hero-stat-label">Active Learners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background:#fff;">
+    <div class="about-grid reveal">
+      <div>
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">More than an internship <span class="sky">platform</span></h2>
+        <p class="section-desc">InternBoot is a flagship initiative by Employment Express Verband LLP — designed to
+          bridge the gap between academic theory and professional practice. We provide students, freshers, and early
+          professionals a platform to gain real-world experience through structured, high-demand virtual internships.
+        </p>
+        <div class="about-chips" style="margin-top:1.5rem;">
+          <span class="chip">Tech & Data Science</span>
+          <span class="chip">Digital Marketing</span>
+          <span class="chip">Business & Finance</span>
+          <span class="chip">HR & Operations</span>
+          <span class="chip">Software Development</span>
+          <span class="chip">Web Development</span>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-card-main">
+          <h3>🎯 Our Mission</h3>
+          <p>To create a dynamic, inclusive educational ecosystem where every student — regardless of financial
+            background — has access to high-quality, industry-aligned learning that converts academic potential into
+            professional performance.</p>
+        </div>
+        <div class="about-floating">
+          <div class="about-floating-icon">🚀</div>
+          <div class="about-floating-text">
+            <strong>100% Virtual</strong>
+            <span>Accessible from anywhere</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">Our Philosophy</div>
+      <h2 class="section-title reveal">Learning by <span class="sky">Doing</span></h2>
+      <p class="section-desc reveal">"We believe in moving beyond theoretical study by immersing interns in real
+        projects with real companies, ensuring they develop the technical proficiency required by the modern workforce."
+        — Founding Team</p>
+      <div class="philosophy-grid">
+        <div class="phil-card reveal">
+          <div class="phil-icon">🧠</div>
+          <h4>Learning by Doing</h4>
+          <p>Internships focus on hands-on experience with live projects rather than passive study, ensuring practical
+            skill development that employers value.</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">🌐</div>
+          <h4>Flexible & Accessible</h4>
+          <p>100% virtual programs ranging from 45 days to 6 months. We remove all barriers — geographic, financial, and
+            logistical — from quality education.</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">₹0</div>
+          <h4>Zero Cost to Learner</h4>
+          <p>Skill-building, mentorship, and certification are provided at absolutely no cost. Because talent is equally
+            distributed — opportunity should be too.</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">🏢</div>
+          <h4>Industry First</h4>
+          <p>Training curricula are co-designed with 650+ corporate partners ensuring learners acquire skills that map
+            directly to real job descriptions.</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">🏆</div>
+          <h4>Verified Outcomes</h4>
+          <p>Every certificate is verifiable online. Internal interviews and skill assessments ensure interns meet
+            industry standards before certification.</p>
+        </div>
+        <div class="phil-card reveal">
+          <div class="phil-icon">🌱</div>
+          <h4>Sustainable Growth</h4>
+          <p>InternBoot's organic growth — driven by word-of-mouth — reflects the real impact we create. 292.3% search
+            growth in January alone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">What We Offer</div>
+      <h2 class="section-title reveal">Services that <span class="sky">launch careers</span></h2>
+      <p class="section-desc reveal">A comprehensive suite of career-readiness services designed to take you from
+        student to professional.</p>
+      <div class="services-grid">
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">💼</div>
+          <h4>Virtual Internships</h4>
+          <p>Structured 45-day to 6-month programs in 10+ industry domains with real project exposure.</p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">🎓</div>
+          <h4>Mentorship & Training</h4>
+          <p>15-day live mentor-led training focused on practical industry tools and real-world scenarios.</p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">📜</div>
+          <h4>Verified Certification</h4>
+          <p>Globally recognized, QR-verified completion certificates accepted by leading companies worldwide.</p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">🤝</div>
+          <h4>Placement Support</h4>
+          <p>Direct connections to 650+ corporate partners, AI-driven matching, and PPO interviews for top performers.
+          </p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">📊</div>
+          <h4>Skill Assessment</h4>
+          <p>Registration profile creation, aptitude tests, and industry-aligned assessments for program readiness.</p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">🔗</div>
+          <h4>LinkedIn & Career Support</h4>
+          <p>Profile optimization, email access support, and career coaching throughout your internship journey.</p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">🏭</div>
+          <h4>Industrial Projects</h4>
+          <p>Work on live projects for up to 6 months based on university policies with real corporate deliverables.</p>
+        </div>
+        <div class="svc-card reveal">
+          <div class="svc-icon-wrap">⚡</div>
+          <h4>PPO Interviews</h4>
+          <p>High-achieving interns are shortlisted for Pre-Placement Offer interviews with industry partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 STEPS
+  <section class="steps-section">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">Our Process</div>
+      <h2 class="section-title reveal">The <span class="sky">7-Step Bridge</span> from Classroom to Corporate</h2>
+      <p class="section-desc reveal">A structured, proven pathway that transforms academic knowledge into
+        corporate-ready talent.</p>
+      <div class="steps-container reveal">
+        <div class="steps-line"></div>
+        <div class="steps-grid">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <h5>Registration & Assessment</h5>
+            <p>Create profile, aptitude test, and program fit screening</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <h5>15-Day Live Training</h5>
+            <p>Mentor-led, practical sessions using industry tools</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <h5>Industrial Project</h5>
+            <p>Live projects for up to 6 months with real companies</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <h5>Skill Validation</h5>
+            <p>Internal interviews and corporate standard assessments</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">5</div>
+            <h5>Certification</h5>
+            <p>Verifiable digital certificates and appreciation letters</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">6</div>
+            <h5>Career Support</h5>
+            <p>LinkedIn optimization, placement referrals, and coaching</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">7</div>
+            <h5>PPO Interviews</h5>
+            <p>Top performers get Pre-Placement Offers from partners</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- NUMBERS -->
+  <section style="background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">Impact at Scale</div>
+      <h2 class="section-title reveal">Numbers that <span class="sky">speak</span></h2>
+      <div class="numbers-grid">
+        <div class="num-card reveal">
+          <div class="num-val">1.5L+</div>
+          <div class="num-label">Candidates Trained</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="num-val">2.5L+</div>
+          <div class="num-label">Internships Provided</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="num-val">2.0L+</div>
+          <div class="num-label">Candidates Placed</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="num-val">650+</div>
+          <div class="num-label">Corporate Partners</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="num-val">57K+</div>
+          <div class="num-label">Active Learners</div>
+        </div>
+        <div class="num-card reveal">
+          <div class="num-val">10+</div>
+          <div class="num-label">Industry Domains</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section style="background:var(--sky-ultra);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">Our Story</div>
+      <h2 class="section-title reveal">The <span class="sky">Journey</span> So Far</h2>
+      <p class="section-desc reveal">From a vision of unemployment-free India to a national-scale workforce
+        transformation platform.</p>
+      <div class="journey-timeline">
+
+        <!-- 2018 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2018</div>
+            <h4>The Beginning</h4>
+            <p>EmploymentExpress Verband LLP was founded with a vision to create an unemployment-free India. Started
+              with a small team passionate about bridging the gap between education and employment.</p>
+          </div>
+          <div class="journey-dot">🌱</div>
+          <div class="journey-spacer"></div>
+        </div>
+
+        <!-- 2019 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2019</div>
+            <h4>First 1000 Students</h4>
+            <p>Reached our first milestone of training 1,000 students across various skill development programs.
+              Established partnerships with leading companies for placement opportunities.</p>
+          </div>
+          <div class="journey-dot">🚀</div>
+          <div class="journey-spacer"></div>
+        </div>
+
+        <!-- 2020 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2020</div>
+            <h4>Industry Recognition</h4>
+            <p>Received recognition for excellence in skill development and placement services. Launched InternBoot
+              platform to connect students with quality internship opportunities nationwide.</p>
+          </div>
+          <div class="journey-dot">📈</div>
+          <div class="journey-spacer"></div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2021</div>
+            <h4>Expanding Horizons</h4>
+            <p>Expanded to multiple cities across India. Partnered with 200+ companies and educational institutions.
+              Introduced specialized certification programs in emerging technologies.</p>
+          </div>
+          <div class="journey-dot">🏆</div>
+          <div class="journey-spacer"></div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2022</div>
+            <h4>Advisory Board Formation</h4>
+            <p>Formed an esteemed Advisory Board comprising government officials and industry experts. Launched faculty
+              development programs to enhance quality of education across institutions.</p>
+          </div>
+          <div class="journey-dot">🚀</div>
+          <div class="journey-spacer"></div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2023</div>
+            <h4>Digital Transformation</h4>
+            <p>Completely digitalized our platform with AI-powered job matching. Crossed 10,000+ students trained and
+              500+ corporate partnerships. Achieved 95% placement success rate.</p>
+          </div>
+          <div class="journey-dot">📈</div>
+          <div class="journey-spacer"></div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="journey-item reveal">
+          <div class="journey-content">
+            <div class="journey-year">2024</div>
+            <h4>Going Global</h4>
+            <p>Expanding international partnerships and offering global internship opportunities. Continuous innovation
+              in skill development programs to meet evolving industry demands.</p>
+          </div>
+          <div class="journey-dot">🏆</div>
+          <div class="journey-spacer"></div>
+        </div>
+        <!-- 2025 -->
+<div class="journey-item reveal">
+  <div class="journey-content">
+    <div class="journey-year">2025</div>
+    <h4>Organic Growth & Verified Impact</h4>
+    <p>Strengthened InternBoot’s classroom-to-corporate mission with growing candidate awareness, strong organic platform reach, verified certifications, and continued expansion across industry-driven virtual internship programs.</p>
+  </div>
+  <div class="journey-dot">🌐</div>
+  <div class="journey-spacer"></div>
+</div>
+
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder-section">
+    <div style="max-width:1100px;margin:0 auto;">
+
+      <div class="section-label reveal">Leadership</div>
+
+      <h2 class="section-title reveal">
+        Managing Director <span class="sky">& Founder</span>
+      </h2>
+
+      <div class="founder-grid reveal">
+
+        <!-- LEFT: PHOTO -->
+        <div class="founder-avatar">
+          <img src="img/ankit.jpeg" alt="Dr Ankit Sharma">
+        </div>
+
+        <!-- RIGHT: CONTENT -->
+        <div class="founder-info">
+
+          <div class="founder-name">
+            Dr. Ankit Sharma
+          </div>
+
+          <div class="founder-title">
+            Director & Founder — Employment Express Verband LLP / InternBoot
+          </div>
+
+          <div class="founder-tags">
+            <span class="founder-tag">Ex IBM</span>
+            <span class="founder-tag">Ex Quick Heal</span>
+            <span class="founder-tag">EdTech Visionary</span>
+            <span class="founder-tag">HR Strategist</span>
+          </div>
+
+          <p class="founder-bio">
+            Dr. Ankit Sharma is the driving force behind Employment Express Verband LLP and InternBoot. With a
+            distinguished career at IBM and Quick Heal, he brings deep industry expertise to the mission of creating an
+            unemployment-free India. Under his leadership, E2V has grown to train and place 12,000+ candidates,
+            partnered with 450+ corporates across 8 states, and launched InternBoot as India's foremost virtual
+            internship platform bridging classroom learning with corporate opportunity. His vision of democratizing
+            quality employment training has touched over 1.5 lakh lives nationwide.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ADVISORY BOARD -->
+  <section style="background:#fff;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">Advisors</div>
+      <h2 class="section-title reveal">Members of <span class="sky">Advisory Board</span></h2>
+      <p class="section-desc reveal">Industry stalwarts and government officials guiding our mission with decades of
+        expertise.</p>
+      <div class="board-grid">
+        <div class="board-card reveal">
+          <div class="board-avatar"><img src="img/Nitin.jpeg" alt=""></div>
+          <div class="board-info">
+            <h4>Dr. Nitin Vyas</h4>
+            <p>Young Professional, Ministry of Labour</p>
+            <div class="org">Government of India</div>
+          </div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-avatar"><img src="img/WhatsApp Image 2026-03-18 at 11.36.42 AM (1).jpeg" alt=""></div>
+          <div class="board-info">
+            <h4>Vijaybhaskar Annapareddy</h4>
+            <p>State President, Indian Pharmacy Graduates Association</p>
+            <div class="org">Andhra Pradesh</div>
+          </div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-avatar"><img src="img/pankaj.jpeg" alt=""></div>
+          <div class="board-info">
+            <h4>Dr. Pankaj Kumar</h4>
+            <p>Asst. General Manager, BRBRAITT (BSNL)</p>
+            <div class="org">Government of India</div>
+          </div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-avatar"><img src="img/naik.jpeg" alt=""></div>
+          <div class="board-info">
+            <h4>S Vishwanath Naik</h4>
+            <p>Project Manager, ITE&C Dept. | Ex-Director APITA</p>
+            <div class="org">Government of Andhra Pradesh</div>
+          </div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-avatar"><img src="img/gurjant.jpeg" alt=""></div>
+          <div class="board-info">
+            <h4>Gurjant Singh</h4>
+            <p>PO, Employment Generation, Skill Dev. & Training Dept.</p>
+            <div class="org">Government of Punjab</div>
+          </div>
+        </div>
+        <div class="board-card reveal">
+          <div class="board-avatar"><img src="img/sunil.jpeg" alt=""></div>
+          <div class="board-info">
+            <h4>Sunil Bhadauriya</h4>
+            <p>Reviewing Officer, Public Grievance Secretariat</p>
+            <div class="org">Government of Uttar Pradesh</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINERS -->
+  <section class="trainers-section">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div class="section-label reveal">Our Experts</div>
+      <h2 class="section-title reveal">Meet Our <span class="sky">Trainers</span></h2>
+      <p class="section-desc reveal">Industry professionals and domain experts who mentor and guide our interns through
+        their journey.</p>
+      <div class="trainers-grid">
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">FA</div>
+          <div class="trainer-name">Harsh</div>
+          <div class="trainer-desig">Financial Analyst / Portfolio Management / Sales and Marketing / Business Development</div>
+          <div class="trainer-email">harsh@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.9 / 5.0 (418 reviews)</div>
+        </div>
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">HR</div>
+          <div class="trainer-name">Iti Kandwal</div>
+          <div class="trainer-desig">Human Resource</div>
+          <div class="trainer-email">iti@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.8 / 5.0 (286 reviews)</div>
+        </div>
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">WD</div>
+          <div class="trainer-name">Deeksha Gupta</div>
+          <div class="trainer-desig">Web Development</div>
+          <div class="trainer-email">deeksha@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.9 / 5.0 (342 reviews)</div>
+        </div>
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">CS</div>
+          <div class="trainer-name">Chukka Venkatadri</div>
+          <div class="trainer-desig">Cyber Security</div>
+          <div class="trainer-email">chukka_venkatadri@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.8 / 5.0 (267 reviews)</div>
+        </div>
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">SD</div>
+          <div class="trainer-name">Pallavi</div>
+          <div class="trainer-desig">Software Development</div>
+          <div class="trainer-email">pallavi@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.8 / 5.0 (304 reviews)</div>
+        </div>
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">DA</div>
+          <div class="trainer-name">Juhi Bisht</div>
+          <div class="trainer-desig">Data Science and Data Analyst</div>
+          <div class="trainer-email">juhi@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.9 / 5.0 (384 reviews)</div>
+        </div>
+        <div class="trainer-card reveal">
+          <div class="trainer-avatar">DM</div>
+          <div class="trainer-name">Jia</div>
+          <div class="trainer-desig">Digital Marketing</div>
+          <div class="trainer-email">jia@internboot.com</div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="star-count">4.8 / 5.0 (296 reviews)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONNECTOR BAND ── -->
+  <div class="cb">
+    <div class="cb-logo">
+      <div class="cb-box">🎓</div>Shikshit
+    </div>
+    <div class="cb-x">×</div>
+    <div class="cb-logo">
+      <div class="cb-box">💼</div>InternBoot
+    </div>
+    <div class="cb-tag"><strong>Shikshit</strong> is the not-for-profit backbone that powers InternBoot's zero-cost
+      promise — converting corporate CSR capital into real employment outcomes for India's youth.</div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero-wrap">
+    <div class="hero-inner">
+      <div>
+        <div class="lbl">Shikshit</div>
+        <h1 class="h1">
+          Not charity. <br>
+          A National Engine <br>
+          for <span class="s">Employability</span>
+        </h1>
+        <p class="desc">
+          Shikshit is the not-for-profit arm that powers InternBoot's zero-cost promise — converting corporate CSR
+          capital into real employment outcomes for India's youth.
+        </p>
+        <div class="chips">
+          <span class="chip s">🏛 Govt. Aligned</span>
+          <span class="chip s">📊 CSR Auditable</span>
+          <span class="chip s">🎓 Free Education</span>
+          <span class="chip s">🌍 National Scale</span>
+          <span class="chip s">🤖 AI-Driven Placement</span>
+          <span class="chip s">👩‍💻 Women in Tech</span>
+          <span class="chip s">⚡ 90% Placement Rate</span>
+        </div>
+      </div>
+      <div class="dark-card">
+        <div class="dc-line"></div>
+        <h3>The Social Infrastructure Layer</h3>
+        <p>
+          Shikshit channels government policy, CSR capital, and industry-certified skilling into one auditable pipeline
+          that builds human capital at national scale.
+        </p>
+        <div class="dc-quote">
+          “Shikshit does not distribute charity.
+          Shikshit engineers employable citizens.”
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION & VISION ── -->
+  <section class="mv-band">
+    <div class="mv-grid">
+      <div class="mv-card m">
+        <div class="mv-num">1</div>
+        <h3>Our Mission</h3>
+        <p>
+          To create a dynamic and inclusive educational ecosystem where every student has access to high-quality,
+          equitable education — enabling industry-ready human capital through strategic public-private collaboration,
+          entirely free of charge to the learner.
+        </p>
+      </div>
+      <div class="mv-card v">
+        <div class="mv-num">2</div>
+        <h3>Our Vision</h3>
+        <p>
+          To transform lives through education by dismantling economic barriers to human capital development, breaking
+          the intergenerational poverty cycle, and empowering the next generation of Indian professionals to compete on
+          the global stage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3 PILLARS ── -->
+  <div class="pillars">
+    <div class="pillars-inner">
+      <div class="lbl rv">How Shikshit Works</div>
+      <h2 class="section-h rv">Three <span class="s">Thematic Pillars</span> of Action</h2>
+      <p class="section-p rv">A multi-layered intervention strategy ensuring beneficiaries are not merely educated, but
+        operationally employable and professionally de-risked for future employers.</p>
+      <div class="p-grid">
+        <div class="p-card c1 rv">
+          <div class="p-icon">🎯</div>
+          <h3>Financial Support & Scholarship</h3>
+          <p>National Scholarship – Merit and Assistance Scheme (NS-MAS) ensuring high-potential students are never held
+            back by financial constraints.</p>
+          <div class="p-items">
+            <div class="p-item">
+              <div class="p-dot"></div>Merit-based scholarships for tuition & academics
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Need-based grants up to ₹2,00,000
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Emergency aid up to ₹50,000
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Maximizes CSR Dollar-to-Impact Ratio
+            </div>
+          </div>
+          <div class="p-hl">Academic continuity for every student</div>
+        </div>
+        <div class="p-card c2 rv">
+          <div class="p-icon">💻</div>
+          <h3>Technical & Vocational Training</h3>
+          <p>Human Capital Pipeline delivered through E2V's execution engine — industry-aligned courses producing
+            immediately employable graduates.</p>
+          <div class="p-items">
+            <div class="p-item">
+              <div class="p-dot"></div>Data Science — 16 weeks
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>AI / ML — 14 weeks
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Full Stack Web Dev — 12 weeks
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Cybersecurity — 12 weeks
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Cloud Computing — 10 weeks
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>UGC-aligned diplomas
+            </div>
+          </div>
+          <div class="p-hl">Pre-vetted talent pool for corporate partners</div>
+        </div>
+        <div class="p-card c3 rv">
+          <div class="p-icon">🌱</div>
+          <h3>Holistic Development & Assessment</h3>
+          <p>Developing well-rounded, industry-ready professionals who are complete human beings prepared for the modern
+            workplace — not just technically skilled.</p>
+          <div class="p-items">
+            <div class="p-item">
+              <div class="p-dot"></div>National Olympiads — Maths, Science, CS
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Mental Health & Digital Wellness programs
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Social Inclusion initiatives
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Medical Coding & Digital Marketing certs
+            </div>
+            <div class="p-item">
+              <div class="p-dot"></div>Production Engineering diplomas (UGC)
+            </div>
+          </div>
+          <div class="p-hl">Free services building a national talent pool</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WOMEN IN TECH ── -->
+  <div class="women">
+    <div class="women-inner">
+      <div>
+        <div class="lbl w rv">Flagship CSR Initiative</div>
+        <h2 class="w-title rv">Cybersecurity for <span class="s">Women</span><br>DSCI × Microsoft</h2>
+        <p class="w-desc rv">Shikshit's landmark programme — a 420-hour enterprise-grade Cybersecurity curriculum
+          delivered entirely free, designed to create India's next generation of women cybersecurity professionals with
+          no prior background required.</p>
+        <div class="w-stats rv">
+          <div class="w-stat">
+            <div class="w-num">420 hrs</div>
+            <div class="w-lbl">Enterprise Curriculum</div>
+          </div>
+          <div class="w-stat">
+            <div class="w-num">50+</div>
+            <div class="w-lbl">Placed in Enterprise</div>
+          </div>
+          <div class="w-stat">
+            <div class="w-num">100+</div>
+            <div class="w-lbl">Active Pipeline</div>
+          </div>
+        </div>
+      </div>
+      <div class="rvr">
+        <div class="cyber">
+          <div class="cyber-badge">🔐 Case Study #1 — Women in Cybersecurity</div>
+          <h4>Cybersecurity for Women Program</h4>
+          <p class="par">Partners: DSCI · Microsoft · DSCI Learning Management System</p>
+          <div class="cf-list">
+            <div class="cf">
+              <div class="cf-ic">📚</div>
+              <div class="cf-tx">420-hour enterprise curriculum via Microsoft & DSCI LMS</div>
+            </div>
+            <div class="cf">
+              <div class="cf-ic">👩‍💻</div>
+              <div class="cf-tx">Women placed in enterprise cybersecurity roles</div>
+              <div class="cf-vl">50+</div>
+            </div>
+            <div class="cf">
+              <div class="cf-ic">🔄</div>
+              <div class="cf-tx">Women in active placement pipeline</div>
+              <div class="cf-vl">100+</div>
+            </div>
+            <div class="cf">
+              <div class="cf-ic">🏦</div>
+              <div class="cf-tx">BFSI & IT Helpdesk candidates trained (Mirae Asset)</div>
+              <div class="cf-vl">173</div>
+            </div>
+            <div class="cf">
+              <div class="cf-ic">🎯</div>
+              <div class="cf-tx">Mandatory placement rate — TEIF programme</div>
+              <div class="cf-vl">90%</div>
+            </div>
+            <div class="cf">
+              <div class="cf-ic">🤖</div>
+              <div class="cf-tx">AI-driven predictive ATS hiring analytics</div>
+              <div class="cf-vl">✓ Live</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ROADMAP ── -->
+  <div class="roadmap">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="lbl k rv">Evolution of Impact</div>
+      <h2 class="section-h rv">From NGO to <span class="s">National CSR</span> Execution Institution</h2>
+      <div class="rm-grid">
+        <div class="rm-card rv">
+          <div class="rm-yr">2022</div>
+          <h4>Foundation & Infrastructure</h4>
+          <div class="rm-items">
+            <div class="rm-it">
+              <div class="rm-d"></div>NIIT Foundation skill enhancement programs launched
+            </div>
+            <div class="rm-it">
+              <div class="rm-d"></div>Manipur Care Raising technical diplomas
+            </div>
+            <div class="rm-it">
+              <div class="rm-d rm-dk"></div>APSCHE collaboration — skill dev in Andhra Pradesh
+            </div>
+            <div class="rm-it">
+              <div class="rm-d"></div>Operational backbone established for national scale
+            </div>
+          </div>
+        </div>
+        <div class="rm-card rv">
+          <div class="rm-yr">2023</div>
+          <h4>Specialization & Global Outreach</h4>
+          <div class="rm-items">
+            <div class="rm-it">
+              <div class="rm-d"></div>Cybersecurity CSR with DSCI & NASSCOM
+            </div>
+            <div class="rm-it">
+              <div class="rm-d rm-dk"></div>International partnership — UCAGS Sri Lanka
+            </div>
+            <div class="rm-it">
+              <div class="rm-d"></div>Rural education — Being Humane Charitable Trust
+            </div>
+            <div class="rm-it">
+              <div class="rm-d rm-dk"></div>Academic linkage — Aharada ED, IIMT University
+            </div>
+          </div>
+        </div>
+        <div class="rm-card rv">
+          <div class="rm-yr">2025</div>
+          <h4>Scale & Placement Optimization</h4>
+          <div class="rm-items">
+            <div class="rm-it">
+              <div class="rm-d"></div>AISECT Ltd MoU for national placement pipelines
+            </div>
+            <div class="rm-it">
+              <div class="rm-d rm-dk"></div>TEIF–Mirae Asset CSR flagship — BFSI & IT roles
+            </div>
+            <div class="rm-it">
+              <div class="rm-d"></div>AI-driven ATS predictive hiring systems deployed
+            </div>
+            <div class="rm-it">
+              <div class="rm-d rm-dk"></div>Multi-state deployment across 8+ states
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── IMPACT METRICS ── -->
+  <div class="metrics">
+    <div class="met-inner">
+      <div class="met-top rv">
+        <h2 class="met-h">Impact that can be <span class="s">measured, audited</span> & trusted.</h2>
+        <p class="met-sub">Conservative lower-bound aggregates across fiscal 2022–2024 representing Shikshit's proven
+          capacity to manage state-level mandates and high-volume CSR projects with audited precision.</p>
+      </div>
+      <div class="met-grid">
+        <div class="met-card rv">
+          <div class="met-ic">💰</div>
+          <div class="met-v">₹2.5Cr+</div>
+          <div class="met-l">CSR Funds Mobilized</div>
+        </div>
+        <div class="met-card rv">
+          <div class="met-ic">🎓</div>
+          <div class="met-v">10,000+</div>
+          <div class="met-l">Total Students Benefited</div>
+        </div>
+        <div class="met-card rv">
+          <div class="met-ic">📋</div>
+          <div class="met-v">500+</div>
+          <div class="met-l">Direct Scholarship Recipients</div>
+        </div>
+        <div class="met-card rv">
+          <div class="met-ic">🏭</div>
+          <div class="met-v">20,000+</div>
+          <div class="met-l">Internships — Andhra Pradesh</div>
+        </div>
+        <div class="met-card rv">
+          <div class="met-ic">💼</div>
+          <div class="met-v">16,000+</div>
+          <div class="met-l">Job Placements — Punjab</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PARTNERS ── -->
+  <div class="partners">
+    <div style="max-width:1100px;margin:0 auto">
+      <div class="lbl rv">Partnership Ecosystem</div>
+      <h2 class="section-h rv">A <span class="s">Multi-Stakeholder</span> Network</h2>
+    </div>
+    <div class="pt-grid">
+      <div class="pt-card rv">
+        <div class="pt-ic">🏛️</div>
+        <h5>Government</h5>
+        <p>APSCHE, Punjab Ghar Ghar Rozgar, Ministry of Labour</p>
+      </div>
+      <div class="pt-card rv">
+        <div class="pt-ic">🤝</div>
+        <h5>CSR Bodies</h5>
+        <p>Times Employ India Foundation, Mirae Asset Foundation</p>
+      </div>
+      <div class="pt-card rv">
+        <div class="pt-ic">🔬</div>
+        <h5>Skill Bodies</h5>
+        <p>NASSCOM, DSCI, NIIT Foundation</p>
+      </div>
+      <div class="pt-card rv">
+        <div class="pt-ic">🏫</div>
+        <h5>Academic / NGO</h5>
+        <p>AISECT Ltd, Being Humane Trust, IIMT University, 50+ institutions</p>
+      </div>
+      <div class="pt-card rv">
+        <div class="pt-ic">🏆</div>
+        <h5>Certification</h5>
+        <p>Microsoft, IBM, HP, Cisco, Oracle, Apple, Adobe, Autodesk</p>
+      </div>
+    </div>
+    <div class="mq-wrap">
+      <div class="mq-track">
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/microsoft.svg" alt="Microsoft logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/ibm.svg" alt="IBM logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/hp.svg" alt="HP logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/cisco.svg" alt="Cisco logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/oracle.svg" alt="Oracle logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/apple.svg" alt="Apple logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/adobe.svg" alt="Adobe logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/autodesk.svg" alt="Autodesk logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/DSCI.webp" alt="DSCI logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/nasscom.svg" alt="NASSCOM logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/niitfoundatinLogonew.webp" alt="NIIT Foundation logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/aisect.svg" alt="AISECT Ltd logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/ucags.svg" alt="UCAGS Sri Lanka logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/mirae-asset.svg" alt="Mirae Asset logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/apsche.webp" alt="APSCHE logo"></div></div>
+        <!-- duplicate -->
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/microsoft.svg" alt="Microsoft logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/ibm.svg" alt="IBM logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/hp.svg" alt="HP logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/cisco.svg" alt="Cisco logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/oracle.svg" alt="Oracle logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/apple.svg" alt="Apple logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/adobe.svg" alt="Adobe logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/autodesk.svg" alt="Autodesk logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/DSCI.webp" alt="DSCI logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/nasscom.svg" alt="NASSCOM logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/niitfoundatinLogonew.webp" alt="NIIT Foundation logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/aisect.svg" alt="AISECT Ltd logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/ucags.svg" alt="UCAGS Sri Lanka logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/brand-logos/mirae-asset.svg" alt="Mirae Asset logo"></div></div>
+        <div class="mq-pill"><div class="mq-logo"><img src="img/logos/apsche.webp" alt="APSCHE logo"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CSR CASES ── -->
+  <div class="csr">
+    <div class="csr-inner">
+      <div class="lbl rv">Proven Execution</div>
+      <h2 class="section-h rv">Flagship <span class="s">CSR Case Studies</span></h2>
+      <div class="csr-grid">
+        <div class="cc rv">
+          <div class="cc-top">
+            <div class="cc-n">01</div>
+            <h4>Cybersecurity for Women</h4>
+            <p class="cc-par">Partners: DSCI · Microsoft · DSCI LMS</p>
+          </div>
+          <div class="cc-body">
+            <div class="cc-facts">
+              <div class="cc-fact">
+                <div class="cc-dot"></div>420-hour enterprise curriculum delivered
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>Microsoft & DSCI LMS platform used
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>50 women placed in enterprise roles
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>100 women in active placement pipeline
+              </div>
+            </div>
+            <div class="cc-tag">🎯 Gender-inclusive cybersecurity workforce</div>
+          </div>
+        </div>
+        <div class="cc rv">
+          <div class="cc-top">
+            <div class="cc-n">02</div>
+            <h4>BFSI & IT Program</h4>
+            <p class="cc-par">Partners: TEIF · Mirae Asset Foundation</p>
+          </div>
+          <div class="cc-body">
+            <div class="cc-facts">
+              <div class="cc-fact">
+                <div class="cc-dot"></div>100 BFSI candidates trained
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>73 IT Helpdesk candidates trained
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>Biometric attendance — audit-ready
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>90% placement mandate, Delhi/NCR
+              </div>
+            </div>
+            <div class="cc-tag">🎯 173 candidates · 90% placement target</div>
+          </div>
+        </div>
+        <div class="cc rv">
+          <div class="cc-top">
+            <div class="cc-n">03</div>
+            <h4>Placement Governance</h4>
+            <p class="cc-par">Partner: AISECT Ltd MoU</p>
+          </div>
+          <div class="cc-body">
+            <div class="cc-facts">
+              <div class="cc-fact">
+                <div class="cc-dot"></div>Multi-sector: IT, Pharma, BFSI hiring
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>Legal non-compete & non-solicit safeguards
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>AI predictive ATS hiring analytics
+              </div>
+              <div class="cc-fact">
+                <div class="cc-dot"></div>National placement pipeline infrastructure
+              </div>
+            </div>
+            <div class="cc-tag">🎯 National scale, multi-state deployment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FINAL CTA ── -->
+  <div class="fcta">
+    <div class="fcta-inner rv">
+      <h2>Shikshit is not a project.<br>It's a <em>movement.</em></h2>
+      <p>For corporates, PSUs, global foundations, and government missions — partnering with Shikshit through InternBoot
+        is a strategic investment in a skilled, industry-ready India.</p>
+      <div class="fcta-btns">
+        <a href="https://stuportal.internboot.com/" class="btn-w" target="_blank">Join as an Intern →</a>
+        <a href="contact.html" class="btn-o">Partner for CSR →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEAM PHOTOS SLIDER -->
+  <section style="background:#fff;padding:5rem 0;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 5vw;">
+      <div class="section-label reveal">Our People</div>
+      <h2 class="section-title reveal" style="margin-bottom:2.5rem;">The Team Behind <span class="sky">InternBoot</span>
+      </h2>
+    </div>
+    <div class="slider-outer" style="position:relative;">
+      <div class="slider-fade-left"></div>
+      <div class="slider-track" id="sliderTrack">
+        <!-- Cards duplicated for seamless loop -->
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-code"></i></span><span>Tech Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>Training Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-briefcase"></i></span><span>Placement Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-chart-column"></i></span><span>Analytics Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-gears"></i></span><span>Operations Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-bullseye"></i></span><span>Strategy Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-globe"></i></span><span>Digital Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-network-wired"></i></span><span>Community Team</span></div>
+        </div>
+        <!-- Duplicates for seamless loop -->
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-code"></i></span><span>Tech Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>Training Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-briefcase"></i></span><span>Placement Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-chart-column"></i></span><span>Analytics Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-gears"></i></span><span>Operations Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-bullseye"></i></span><span>Strategy Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-globe"></i></span><span>Digital Team</span></div>
+        </div>
+        <div class="team-photo-card">
+          <div class="team-photo-placeholder"><span class="team-icon"><i class="fa-solid fa-network-wired"></i></span><span>Community Team</span></div>
+        </div>
+      </div>
+      <div class="slider-fade-right"></div>
+    </div>
+  </section>
+
+  <!-- MAP / PRESENCE -->
+  <section class="map-section">
+    <div style="max-width:1160px;margin:0 auto;">
+
+      <div class="section-label reveal">Our Reach</div>
+
+      <h2 class="section-title reveal">
+        Global InternBoot <span class="sky">Presence</span>
+      </h2>
+
+      <p class="section-desc reveal">
+        InternBoot learners and internship participants are present across 69 countries worldwide, with strong
+        representation across Asia, Africa, Europe, North America, and Oceania.
+      </p>
+
+      <div class="map-content reveal">
+
+        <!-- LEFT SIDE MAP -->
+        <div class="presence-map-column">
+          <div class="presence-map-header">
+            <div class="presence-map-title">Global InternBoot Presence</div>
+            <p class="presence-map-subtitle">Student presence mapped across active countries from the latest distribution report.</p>
+          </div>
+
+          <div class="presence-map-card">
+            <div id="internbootPresenceMap" aria-label="Interactive world map showing InternBoot student presence by country"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE INFO -->
+        <div class="map-stats-panel">
+
+          <div class="map-stats-grid">
+
+            <div class="map-stat-card">
+              <div class="map-stat-num">69</div>
+              <div class="map-stat-label">Countries Covered</div>
+            </div>
+
+            <div class="map-stat-card">
+              <div class="map-stat-num">40+</div>
+              <div class="map-stat-label">Job Fairs Conducted</div>
+            </div>
+
+            <div class="map-stat-card">
+              <div class="map-stat-num">450+</div>
+              <div class="map-stat-label">Corporate Partners</div>
+            </div>
+
+            <div class="map-stat-card">
+              <div class="map-stat-num">20+</div>
+              <div class="map-stat-label">Partner Colleges</div>
+            </div>
+
+          </div>
+
+          <!--<div class="map-states">-->
+          <!--  <h4>📍 States We're Active In</h4>-->
+
+          <!--  <div class="state-pills">-->
+          <!--    <span class="state-pill">Delhi NCR</span>-->
+          <!--    <span class="state-pill">Maharashtra</span>-->
+          <!--    <span class="state-pill">Punjab</span>-->
+          <!--    <span class="state-pill">Uttar Pradesh</span>-->
+          <!--    <span class="state-pill">Andhra Pradesh</span>-->
+          <!--    <span class="state-pill">Telangana</span>-->
+          <!--    <span class="state-pill">Rajasthan</span>-->
+          <!--    <span class="state-pill">Karnataka</span>-->
+          <!--  </div>-->
+          <!--</div>-->
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="
+background:linear-gradient(135deg,#2aa4da 0%, #067bb0 100%);
+text-align:center;
+padding:4rem 5vw;
+margin:3rem auto 2rem;
+max-width:1000px;
+border-radius:28px;
+box-shadow:0 20px 60px rgba(0,0,0,0.15);
+">
+
+    <div class="reveal">
+
+      <h2 style="
+font-family:'Poppins',sans-serif;
+font-weight:800;
+font-size:clamp(2rem,4vw,3rem);
+color:#fff;
+margin-bottom:1rem;
+">
+        Ready to Launch Your Career?
+      </h2>
+
+      <p style="
+color:rgba(255,255,255,.9);
+font-size:1.05rem;
+max-width:520px;
+margin:0 auto 2rem;
+line-height:1.7;
+">
+        Join 57,000+ learners who are already on their journey from classroom to corporate. It's free — always.
+      </p>
+
+      <a href="https://stuportal.internboot.com/" target="_blank" style="
+display:inline-block;
+background:#fff;
+color:#067bb0;
+font-family:'Sora',sans-serif;
+font-weight:700;
+padding:0.9rem 2.3rem;
+border-radius:50px;
+text-decoration:none;
+font-size:1rem;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
+transition:all .3s;
+" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform=''">
+
+        Start Your Internship →
+
+      </a>
+
+    </div>
+  </section>
+
+
+
+  <!-- FOOTER -->
+  <!-- <footer>
+  <div class="footer-logo">Intern<span>Boot</span></div>
+  <p>A flagship initiative by Employment Express Verband LLP · "Classroom se Corporate tak"</p>
+  <div class="footer-links">
+
+    <a href="https://internboot.com" target="_blank">Website</a>
+    <a href="https://employmentexpress.net" target="_blank">Employment Express</a>
+    <a href="mailto:info@employmentexpress.net">Contact Us</a>
+    <a href="https://internboot.com" target="_blank">Verify Certificate</a>
+  </div>
+  <div class="footer-copy">© 2026 InternBoot · Employment Express Verband LLP · All rights reserved</div>
+</footer> -->
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(r => obs.observe(r));
+
+    // Counter animation
+    function animateCounters() {
+      document.querySelectorAll('.num-val, .hero-stat-num').forEach(el => {
+        const txt = el.textContent;
+        const match = txt.match(/[\d.]+/);
+        if (!match) return;
+        const target = parseFloat(match[0]);
+        const suffix = txt.replace(match[0], '');
+        let current = 0;
+        const duration = 1800;
+        const step = target / (duration / 16);
+        const timer = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = (Number.isInteger(target) ? Math.floor(current) : current.toFixed(1)) + suffix;
+          if (current >= target) clearInterval(timer);
+        }, 16);
+      });
+    }
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { animateCounters(); counterObs.disconnect(); } });
+    }, { threshold: 0.3 });
+    const firstNum = document.querySelector('.num-val');
+    if (firstNum) counterObs.observe(firstNum);
+  </script>
+  <div id="footer-container"></div>
+  <script src="js/components.js"></script>
+  <script src="js/floating-button.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <script>
+    const internbootPresenceCountries = [
+      { country: "Nigeria", count: 2086, lat: 9.082, lng: 8.6753 },
+      { country: "India", count: 1789, lat: 20.5937, lng: 78.9629 },
+      { country: "Pakistan", count: 193, lat: 30.3753, lng: 69.3451 },
+      { country: "Kenya", count: 92, lat: -0.0236, lng: 37.9062 },
+      { country: "Malawi", count: 72, lat: -13.2543, lng: 34.3015 },
+      { country: "Ghana", count: 68, lat: 7.9465, lng: -1.0232 },
+      { country: "Congo - Brazzaville", lat: -0.228, lng: 15.8277 },
+      { country: "South Africa", count: 64, lat: -30.5595, lng: 22.9375 },
+      { country: "Zimbabwe", lat: -19.0154, lng: 29.1549 },
+      { country: "Congo - Kinshasa", lat: -4.0383, lng: 21.7587 },
+      { country: "Uganda", lat: 1.3733, lng: 32.2903 },
+      { country: "Egypt", lat: 26.8206, lng: 30.8025 },
+      { country: "Cameroon", lat: 7.3697, lng: 12.3547 },
+      { country: "Canada", lat: 56.1304, lng: -106.3468 },
+      { country: "Nepal", lat: 28.3949, lng: 84.1240 },
+      { country: "Papua New Guinea", lat: -6.3150, lng: 143.9555 },
+      { country: "Bangladesh", lat: 23.6850, lng: 90.3563 },
+      { country: "Portugal", lat: 39.3999, lng: -8.2245 },
+      { country: "Somalia", lat: 5.1521, lng: 46.1996 },
+      { country: "Namibia", lat: -22.9576, lng: 18.4904 },
+      { country: "Sierra Leone", lat: 8.4606, lng: -11.7799 },
+      { country: "United States", lat: 37.0902, lng: -95.7129 },
+      { country: "Ethiopia", lat: 9.1450, lng: 40.4897 },
+      { country: "Iran", lat: 32.4279, lng: 53.6880 },
+      { country: "United Kingdom", lat: 55.3781, lng: -3.4360 },
+      { country: "Lebanon", lat: 33.8547, lng: 35.8623 },
+      { country: "Botswana", lat: -22.3285, lng: 24.6849 },
+      { country: "Ivory Coast", lat: 7.5400, lng: -5.5471 },
+      { country: "Zambia", lat: -13.1339, lng: 27.8493 },
+      { country: "Liberia", lat: 6.4281, lng: -9.4295 },
+      { country: "Philippines", lat: 12.8797, lng: 121.7740 },
+      { country: "United Arab Emirates", lat: 23.4241, lng: 53.8478 },
+      { country: "Niger", lat: 17.6078, lng: 8.0817 },
+      { country: "Austria", lat: 47.5162, lng: 14.5501 },
+      { country: "Tanzania", lat: -6.3690, lng: 34.8888 },
+      { country: "Peru", lat: -9.1900, lng: -75.0152 },
+      { country: "Lesotho", lat: -29.6100, lng: 28.2336 },
+      { country: "Haiti", lat: 18.9712, lng: -72.2852 },
+      { country: "Germany", lat: 51.1657, lng: 10.4515 },
+      { country: "Tunisia", lat: 33.8869, lng: 9.5375 },
+      { country: "Brazil", lat: -14.2350, lng: -51.9253 },
+      { country: "Qatar", lat: 25.3548, lng: 51.1839 },
+      { country: "Eswatini", lat: -26.5225, lng: 31.4659 },
+      { country: "Argentina", lat: -38.4161, lng: -63.6167 },
+      { country: "Rwanda", lat: -1.9403, lng: 29.8739 },
+      { country: "Benin", lat: 9.3077, lng: 2.3158 },
+      { country: "Malaysia", lat: 4.2105, lng: 101.9758 },
+      { country: "Saint Vincent and the Grenadines", lat: 12.9843, lng: -61.2872 },
+      { country: "Togo", lat: 8.6195, lng: 0.8248 },
+      { country: "Afghanistan", lat: 33.9391, lng: 67.7100 },
+      { country: "Mozambique", lat: -18.6657, lng: 35.5296 },
+      { country: "Bosnia and Herzegovina", lat: 43.9159, lng: 17.6791 },
+      { country: "Burkina Faso", lat: 12.2383, lng: -1.5616 },
+      { country: "Gabon", lat: -0.8037, lng: 11.6094 },
+      { country: "Chile", lat: -35.6751, lng: -71.5430 },
+      { country: "Poland", lat: 51.9194, lng: 19.1451 },
+      { country: "Australia", lat: -25.2744, lng: 133.7751 },
+      { country: "Italy", lat: 41.8719, lng: 12.5674 },
+      { country: "Chad", lat: 15.4542, lng: 18.7322 },
+      { country: "Algeria", lat: 28.0339, lng: 1.6596 },
+      { country: "Uzbekistan", lat: 41.3775, lng: 64.5853 },
+      { country: "Turkey", lat: 38.9637, lng: 35.2433 },
+      { country: "Denmark", lat: 56.2639, lng: 9.5018 },
+      { country: "Trinidad and Tobago", lat: 10.6918, lng: -61.2225 },
+      { country: "Marshall Islands", lat: 7.1315, lng: 171.1845 },
+      { country: "Madagascar", lat: -18.7669, lng: 46.8691 },
+      { country: "Armenia", lat: 40.0691, lng: 45.0382 },
+      { country: "Albania", lat: 41.1533, lng: 20.1683 },
+      { country: "Morocco", lat: 31.7917, lng: -7.0926 }
+    ];
+
+    function initInternBootPresenceMap() {
+      const mapElement = document.getElementById("internbootPresenceMap");
+      if (!mapElement || typeof L === "undefined") return;
+
+      mapElement.innerHTML = "";
+
+      const map = L.map(mapElement, {
+        zoomControl: false,
+        minZoom: 0,
+        zoomSnap: .05,
+        zoomDelta: .5,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        dragging: true,
+        worldCopyJump: false,
+        attributionControl: true
+      }).setView([12, 0], 1);
+
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png", {
+        minZoom: 0,
+        maxZoom: 8,
+        attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
+      }).addTo(map);
+
+      map.createPane("geographyLabels");
+      map.getPane("geographyLabels").style.zIndex = 450;
+      map.getPane("geographyLabels").style.pointerEvents = "none";
+
+      const geographyLabels = [
+        { name: "North America", lat: 48, lng: -108, type: "continent" },
+        { name: "South America", lat: -18, lng: -60, type: "continent" },
+        { name: "Europe", lat: 54, lng: 17, type: "continent" },
+        { name: "Africa", lat: 7, lng: 20, type: "continent" },
+        { name: "Asia", lat: 47, lng: 88, type: "continent" },
+        { name: "Oceania", lat: -28, lng: 137, type: "continent" },
+        { name: "Antarctica", lat: -47, lng: 5, type: "continent" },
+        { name: "Pacific Ocean", lat: 8, lng: -145, type: "ocean" },
+        { name: "Atlantic Ocean", lat: 18, lng: -37, type: "ocean" },
+        { name: "Indian Ocean", lat: -22, lng: 79, type: "ocean" },
+        { name: "Arctic Ocean", lat: 70, lng: -25, type: "ocean" },
+        { name: "Southern Ocean", lat: -43, lng: -105, type: "ocean" }
+      ];
+
+      geographyLabels.forEach((label) => {
+        L.marker([label.lat, label.lng], {
+          pane: "geographyLabels",
+          interactive: false,
+          keyboard: false,
+          icon: L.divIcon({
+            className: `map-geography-label ${label.type}`,
+            html: `<span>${label.name}</span>`,
+            iconSize: [1, 1],
+            iconAnchor: [0, 0]
+          })
+        }).addTo(map);
+      });
+
+      const markers = L.featureGroup();
+
+      internbootPresenceCountries.forEach((item) => {
+        const detailText = Number.isFinite(item.count)
+          ? `${item.count.toLocaleString()} ${item.count === 1 ? "Student" : "Students"}`
+          : "Active Presence";
+        const label = `<strong>${item.country}</strong><span>${detailText}</span>`;
+        const marker = L.circleMarker([item.lat, item.lng], {
+          radius: 3,
+          color: "#ffffff",
+          weight: 1.25,
+          fillColor: "#38bfff",
+          fillOpacity: .96,
+          opacity: 1,
+          className: "presence-dot",
+          bubblingMouseEvents: false
+        });
+
+        marker.bindTooltip(label, {
+          direction: "top",
+          offset: [0, -6],
+          className: "presence-tooltip",
+          opacity: 1
+        });
+
+        marker.bindPopup(`<strong>${item.country}</strong><br>${detailText}`);
+        marker.addTo(markers);
+      });
+
+      markers.addTo(map);
+
+      function fitPresenceMap() {
+        map.invalidateSize({ pan: false });
+        map.fitBounds([[-50, -174], [74, 174]], {
+          padding: [4, 4],
+          maxZoom: 1.75,
+          animate: false
+        });
+        map.setZoom(Math.min(map.getZoom() + .2, 1.95), {
+          animate: false
+        });
+      }
+
+      fitPresenceMap();
+
+      map.on("zoomend", () => {
+        const zoom = map.getZoom();
+        markers.eachLayer((marker) => {
+          marker.setRadius(3 + Math.max(0, zoom - 2) * .4);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        window.setTimeout(fitPresenceMap, 120);
+      });
+
+      [120, 450, 900].forEach((delay) => {
+        window.setTimeout(fitPresenceMap, delay);
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initInternBootPresenceMap);
+    } else {
+      initInternBootPresenceMap();
+    }
+  </script>
+
+  <script>
+    const all = document.querySelectorAll('.rv,.rvl,.rvr');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const sibs = [...(e.target.parentElement?.querySelectorAll('.rv,.rvl,.rvr') || [])];
+          const i = sibs.indexOf(e.target);
+          setTimeout(() => e.target.classList.add('on'), i * 65);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -25px 0px' });
+    all.forEach(r => io.observe(r));
+  </script>
+
+</body>
+
+</html>

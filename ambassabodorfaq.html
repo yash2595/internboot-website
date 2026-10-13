@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Internboot | Campus Ambassador Program — FAQs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Font -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/floating-button.css" />
+  <link rel="stylesheet" href="css/navbar.css">
+  <style>
+    :root {
+      --brand1: #0d6efd;
+      /* primary */
+      --brand2: #198754;
+      /* success */
+      --brand3: #6f42c1;
+      /* accent */
+      --text: #0f172a;
+      /* slate-900 */
+      --muted: #64748b;
+      /* slate-500 */
+      --bg: #f8fafc;
+      /* slate-50 */
+      --card: #ffffff;
+      /* white */
+      --line: #e2e8f0;
+      /* slate-200 */
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .navbar {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      background: linear-gradient(90deg, var(--brand1), var(--brand2));
+    }
+
+    .navbar .navbar-brand,
+    .navbar .nav-link {
+      color: #fff !important
+    }
+
+    .hero {
+      /* background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(13, 110, 253, 0.18) 0%, rgba(25, 135, 84, 0.18) 50%, transparent 100%),
+        linear-gradient(135deg, var(--brand1), var(--brand2)); */
+      color: #000000;
+      padding: 72px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-weight: 600;
+      letter-spacing: 0.2px
+    }
+
+    .hero p.lead {
+      opacity: 0.97
+    }
+
+    .hero .cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .hero .cta .btn {
+      border-radius: 999px;
+      padding: 10px 22px;
+      font-weight: 600;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.14);
+    }
+
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 18px 60px
+    }
+
+    .card {
+      border: none;
+      border-radius: 16px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+      background: var(--card);
+    }
+
+    .card-header {
+      border-top-left-radius: 16px !important;
+      border-top-right-radius: 16px !important;
+      background: linear-gradient(90deg, var(--brand3), var(--brand1));
+      color: #fff;
+    }
+
+    .badge-updated {
+      background: #0ea5e9;
+      color: #fff;
+      font-weight: 600
+    }
+
+    .section-title {
+      font-weight: 600
+    }
+
+    .subnote {
+      color: var(--muted);
+      font-size: 0.95rem
+    }
+
+    .accordion-button {
+      font-weight: 600;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .faq-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--brand1), #667eea);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .faq-question-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: #f1f5f9;
+      color: #0f172a;
+      box-shadow: none;
+    }
+
+    .accordion-item {
+      border: 1px solid var(--line);
+      border-radius: 12px !important;
+      overflow: hidden;
+      margin-bottom: 14px;
+      background: var(--card);
+    }
+
+    /* .accent-strip {
+      height: 8px;
+      background: linear-gradient(90deg, var(--brand2), var(--brand3));
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    } */
+
+    .faq-meta {
+      color: var(--muted);
+      font-size: 0.9rem
+    }
+
+    .footer-links a {
+      text-decoration: none
+    }
+
+    /* ========== RESPONSIVE STYLES ========== */
+
+    /* Extra Large Devices (1200px and up) */
+    @media (min-width: 1200px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p.lead {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* Large Devices (992px to 1199px) */
+    @media (max-width: 1199.98px) {
+      .page-wrap {
+        max-width: 960px;
+        padding: 28px 16px 55px;
+      }
+    }
+
+    /* Medium Devices - Tablets (768px to 991px) */
+    @media (max-width: 991.98px) {
+      .hero {
+        padding: 60px 16px;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .hero p.lead {
+        font-size: 1rem;
+      }
+
+      .page-wrap {
+        padding: 24px 14px 50px;
+      }
+
+      .card-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 16px;
+      }
+
+      .card-header h5 {
+        font-size: 1rem;
+      }
+
+      .navbar-nav {
+        padding: 15px 0;
+        text-align: center;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 10px 15px;
+      }
+    }
+
+    /* Small Devices - Large Phones (576px to 767px) */
+    @media (max-width: 767.98px) {
+      .hero {
+        padding: 50px 14px;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+      }
+
+      .hero p.lead {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+
+      .page-wrap {
+        padding: 20px 12px 80px;
+      }
+
+      .card {
+        border-radius: 12px;
+      }
+
+      .card-header {
+        border-top-left-radius: 12px !important;
+        border-top-right-radius: 12px !important;
+        padding: 14px 12px;
+      }
+
+      .card-body {
+        padding: 16px 14px;
+      }
+
+      .accent-strip {
+        height: 6px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+      }
+
+      .accordion-button {
+        font-size: 0.9rem;
+        padding: 14px 12px;
+      }
+
+      .accordion-body {
+        font-size: 0.9rem;
+        padding: 14px 12px;
+      }
+
+      .accordion-item {
+        border-radius: 10px !important;
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 0.95rem;
+      }
+
+      .subnote {
+        font-size: 0.85rem;
+      }
+
+      .faq-meta {
+        font-size: 0.8rem;
+      }
+
+      #contact .card-body {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      footer .container {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 15px !important;
+      }/* Reward slab boxes responsive */
+      .row.g-3 .col-md-6 .p-3 {
+        padding: 12px !important;
+      }
+
+      .row.g-3 .col-md-6 ul {
+        padding-left: 18px;
+        font-size: 0.85rem;
+      }
+
+      .row.g-3 .col-md-6 h6 {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Extra Small Devices - Small Phones (below 576px) */
+    @media (max-width: 575.98px) {
+      .hero {
+        padding: 40px 12px;
+      }
+
+      .hero h1 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+
+      .hero p.lead {
+        font-size: 0.9rem;
+      }
+
+      .navbar-brand {
+        font-size: 1rem !important;
+      }
+
+      .navbar-brand i {
+        font-size: 1.1rem;
+      }
+
+      .page-wrap {
+        padding: 16px 10px 90px;
+      }
+
+      .card {
+        border-radius: 10px;
+      }
+
+      .card-header {
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        padding: 12px 10px;
+      }
+
+      .card-header h5 {
+        font-size: 0.9rem;
+      }
+
+      .badge-updated {
+        font-size: 0.7rem;
+        padding: 4px 8px;
+      }
+
+      .card-body {
+        padding: 14px 12px;
+      }
+
+      .accent-strip {
+        height: 5px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .accordion-button {
+        font-size: 0.85rem;
+        padding: 12px 10px;
+        line-height: 1.4;
+      }
+
+      .accordion-body {
+        font-size: 0.85rem;
+        padding: 12px 10px;
+        line-height: 1.5;
+      }
+
+      .accordion-item {
+        border-radius: 8px !important;
+        margin-bottom: 8px;
+      }
+
+      .section-title {
+        font-size: 0.9rem;
+      }
+
+      .subnote {
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+
+      .faq-meta {
+        font-size: 0.75rem;
+      }
+
+      /* Reward slab boxes */
+      .row.g-3 .col-md-6 .p-3 {
+        padding: 10px !important;
+      }
+
+      .row.g-3 .col-md-6 ul {
+        padding-left: 16px;
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+      }
+
+      .row.g-3 .col-md-6 ul li {
+        margin-bottom: 4px;
+      }
+
+      .row.g-3 .col-md-6 h6 {
+        font-size: 0.85rem;
+      }
+
+      #contact h6 {
+        font-size: 0.95rem;
+      }
+
+      #contact .subnote {
+        font-size: 0.8rem;
+      }
+
+      footer {
+        padding: 16px 12px !important;
+      }
+
+      footer p {
+        font-size: 0.8rem;
+      }
+
+      .footer-links a {
+        font-size: 0.85rem;
+      }}
+
+    /* Ultra Small Devices (below 360px) */
+    @media (max-width: 359.98px) {
+      .hero h1 {
+        font-size: 1.15rem;
+      }
+
+      .hero p.lead {
+        font-size: 0.85rem;
+      }
+
+      .page-wrap {
+        padding: 14px 8px 85px;
+      }
+
+      .card-body {
+        padding: 12px 10px;
+      }
+
+      .accordion-button {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+      }
+
+      .accordion-body {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+      }
+
+      .row.g-3 .col-md-6 ul {
+        font-size: 0.75rem;
+      }
+
+      .badge-updated {
+        font-size: 0.65rem;
+      }
+    }
+
+    /* Landscape orientation fixes for mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        padding: 30px 16px;
+      }
+
+      .hero h1 {
+        font-size: 1.3rem;
+      }}
+
+    /* High DPI / Retina display adjustments */
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+      .card {
+        box-shadow: 0 16px 38px rgba(0, 0, 0, 0.06);
+      }
+    }
+
+    /* Print styles */
+    @media print {
+
+      .navbar,
+
+      .hero {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+        padding: 20px;
+      }
+
+      .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+
+      .accordion-collapse {
+        display: block !important;
+      }
+    }
+
+    /* Accessibility - Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Dark mode support */
+    @media (prefers-color-scheme: dark) {
+      /* Optional: Add dark mode styles if needed */
+    }
+
+    /* Touch device optimizations */
+    @media (hover: none) and (pointer: coarse) {
+      .accordion-button {
+        min-height: 48px;
+      }
+
+      .btn {
+        min-height: 44px;
+      }
+
+      .nav-link {
+        padding: 12px 16px !important;
+      }
+    }
+
+    /* Fix for iOS Safari bounce */
+    @supports (-webkit-touch-callout: none) {
+@media (max-width: 767.98px) {
+}
+    }
+    .hero .cta .btn,
+.hero .cta .btn:hover,
+.hero .cta .btn:focus,
+.hero .cta .btn:active {
+    background: #fff !important;
+    color: #000 !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar Container -->
+  <div id="navbar-container"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-6">Campus Ambassador Program — FAQs</h1>
+      <p class="lead">Clear answers. Professional policy. Performance-based rewards.</p>
+      <div class="cta" aria-label="Ambassador programme terms links">
+        <a class="btn btn-light" href="internboot.html">
+          <i class="bi bi-shield-check me-2"></i>India Terms
+        </a>
+        <a class="btn btn-outline-light btn-light" href="internforeign.html">
+          <i class="bi bi-globe2 me-2"></i>Foreign Terms
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="page-wrap">
+    <div class="card mb-4">
+      <div class="accent-strip"></div>
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-info-square me-2"></i>Frequently Asked Questions</h5>
+        <span class="badge badge-updated">Last Updated: January, 2026</span>
+      </div>
+      <div class="card-body">
+        <p class="subnote mb-3">
+          Below are the most common questions about the Internboot Campus Ambassador Program. For complete policy, see
+          the Terms & Conditions for Indian or Foreign candidates.
+        </p>
+
+        <!-- FAQ accordion -->
+        <div class="accordion" id="faqs">
+
+          <!-- Q1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q1h">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                <span class="faq-number">1</span><span class="faq-question-text">What is the Internboot Campus Ambassador Program?</span>
+              </button>
+            </h2>
+            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                The Program is a performance-based opportunity for college students to represent Internboot, promote
+                internship programs, and earn rewards based on verified intern registrations and successful onboarding.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q2h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                <span class="faq-number">2</span><span class="faq-question-text">Is the Campus Ambassador Program paid?</span>
+              </button>
+            </h2>
+            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Yes. Ambassadors earn performance-based monetary rewards after achieving specific registration and
+                onboarding targets that are successfully verified by Internboot.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q3h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                <span class="faq-number">3</span><span class="faq-question-text">How does the reward slab system work?</span>
+              </button>
+            </h2>
+            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Rewards are calculated on verified registrations and successful onboardings through an ambassador's
+                referrals.
+                <div class="row g-3 mt-2">
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <h6 class="section-title mb-2"><i class="bi bi-flag me-1 text-success"></i>Indian candidates</h6>
+                      <ul class="mb-0">
+                        <li>500+ onboardings → USD $100 (INR equivalent)</li>
+                        <li>1,000 onboardings → USD $300 (INR equivalent)</li>
+                        <li>1,500 onboardings → USD $500 (INR equivalent)</li>
+                      </ul>
+                      <p class="faq-meta mt-2">Only verified registrations post onboarding are counted.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="p-3 border rounded">
+                      <h6 class="section-title mb-2"><i class="bi bi-globe2 me-1 text-primary"></i>Foreign candidates
+                      </h6>
+                      <ul class="mb-0">
+                        <li>500+ onboardings → USD $250</li>
+                        <li>1,000 onboardings → USD $450</li>
+                        <li>2,500 onboardings → USD $1,500</li>
+                      </ul>
+                      <p class="faq-meta mt-2">Subject to verification and onboarding completion.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q4h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                <span class="faq-number">4</span><span class="faq-question-text">When will I receive my payment?</span>
+              </button>
+            </h2>
+            <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Payments are processed only after referred interns complete their internships, receive certificates,
+                pass document verification, and the mandatory 10‑business‑day verification period is completed.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q5 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q5h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q5">
+                <span class="faq-number">5</span><span class="faq-question-text">What happens if incorrect or fake data is submitted?</span>
+              </button>
+            </h2>
+            <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Submitting falsified, manipulated, or duplicate data results in immediate disqualification, forfeiture
+                of all rewards, and possible permanent removal from future Internboot programs.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q6 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q6h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q6">
+                <span class="faq-number">6</span><span class="faq-question-text">Is there any registration or joining fee?</span>
+              </button>
+            </h2>
+            <div id="q6" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                No. The Campus Ambassador Program is completely free to join — no registration, joining, or
+                participation fees.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q7 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q7h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q7">
+                <span class="faq-number">7</span><span class="faq-question-text">Who can I contact for support or queries?</span>
+              </button>
+            </h2>
+            <div id="q7" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Ambassadors receive official support contact details after onboarding. For any issues or queries, you
+                can also email info@internboot.com.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q8 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q8h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q8">
+                <span class="faq-number">8</span><span class="faq-question-text">What if a referred intern drops out?</span>
+              </button>
+            </h2>
+            <div id="q8" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Only interns who successfully complete the internship and receive certificates are counted toward the
+                ambassador's reward slab.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q9 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q9h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q9">
+                <span class="faq-number">9</span><span class="faq-question-text">What are my responsibilities as a Campus Ambassador?</span>
+              </button>
+            </h2>
+            <div id="q9" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Share accurate data, support intern retention and attendance, promote ethically and professionally, and
+                prevent misinformation, fraud, or duplicate entries.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q10 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q10h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q10">
+                <span class="faq-number">10</span><span class="faq-question-text">Will I get marketing material?</span>
+              </button>
+            </h2>
+            <div id="q10" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Yes. Internboot may provide official marketing materials, promotional content, guidelines, and branding
+                resources to ensure accurate and consistent promotion.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q11 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q11h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q11">
+                <span class="faq-number">11</span><span class="faq-question-text">Are international referrals allowed?</span>
+              </button>
+            </h2>
+            <div id="q11" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Yes. Ambassadors may refer international candidates, subject to internship eligibility criteria and
+                successful onboarding.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q12 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q12h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q12">
+                <span class="faq-number">12</span><span class="faq-question-text">How long does verification take?</span>
+              </button>
+            </h2>
+            <div id="q12" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Internboot may take up to 10 business days to verify candidate records after internship completion and
+                certificate issuance.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q13 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q13h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q13">
+                <span class="faq-number">13</span><span class="faq-question-text">Will I receive training or support?</span>
+              </button>
+            </h2>
+            <div id="q13" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Yes. Ambassadors receive access to onboarding sessions and training programs conducted by Internboot to
+                support them throughout the program.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q14 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q14h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q14">
+                <span class="faq-number">14</span><span class="faq-question-text">How will payments be made?</span>
+              </button>
+            </h2>
+            <div id="q14" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                Payments are transferred directly to the bank details provided by the ambassador after successful
+                verification. Internboot is not responsible for delays caused by incorrect or incomplete banking
+                information.
+              </div>
+            </div>
+          </div>
+
+          <!-- Q15 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="q15h">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q15">
+                <span class="faq-number">15</span><span class="faq-question-text">Does Internboot guarantee a minimum payout?</span>
+              </button>
+            </h2>
+            <div id="q15" class="accordion-collapse collapse" data-bs-parent="#faqs">
+              <div class="accordion-body">
+                No. Internboot does not guarantee a minimum payout. All rewards are strictly performance-based and
+                depend on verified registrations and successful internship completion.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom note -->
+        <div class="mt-3 subnote">
+          Need more details? Refer to the full Terms & Conditions pages for Indian and Foreign candidates, or contact
+          support.
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact / CTA -->
+    <div id="contact" class="card">
+      <div class="card-body d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          <h6 class="mb-1"><i class="bi bi-envelope-paper-heart me-2 text-primary"></i>Support</h6>
+          <div class="subnote">Email: info@internboot.com • You'll receive official contacts after onboarding.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <!-- Image Fallback Handler -->
+  <script src="js/image-fallback.js"></script>
+  <!-- Components JS -->
+  <script src="js/components.js"></script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+  <!-- Custom JS for Internship Functionality -->
+  <script src="js/internship.js"></script>
+  <script src="js/floating-button.js"></script>
+</body>
+
+</html>
+

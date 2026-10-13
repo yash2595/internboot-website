@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing Internship - InternBoot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/floating-button.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 30%, #ede9fe 60%, #e0f2fe 100%);
+      background-attachment: fixed;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+      top: -100px;
+      right: -150px;
+      animation: blobFloat 12s ease-in-out infinite;
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+      bottom: -80px;
+      left: -100px;
+      animation: blobFloat 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-40px) scale(1.05); }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 35%, #3b82f6 65%, #60a5fa 100%);
+      color: #fff;
+      text-align: center;
+      padding: 20px 30px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(29, 78, 216, 0.3);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(180deg, rgba(29,78,216,0.08), transparent);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .header-logo {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    header h2 span {
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      margin: 50px auto;
+      padding: 0;
+      border-radius: 24px;
+      box-shadow:
+        0 20px 60px rgba(59, 130, 246, 0.1),
+        0 8px 24px rgba(99, 102, 241, 0.06),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+      max-width: 960px;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+      z-index: 5;
+      overflow: hidden;
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== CLOSE BUTTON — WHITE ===== */
+    .close-icon {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+    }
+
+    .close-icon:hover {
+      background: rgba(255, 255, 255, 0.35);
+      color: #fff;
+      border-color: rgba(255,255,255,0.55);
+      transform: rotate(90deg) scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    /* ===== HERO BANNER ===== */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 30%, #3b82f6 55%, #60a5fa 80%, #93c5fd 100%);
+      padding: 50px 45px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+      z-index: 1;
+    }
+
+    .hero-deco {
+      position: absolute;
+      top: 20px;
+      right: 70px;
+      font-size: 130px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      z-index: 1;
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50px;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge i {
+      font-size: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-banner h1 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+      line-height: 1.2;
+    }
+
+    .hero-banner h1 i {
+      margin-right: 12px;
+      font-size: 32px;
+      opacity: 0.9;
+    }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.88);
+      font-size: 15px;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+      max-width: 530px;
+      line-height: 1.6;
+    }
+
+    .hero-tech-stack {
+      display: flex;
+      gap: 8px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
+    }
+
+    .tech-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      color: rgba(255,255,255,0.88);
+      font-size: 11px;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .tech-mini:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .tech-mini i {
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    /* ===== CONTENT AREA ===== */
+    .content-area {
+      padding: 40px 45px 45px;
+    }
+
+    /* ===== OVERVIEW CARD ===== */
+    .overview-card {
+      background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 40%, #f0f9ff 70%, #eef2ff 100%);
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin-bottom: 35px;
+      border: 1px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1e3a8a, #1d4ed8, #3b82f6, #60a5fa, #93c5fd);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .overview-card .overview-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #1d4ed8;
+      margin-bottom: 12px;
+    }
+
+    .overview-card .overview-label i {
+      font-size: 14px;
+    }
+
+    .overview-card p {
+      color: #475569;
+      line-height: 1.8;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #1e293b;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 10px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid rgba(59, 130, 246, 0.1);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #1d4ed8, #3b82f6);
+      border-radius: 2px;
+    }
+
+    .section-title .title-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .section-title .title-icon.blue {
+      background: linear-gradient(135deg, rgba(29,78,216,0.12), rgba(59,130,246,0.05));
+      color: #1d4ed8;
+    }
+
+    /* ===== LEARNING GRID ===== */
+    .learning-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .learning-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .learning-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      border-radius: 3px 0 0 3px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .learning-item:hover {
+      transform: translateY(-4px) translateX(3px);
+      box-shadow:
+        0 12px 30px rgba(59, 130, 246, 0.1),
+        0 4px 12px rgba(99, 102, 241, 0.05);
+      border-color: rgba(59, 130, 246, 0.18);
+      background: linear-gradient(135deg, #ffffff, #f8faff);
+    }
+
+    .learning-item:hover::before {
+      opacity: 1;
+    }
+
+    .learning-item:nth-child(1)::before  { background: #1e3a8a; }
+    .learning-item:nth-child(2)::before  { background: #2563eb; }
+    .learning-item:nth-child(3)::before  { background: #0ea5e9; }
+    .learning-item:nth-child(4)::before  { background: #7c3aed; }
+    .learning-item:nth-child(5)::before  { background: #6366f1; }
+    .learning-item:nth-child(6)::before  { background: #3b82f6; }
+    .learning-item:nth-child(7)::before  { background: #0284c7; }
+    .learning-item:nth-child(8)::before  { background: #1d4ed8; }
+    .learning-item:nth-child(9)::before  { background: #f59e0b; }
+    .learning-item:nth-child(10)::before { background: #8b5cf6; }
+    .learning-item:nth-child(11)::before { background: #0ea5e9; }
+    .learning-item:nth-child(12)::before { background: #ec4899; }
+    .learning-item:nth-child(13)::before { background: #2563eb; }
+    .learning-item:nth-child(14)::before { background: #1e3a8a; }
+
+    .item-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .learning-item:hover .item-icon {
+      transform: scale(1.1);
+    }
+
+    .item-icon.c1  { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); color: #fff; }
+    .item-icon.c2  { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff; }
+    .item-icon.c3  { background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #fff; }
+    .item-icon.c4  { background: linear-gradient(135deg, #7c3aed, #8b5cf6); color: #fff; }
+    .item-icon.c5  { background: linear-gradient(135deg, #6366f1, #818cf8); color: #fff; }
+    .item-icon.c6  { background: linear-gradient(135deg, #3b82f6, #60a5fa); color: #fff; }
+    .item-icon.c7  { background: linear-gradient(135deg, #0284c7, #0ea5e9); color: #fff; }
+    .item-icon.c8  { background: linear-gradient(135deg, #1d4ed8, #3b82f6); color: #fff; }
+    .item-icon.c9  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: #fff; }
+    .item-icon.c10 { background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: #fff; }
+    .item-icon.c11 { background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #fff; }
+    .item-icon.c12 { background: linear-gradient(135deg, #ec4899, #f472b6); color: #fff; }
+    .item-icon.c13 { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #fff; }
+    .item-icon.c14 { background: linear-gradient(135deg, #1e3a8a, #1d4ed8); color: #fff; }
+
+    .item-text {
+      font-size: 13.5px;
+      color: #334155;
+      font-weight: 500;
+      line-height: 1.5;
+      padding-top: 8px;
+    }
+
+    /* ===== OUTCOME CARD ===== */
+    .outcome-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 30%, #3b82f6 55%, #60a5fa 80%, #93c5fd 100%);
+      border-radius: 18px;
+      padding: 32px 34px;
+      margin-bottom: 35px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .outcome-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .outcome-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .outcome-deco {
+      position: absolute;
+      bottom: 8px;
+      right: 24px;
+      font-size: 65px;
+      color: rgba(255,255,255,0.04);
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .outcome-card .outcome-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .outcome-card .outcome-header .oc-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .outcome-card .outcome-header h3 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .outcome-card > p {
+      color: rgba(255,255,255,0.92);
+      line-height: 1.85;
+      font-size: 15px;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+
+    .outcome-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50px;
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-2px);
+    }
+
+    .skill-tag i {
+      font-size: 10px;
+      opacity: 0.75;
+    }
+
+    /* ===== BUTTONS ===== */
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-back {
+      background: rgba(29, 78, 216, 0.06);
+      color: #1d4ed8;
+      border: 1px solid rgba(29, 78, 216, 0.15);
+    }
+
+    .btn-back:hover {
+      background: rgba(29, 78, 216, 0.12);
+      transform: translateY(-3px) translateX(-3px);
+      box-shadow: 0 8px 25px rgba(29, 78, 216, 0.15);
+      border-color: rgba(29, 78, 216, 0.3);
+    }
+
+    .btn-apply {
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #3b82f6 100%);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(29, 78, 216, 0.25);
+    }
+
+    .btn-apply:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(29, 78, 216, 0.35);
+    }
+
+    .btn-download {
+      background: #fff;
+      color: #475569;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-color: rgba(59, 130, 246, 0.3);
+      color: #1d4ed8;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1e3a8a, #1d4ed8, #3b82f6, #60a5fa, #93c5fd, #1e3a8a);
+      background-size: 200% 100%;
+      animation: gradientSlide 4s linear infinite;
+    }
+
+    @keyframes gradientSlide {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    footer p span {
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #60a5fa;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .fade-in.d1 { animation-delay: 0.1s; }
+    .fade-in.d2 { animation-delay: 0.2s; }
+    .fade-in.d3 { animation-delay: 0.25s; }
+    .fade-in.d4 { animation-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .learning-item {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .learning-item:nth-child(1)  { animation-delay: 0.05s; }
+    .learning-item:nth-child(2)  { animation-delay: 0.1s; }
+    .learning-item:nth-child(3)  { animation-delay: 0.15s; }
+    .learning-item:nth-child(4)  { animation-delay: 0.2s; }
+    .learning-item:nth-child(5)  { animation-delay: 0.25s; }
+    .learning-item:nth-child(6)  { animation-delay: 0.3s; }
+    .learning-item:nth-child(7)  { animation-delay: 0.35s; }
+    .learning-item:nth-child(8)  { animation-delay: 0.4s; }
+    .learning-item:nth-child(9)  { animation-delay: 0.45s; }
+    .learning-item:nth-child(10) { animation-delay: 0.5s; }
+    .learning-item:nth-child(11) { animation-delay: 0.55s; }
+    .learning-item:nth-child(12) { animation-delay: 0.6s; }
+    .learning-item:nth-child(13) { animation-delay: 0.65s; }
+    .learning-item:nth-child(14) { animation-delay: 0.7s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header h2 {
+        font-size: 18px;
+      }
+
+      .container {
+        margin: 20px 15px;
+        border-radius: 20px;
+      }
+
+      .hero-banner {
+        padding: 35px 25px 30px;
+      }
+
+      .hero-banner h1 {
+        font-size: 26px;
+      }
+
+      .hero-banner h1 i {
+        display: none;
+      }
+
+      .hero-subtitle {
+        font-size: 13.5px;
+      }
+
+      .hero-deco {
+        display: none;
+      }
+
+      .content-area {
+        padding: 28px 22px 30px;
+      }
+
+      .learning-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .section-title {
+        font-size: 17px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .outcome-skills {
+        gap: 6px;
+      }
+
+      .skill-tag {
+        font-size: 10.5px;
+        padding: 5px 11px;
+      }
+
+      .close-icon {
+        top: 16px;
+        right: 16px;
+        width: 34px;
+        height: 34px;
+      }
+
+      .hero-tech-stack {
+        gap: 6px;
+      }
+
+      .tech-mini {
+        font-size: 10px;
+        padding: 4px 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner h1 {
+        font-size: 22px;
+      }
+
+      .overview-card {
+        padding: 22px 20px;
+      }
+
+      .item-text {
+        font-size: 12.5px;
+      }
+
+      .item-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+      }
+    }
+  
+  :root {
+    --internship-content-max: 1280px;
+    --internship-content-padding: 24px;
+  }
+
+  .page-container,
+  .content-wrapper,
+  .program-overview,
+  .benefits-section,
+  .curriculum-section,
+  .faq-section,
+  .cta-section {
+    width: 100%;
+    max-width: var(--internship-content-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--internship-content-padding);
+    padding-right: var(--internship-content-padding);
+    box-sizing: border-box;
+  }
+
+  .container,
+  .modal,
+  .header-inner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 575.98px) {
+    :root {
+      --internship-content-padding: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="header-inner">
+      <div class="header-logo">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h2>InternBoot <span>| Internship Portal</span></h2>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTAINER ===== -->
+  <div class="container">
+
+    <!-- Close Button (White/Light) -->
+    <button class="close-icon" onclick="window.location.href='../index.html#categories'" title="Close">
+      <i class="fas fa-xmark"></i>
+    </button>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div class="hero-pattern"></div>
+      <div class="hero-deco"><i class="fas fa-bullhorn"></i></div>
+
+      <div class="hero-badge">
+        <i class="fas fa-circle"></i>
+        Internship Program
+      </div>
+      <h1><i class="fas fa-hashtag"></i>Digital Marketing Internship</h1>
+      <p class="hero-subtitle">Master the strategies brands use to grow online, attract customers, and build a powerful digital presence across all platforms.</p>
+
+      <!-- Platform Badges -->
+      <div class="hero-tech-stack">
+        <span class="tech-mini"><i class="fab fa-google"></i> Google Ads</span>
+        <span class="tech-mini"><i class="fab fa-facebook"></i> Facebook</span>
+        <span class="tech-mini"><i class="fab fa-instagram"></i> Instagram</span>
+        <span class="tech-mini"><i class="fas fa-search"></i> SEO</span>
+        <span class="tech-mini"><i class="fas fa-paint-brush"></i> Canva</span>
+        <span class="tech-mini"><i class="fas fa-envelope"></i> Email</span>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-area">
+
+      <!-- Overview -->
+      <div class="overview-card fade-in d1">
+        <div class="overview-label">
+          <i class="fas fa-info-circle"></i>
+          Program Overview
+        </div>
+        <p>Our Digital Marketing Internship gives you hands-on exposure to the strategies brands use to grow online, attract customers, and build strong digital presence. Throughout the program, you will explore the tools, techniques, and platforms that power modern marketing campaigns.</p>
+      </div>
+
+      <!-- What You Will Learn -->
+      <div class="section-title fade-in d2">
+        <div class="title-icon blue">
+          <i class="fas fa-book-open"></i>
+        </div>
+        What You Will Learn
+      </div>
+
+      <div class="learning-grid">
+
+        <div class="learning-item">
+          <div class="item-icon c1"><i class="fas fa-laptop"></i></div>
+          <div class="item-text">Understand the foundations of digital marketing and how it differs from traditional marketing</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c2"><i class="fas fa-desktop"></i></div>
+          <div class="item-text">Discover how websites and landing pages drive customer conversions</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c3"><i class="fas fa-magnifying-glass"></i></div>
+          <div class="item-text">Learn Search Engine Optimization (SEO) and how search engines rank content</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c4"><i class="fas fa-link"></i></div>
+          <div class="item-text">Explore Off-Page SEO and Technical SEO strategies used to boost visibility</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c5"><i class="fas fa-pen-nib"></i></div>
+          <div class="item-text">Create impactful content marketing strategies across multiple formats</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c6"><i class="fas fa-share-nodes"></i></div>
+          <div class="item-text">Grow brands through organic social media marketing</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c7"><i class="fab fa-facebook-f"></i></div>
+          <div class="item-text">Run paid advertising campaigns on Facebook and Instagram</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c8"><i class="fab fa-google"></i></div>
+          <div class="item-text">Understand Search Engine Marketing (SEM) with Google Ads</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c9"><i class="fas fa-envelope-open-text"></i></div>
+          <div class="item-text">Plan and execute email marketing campaigns</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c10"><i class="fas fa-users"></i></div>
+          <div class="item-text">Learn how brands use influencer and affiliate marketing to expand reach</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c11"><i class="fas fa-filter"></i></div>
+          <div class="item-text">Understand marketing funnels and customer journey mapping</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c12"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <div class="item-text">Design creatives using Canva and apply copywriting techniques</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c13"><i class="fas fa-chart-line"></i></div>
+          <div class="item-text">Track campaign success using analytics and performance metrics</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c14"><i class="fas fa-rocket"></i></div>
+          <div class="item-text">Apply your learning by creating a mock digital marketing campaign</div>
+        </div>
+
+      </div>
+
+      <!-- Outcome -->
+      <div class="outcome-card fade-in d3">
+        <div class="outcome-deco"><i class="fas fa-bullseye"></i></div>
+        <div class="outcome-header">
+          <div class="oc-icon"><i class="fas fa-trophy"></i></div>
+          <h3>Program Outcome</h3>
+        </div>
+        <p>By the end of the internship, you will have a clear understanding of how digital marketing campaigns are planned, executed, and optimized to drive real business results across multiple digital channels.</p>
+        <div class="outcome-skills">
+          <span class="skill-tag"><i class="fas fa-check"></i> SEO</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Google Ads</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Social Media</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Content Marketing</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Email Marketing</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Paid Ads</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Canva Design</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Analytics</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Copywriting</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Funnel Strategy</span>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons fade-in d4">
+        <a href="../index.html" class="btn btn-back">
+          <i class="fas fa-arrow-left"></i>
+          Back to Home
+        </a>
+        <a href="https://stuportal.internboot.com/" class="btn btn-apply">
+          <i class="fas fa-rocket"></i>
+          Apply Now
+        </a>
+        <!-- <a href="#" class="btn btn-download">
+          <i class="fas fa-download"></i>
+          Brochure
+        </a> -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <p>&copy; 2026 <span>InternBoot</span> | All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/floating-button.js"></script>
+</body>
+</html>

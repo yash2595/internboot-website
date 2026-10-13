@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="96" viewBox="0 0 240 96" role="img" aria-labelledby="title">
+  <title id="title">Autodesk logo</title>
+  <rect width="240" height="96" rx="14" fill="#fff"/>
+  <path d="M46 68 L67 24 L88 68 H77 L72 57 H61 L56 68 Z" fill="#0696d7"/>
+  <path d="M66 38 L62 50 H70 Z" fill="#fff"/>
+  <text x="100" y="57" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#111827">Autodesk</text>
+</svg>

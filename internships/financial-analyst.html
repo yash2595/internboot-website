@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Analysis Internship - InternBoot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="../img/logos/internboot-official-logo.jpeg" />
+  <link rel="apple-touch-icon" href="../img/logos/internboot-official-logo.jpeg" />
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-8504842908769623" />
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504842908769623"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/floating-button.css" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #e0f4ff 0%, #e8f0fe 30%, #f3eaff 60%, #fce4f0 100%);
+      background-attachment: fixed;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(96,165,250,0.12) 0%, transparent 70%);
+      top: -100px;
+      right: -150px;
+      animation: blobFloat 12s ease-in-out infinite;
+    }
+
+    body::after {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(167,139,250,0.1) 0%, transparent 70%);
+      bottom: -80px;
+      left: -100px;
+      animation: blobFloat 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes blobFloat {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-40px) scale(1.05); }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 40%, #667eea 70%, #8b5cf6 100%);
+      color: #fff;
+      text-align: center;
+      padding: 20px 30px;
+      position: relative;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(30, 64, 175, 0.3);
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
+      background: linear-gradient(180deg, rgba(30,64,175,0.1), transparent);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .header-logo {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    header h2 span {
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      margin: 50px auto;
+      padding: 0;
+      border-radius: 24px;
+      box-shadow:
+        0 20px 60px rgba(59, 130, 246, 0.12),
+        0 8px 24px rgba(139, 92, 246, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+      max-width: 960px;
+      border: 1px solid rgba(96, 165, 250, 0.15);
+      position: relative;
+      z-index: 5;
+      overflow: hidden;
+      animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== CLOSE BUTTON - WHITE/LIGHT ===== */
+    .close-icon {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+    }
+
+    .close-icon:hover {
+      background: rgba(255, 255, 255, 0.35);
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+      transform: rotate(90deg) scale(1.1);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    /* ===== HERO BANNER ===== */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 35%, #667eea 65%, #8b5cf6 100%);
+      padding: 50px 45px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      left: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50px;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge i {
+      font-size: 8px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-banner h1 {
+      color: #fff;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+      line-height: 1.2;
+    }
+
+    .hero-banner h1 i {
+      margin-right: 12px;
+      font-size: 32px;
+      opacity: 0.9;
+    }
+
+    .hero-subtitle {
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    /* ===== CONTENT AREA ===== */
+    .content-area {
+      padding: 40px 45px 45px;
+    }
+
+    /* ===== OVERVIEW CARD ===== */
+    .overview-card {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0f4ff 50%, #f5f0ff 100%);
+      border-radius: 16px;
+      padding: 28px 30px;
+      margin-bottom: 35px;
+      border: 1px solid rgba(96, 165, 250, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1e40af, #3b82f6, #8b5cf6, #a855f7);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .overview-card .overview-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #1e40af;
+      margin-bottom: 12px;
+    }
+
+    .overview-card .overview-label i {
+      font-size: 14px;
+    }
+
+    .overview-card p {
+      color: #475569;
+      line-height: 1.8;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    /* ===== SECTION TITLE ===== */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #1e293b;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 10px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid rgba(96, 165, 250, 0.12);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, #1e40af, #3b82f6);
+      border-radius: 2px;
+    }
+
+    .section-title .title-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .section-title .title-icon.blue {
+      background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(59,130,246,0.05));
+      color: #3b82f6;
+    }
+
+    /* ===== LEARNING GRID ===== */
+    .learning-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .learning-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .learning-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      border-radius: 3px 0 0 3px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .learning-item:hover {
+      transform: translateY(-4px) translateX(3px);
+      box-shadow:
+        0 12px 30px rgba(59, 130, 246, 0.1),
+        0 4px 12px rgba(139, 92, 246, 0.06);
+      border-color: rgba(96, 165, 250, 0.2);
+      background: linear-gradient(135deg, #fefeff, #f8faff);
+    }
+
+    .learning-item:hover::before {
+      opacity: 1;
+    }
+
+    .learning-item:nth-child(1)::before  { background: #1e40af; }
+    .learning-item:nth-child(2)::before  { background: #3b82f6; }
+    .learning-item:nth-child(3)::before  { background: #8b5cf6; }
+    .learning-item:nth-child(4)::before  { background: #06b6d4; }
+    .learning-item:nth-child(5)::before  { background: #10b981; }
+    .learning-item:nth-child(6)::before  { background: #f59e0b; }
+    .learning-item:nth-child(7)::before  { background: #ef4444; }
+    .learning-item:nth-child(8)::before  { background: #6366f1; }
+    .learning-item:nth-child(9)::before  { background: #14b8a6; }
+    .learning-item:nth-child(10)::before { background: #f472b6; }
+
+    .item-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .learning-item:hover .item-icon {
+      transform: scale(1.1);
+    }
+
+    .item-icon.c1  { background: linear-gradient(135deg, #1e40af, #3b82f6); color: #fff; }
+    .item-icon.c2  { background: linear-gradient(135deg, #3b82f6, #60a5fa); color: #fff; }
+    .item-icon.c3  { background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: #fff; }
+    .item-icon.c4  { background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #fff; }
+    .item-icon.c5  { background: linear-gradient(135deg, #10b981, #34d399); color: #fff; }
+    .item-icon.c6  { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: #fff; }
+    .item-icon.c7  { background: linear-gradient(135deg, #ef4444, #f87171); color: #fff; }
+    .item-icon.c8  { background: linear-gradient(135deg, #6366f1, #818cf8); color: #fff; }
+    .item-icon.c9  { background: linear-gradient(135deg, #14b8a6, #2dd4bf); color: #fff; }
+    .item-icon.c10 { background: linear-gradient(135deg, #f472b6, #f9a8d4); color: #fff; }
+
+    .item-text {
+      font-size: 13.5px;
+      color: #334155;
+      font-weight: 500;
+      line-height: 1.5;
+      padding-top: 8px;
+    }
+
+    /* ===== OUTCOME CARD ===== */
+    .outcome-card {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 35%, #667eea 65%, #8b5cf6 100%);
+      border-radius: 18px;
+      padding: 32px 34px;
+      margin-bottom: 35px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .outcome-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .outcome-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .outcome-card .outcome-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .outcome-card .outcome-header .oc-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .outcome-card .outcome-header h3 {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .outcome-card p {
+      color: rgba(255,255,255,0.9);
+      line-height: 1.85;
+      font-size: 15px;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+
+    .outcome-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 50px;
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(255,255,255,0.22);
+      transform: translateY(-2px);
+    }
+
+    .skill-tag i {
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    /* ===== BUTTONS ===== */
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-back {
+      background: rgba(59, 130, 246, 0.06);
+      color: #3b82f6;
+      border: 1px solid rgba(59, 130, 246, 0.15);
+    }
+
+    .btn-back:hover {
+      background: rgba(59, 130, 246, 0.12);
+      transform: translateY(-3px) translateX(-3px);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+      border-color: rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-apply {
+      background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #667eea 100%);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.25);
+    }
+
+    .btn-apply:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(59, 130, 246, 0.35);
+    }
+
+    .btn-download {
+      background: #fff;
+      color: #475569;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border-color: rgba(96, 165, 250, 0.3);
+      color: #3b82f6;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 24px 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #1e40af, #3b82f6, #8b5cf6, #a855f7, #1e40af);
+      background-size: 200% 100%;
+      animation: gradientSlide 4s linear infinite;
+    }
+
+    @keyframes gradientSlide {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer p {
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    footer p span {
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #60a5fa;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    .fade-in.d1 { animation-delay: 0.1s; }
+    .fade-in.d2 { animation-delay: 0.2s; }
+    .fade-in.d3 { animation-delay: 0.25s; }
+    .fade-in.d4 { animation-delay: 0.3s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .learning-item {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .learning-item:nth-child(1)  { animation-delay: 0.05s; }
+    .learning-item:nth-child(2)  { animation-delay: 0.1s; }
+    .learning-item:nth-child(3)  { animation-delay: 0.15s; }
+    .learning-item:nth-child(4)  { animation-delay: 0.2s; }
+    .learning-item:nth-child(5)  { animation-delay: 0.25s; }
+    .learning-item:nth-child(6)  { animation-delay: 0.3s; }
+    .learning-item:nth-child(7)  { animation-delay: 0.35s; }
+    .learning-item:nth-child(8)  { animation-delay: 0.4s; }
+    .learning-item:nth-child(9)  { animation-delay: 0.45s; }
+    .learning-item:nth-child(10) { animation-delay: 0.5s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header h2 {
+        font-size: 18px;
+      }
+
+      .container {
+        margin: 20px 15px;
+        border-radius: 20px;
+      }
+
+      .hero-banner {
+        padding: 35px 25px 30px;
+      }
+
+      .hero-banner h1 {
+        font-size: 26px;
+      }
+
+      .hero-banner h1 i {
+        display: none;
+      }
+
+      .hero-subtitle {
+        font-size: 13.5px;
+      }
+
+      .content-area {
+        padding: 28px 22px 30px;
+      }
+
+      .learning-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .section-title {
+        font-size: 17px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .outcome-skills {
+        gap: 6px;
+      }
+
+      .skill-tag {
+        font-size: 10.5px;
+        padding: 5px 11px;
+      }
+
+      .close-icon {
+        top: 16px;
+        right: 16px;
+        width: 34px;
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner h1 {
+        font-size: 22px;
+      }
+
+      .overview-card {
+        padding: 22px 20px;
+      }
+
+      .item-text {
+        font-size: 12.5px;
+      }
+
+      .item-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+      }
+    }
+  
+  :root {
+    --internship-content-max: 1280px;
+    --internship-content-padding: 24px;
+  }
+
+  .page-container,
+  .content-wrapper,
+  .program-overview,
+  .benefits-section,
+  .curriculum-section,
+  .faq-section,
+  .cta-section {
+    width: 100%;
+    max-width: var(--internship-content-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--internship-content-padding);
+    padding-right: var(--internship-content-padding);
+    box-sizing: border-box;
+  }
+
+  .container,
+  .modal,
+  .header-inner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 575.98px) {
+    :root {
+      --internship-content-padding: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+ <div id="navbar-container"></div>
+
+  <!-- ===== MAIN CONTAINER ===== -->
+  <div class="container">
+
+    <!-- Close Button (White/Light) -->
+    <button class="close-icon" onclick="window.location.href='../index.html#categories'" title="Close">
+      <i class="fas fa-xmark"></i>
+    </button>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+      <div class="hero-pattern"></div>
+      <div class="hero-badge">
+        <i class="fas fa-circle"></i>
+        Internship Program
+      </div>
+      <h1><i class="fas fa-chart-pie"></i>Financial Analysis Internship</h1>
+      <p class="hero-subtitle">Master essential financial concepts in corporate finance, banking, investment analysis, and strategic financial decision-making.</p>
+    </div>
+
+    <!-- Content -->
+    <div class="content-area">
+
+      <!-- Overview -->
+      <div class="overview-card fade-in d1">
+        <div class="overview-label">
+          <i class="fas fa-info-circle"></i>
+          Program Overview
+        </div>
+        <p>Our Finance Internship is designed to give participants practical exposure to essential financial concepts used in corporate finance, banking, investment analysis, and financial decision-making. Interns will work with real-world financial data and develop analytical skills critical for the finance industry.</p>
+      </div>
+
+      <!-- What You Will Learn -->
+      <div class="section-title fade-in d2">
+        <div class="title-icon blue">
+          <i class="fas fa-book-open"></i>
+        </div>
+        What You Will Learn
+      </div>
+
+      <div class="learning-grid">
+
+        <div class="learning-item">
+          <div class="item-icon c1"><i class="fas fa-building-columns"></i></div>
+          <div class="item-text">Capital structure and cost of capital concepts including debt, equity, and WACC</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c2"><i class="fas fa-scale-balanced"></i></div>
+          <div class="item-text">Understanding financial leverage and financing decisions in businesses</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c3"><i class="fas fa-landmark"></i></div>
+          <div class="item-text">Basics of banking systems and modern digital banking operations</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c4"><i class="fas fa-coins"></i></div>
+          <div class="item-text">How commercial banks generate profits and manage financial risks</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c5"><i class="fas fa-file-invoice-dollar"></i></div>
+          <div class="item-text">Understanding financial statements — Income Statement, Balance Sheet, and Cash Flow Statement</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c6"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <div class="item-text">Financial ratio analysis to evaluate company performance and financial health</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c7"><i class="fas fa-triangle-exclamation"></i></div>
+          <div class="item-text">Identifying business risks and risk management techniques</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c8"><i class="fas fa-chart-line"></i></div>
+          <div class="item-text">Basics of portfolio management and risk–return trade-offs</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c9"><i class="fas fa-umbrella"></i></div>
+          <div class="item-text">Overview of insurance products and mutual fund categories</div>
+        </div>
+
+        <div class="learning-item">
+          <div class="item-icon c10"><i class="fas fa-calculator"></i></div>
+          <div class="item-text">Introduction to financial modeling and forecasting techniques</div>
+        </div>
+
+      </div>
+
+      <!-- Outcome -->
+      <div class="outcome-card fade-in d3">
+        <div class="outcome-header">
+          <div class="oc-icon"><i class="fas fa-trophy"></i></div>
+          <h3>Program Outcome</h3>
+        </div>
+        <p>By the end of the internship, participants will develop a foundational understanding of financial analysis, banking operations, and investment decision-making used in real-world business environments.</p>
+        <div class="outcome-skills">
+          <span class="skill-tag"><i class="fas fa-check"></i> Capital Structure</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Banking Ops</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Financial Statements</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Ratio Analysis</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Risk Management</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Portfolio Mgmt</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Mutual Funds</span>
+          <span class="skill-tag"><i class="fas fa-check"></i> Financial Modeling</span>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons fade-in d4">
+        <a href="../index.html" class="btn btn-back">
+          <i class="fas fa-arrow-left"></i>
+          Back to Home
+        </a>
+        <a href="https://stuportal.internboot.com/" class="btn btn-apply">
+          <i class="fas fa-rocket"></i>
+          Apply Now
+        </a>
+        <!-- <a href="#" class="btn btn-download">
+          <i class="fas fa-download"></i>
+          Brochure
+        </a> -->
+      </div>
+
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+
+  <script>
+    window.addEventListener('scroll', () => {
+      let current = "";
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      const navLinks = document.querySelectorAll(".nav-links li a");
+      navLinks.forEach((a) => {
+        a.style.color = "#2c3e50";
+        if (a.getAttribute("href").includes(current)) {
+          a.style.color = "#4a90e2";
+        }
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Image Fallback Handler -->
+    
+
+  <script defer src="js/image-fallback.js"></script>
+  <script defer src="js/components.js"></script>
+  <script defer src="js/script.js"></script>
+  <script defer src="js/ticker.js"></script>
+  <script defer src="../js/floating-button.js"></script>
+
+
+</body>
+</html>

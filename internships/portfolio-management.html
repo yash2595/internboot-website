@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Management Internship Program</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #e8eef8;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 36px 16px 60px;
+  }
+
+  /* ── MODAL SHELL ── */
+  .modal {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 880px;
+    overflow: hidden;
+    box-shadow: 0 12px 56px rgba(30, 64, 175, 0.14);
+    position: relative;
+  }
+
+  /* ── CLOSE ── */
+  .close-btn {
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 34px; height: 34px;
+    background: rgba(255,255,255,0.22);
+    border: none; border-radius: 8px;
+    color: #fff; font-size: 17px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; z-index: 10;
+    transition: background .2s;
+  }
+  .close-btn:hover { background: rgba(255,255,255,0.38); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a3a6e 0%, #2563eb 52%, #60a5fa 100%);
+    padding: 38px 40px 34px;
+    color: #fff;
+    position: relative;
+  }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.3px;
+    text-transform: uppercase; color: #fff;
+    margin-bottom: 20px;
+  }
+  .eyebrow-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%; background: #93c5fd;
+  }
+
+  .hero-title {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 14px;
+  }
+  .hero-icon {
+    width: 50px; height: 50px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0;
+  }
+  .hero-title h1 {
+    font-size: 2.15rem; font-weight: 800;
+    letter-spacing: -0.5px; line-height: 1.15;
+  }
+
+  .hero-desc {
+    font-size: 0.965rem;
+    color: rgba(255,255,255,0.88);
+    line-height: 1.65;
+    max-width: 600px;
+    margin-bottom: 24px;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.24);
+    border-radius: 20px;
+    padding: 6px 15px;
+    font-size: 0.81rem; font-weight: 600; color: #fff;
+  }
+
+  /* ── BODY ── */
+  .body { padding: 34px 40px 44px; }
+
+  /* progress bar accent at top of body */
+  .body-accent {
+    height: 3px;
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    border-radius: 2px;
+    margin-bottom: 30px;
+    width: 60px;
+  }
+
+  /* ── OVERVIEW CARD ── */
+  .overview-card {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 14px;
+    padding: 22px 24px 20px;
+    margin-bottom: 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 14px 14px 0 0;
+  }
+  .overview-label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 10.5px; font-weight: 800;
+    letter-spacing: 1.3px; text-transform: uppercase;
+    color: #2563eb; margin-bottom: 12px;
+  }
+  .overview-label .info-icon {
+    width: 18px; height: 18px;
+    background: #2563eb; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 11px; font-weight: 800; flex-shrink: 0;
+  }
+  .overview-card p {
+    font-size: 0.92rem; color: #374151; line-height: 1.72;
+  }
+
+  /* ── SECTION HEADING ── */
+  .section-heading {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 6px;
+  }
+  .section-heading-icon {
+    width: 42px; height: 42px;
+    background: #eff6ff;
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 21px; flex-shrink: 0;
+  }
+  .section-heading h2 {
+    font-size: 1.32rem; font-weight: 800; color: #111827;
+  }
+  .section-underline {
+    width: 46px; height: 3px;
+    background: linear-gradient(90deg, #2563eb, #60a5fa);
+    border-radius: 2px;
+    margin-bottom: 26px; margin-top: 6px;
+  }
+
+  /* ── LEARN GRID ── */
+  .learn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    margin-bottom: 38px;
+  }
+  .learn-card {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+    padding: 16px 18px;
+    transition: box-shadow .18s, border-color .18s;
+  }
+  .learn-card:hover {
+    box-shadow: 0 4px 18px rgba(37, 99, 235, 0.10);
+    border-color: #bfdbfe;
+  }
+  .learn-card-icon {
+    width: 44px; height: 44px; border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .learn-card p {
+    font-size: 0.875rem; font-weight: 600; color: #1f2937;
+    line-height: 1.45; padding-top: 10px;
+  }
+
+  /* icon bg colours */
+  .ic-navy   { background: #1e3a8a; }
+  .ic-sky    { background: #0284c7; }
+  .ic-amber  { background: #d97706; }
+  .ic-violet { background: #6d28d9; }
+  .ic-teal   { background: #0f766e; }
+  .ic-indigo { background: #4338ca; }
+  .ic-rose   { background: #be123c; }
+  .ic-green  { background: #15803d; }
+  .ic-orange { background: #c2410c; }
+  .ic-cyan   { background: #0891b2; }
+
+  /* ── OUTCOME SECTION ── */
+  .outcome-section {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 58%, #60a5fa 100%);
+    border-radius: 18px;
+    padding: 32px 30px;
+    color: #fff;
+    margin-bottom: 28px;
+  }
+  .outcome-label {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 1.18rem; font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .outcome-icon-wrap {
+    width: 42px; height: 42px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .outcome-section p {
+    font-size: 0.93rem;
+    color: rgba(255,255,255,0.91);
+    line-height: 1.72;
+  }
+
+  /* ── HIGHLIGHTS ROW ── */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .highlight-card {
+    background: #f8faff;
+    border: 1px solid #dbeafe;
+    border-radius: 13px;
+    padding: 20px 16px;
+    text-align: center;
+  }
+  .highlight-card .num {
+    font-size: 1.6rem; font-weight: 800; color: #2563eb;
+    line-height: 1.1; margin-bottom: 5px;
+  }
+  .highlight-card .lbl {
+    font-size: 0.79rem; color: #6b7280; font-weight: 500;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 620px) {
+    .hero { padding: 26px 22px 28px; }
+    .body { padding: 24px 20px 34px; }
+    .learn-grid { grid-template-columns: 1fr; }
+    .highlights { grid-template-columns: 1fr; }
+    .hero-title h1 { font-size: 1.55rem; }
+  }
+
+  :root {
+    --internship-content-max: 1280px;
+    --internship-content-padding: 24px;
+  }
+
+  .page-container,
+  .content-wrapper,
+  .program-overview,
+  .benefits-section,
+  .curriculum-section,
+  .faq-section,
+  .cta-section {
+    width: 100%;
+    max-width: var(--internship-content-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--internship-content-padding);
+    padding-right: var(--internship-content-padding);
+    box-sizing: border-box;
+  }
+
+  .container,
+  .modal,
+  .header-inner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 575.98px) {
+    :root {
+      --internship-content-padding: 16px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="modal">
+
+  <!-- HERO -->
+  <div class="hero">
+    <button class="close-btn">✕</button>
+
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      INTERNSHIP PROGRAM
+    </div>
+
+    <div class="hero-title">
+      <div class="hero-icon">📊</div>
+      <h1>Portfolio Management Internship</h1>
+    </div>
+
+    <p class="hero-desc">
+      Analyse investment portfolios, build asset allocation strategies, and extract meaningful
+      financial insights using industry tools, quantitative methods, and modern portfolio theory.
+    </p>
+
+    <div class="tags">
+      <span class="tag">📈 Asset Allocation</span>
+      <span class="tag">🔍 Risk Analysis</span>
+      <span class="tag">💹 Equity Research</span>
+      <span class="tag">📐 Quant Methods</span>
+      <span class="tag">🏦 Bloomberg / Excel</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+    <div class="body-accent"></div>
+
+    <!-- OVERVIEW -->
+    <div class="overview-card">
+      <div class="overview-label">
+        <span class="info-icon">i</span>
+        PROGRAM OVERVIEW
+      </div>
+      <p>
+        Our Portfolio Management Internship introduces participants to the techniques used to
+        construct, monitor, and optimise investment portfolios. You will learn how to evaluate
+        asset classes, measure risk-adjusted returns, and apply quantitative and fundamental
+        analysis to make data-driven investment decisions aligned with real-world client mandates.
+      </p>
+    </div>
+
+    <!-- WHAT YOU WILL LEARN -->
+    <div class="section-heading">
+      <div class="section-heading-icon">📚</div>
+      <h2>What You Will Learn</h2>
+    </div>
+    <div class="section-underline"></div>
+
+    <div class="learn-grid">
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-navy">🏗️</div>
+        <p>Fundamentals of portfolio management and the investment lifecycle</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-sky">📐</div>
+        <p>Modern Portfolio Theory (MPT), CAPM, and efficient frontier construction</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-amber">📊</div>
+        <p>Asset allocation strategies across equities, fixed income, and alternatives</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-violet">🔎</div>
+        <p>Fundamental and technical analysis for equity and bond selection</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-teal">⚖️</div>
+        <p>Risk measurement: VaR, standard deviation, beta, Sharpe &amp; Sortino ratios</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-indigo">🤖</div>
+        <p>Portfolio optimisation using Excel, Python (NumPy / Pandas / SciPy)</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-rose">🔄</div>
+        <p>Rebalancing techniques and tactical vs. strategic asset allocation</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-green">📉</div>
+        <p>Performance attribution and benchmarking against market indices</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-orange">🌍</div>
+        <p>ESG investing, alternative assets, and global macro considerations</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-card-icon ic-cyan">🚀</div>
+        <p>Building and presenting a complete model portfolio from brief to final pitch</p>
+      </div>
+
+    </div>
+
+    <!-- PROGRAM OUTCOME -->
+    <div class="outcome-section">
+      <div class="outcome-label">
+        <div class="outcome-icon-wrap">🏅</div>
+        Program Outcome
+      </div>
+      <p>
+        By the end of the internship, participants will gain foundational knowledge of portfolio
+        construction, risk management, and investment analysis tools used by asset managers and
+        wealth advisors. You will leave with a model portfolio project, hands-on experience in
+        quantitative analysis, and the practical skills needed to pursue a career in investment
+        management, wealth management, or financial advisory roles.
+      </p>
+    </div>
+
+    <!-- HIGHLIGHTS -->
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="num">8 Weeks</div>
+        <div class="lbl">Program Duration</div>
+      </div>
+      <div class="highlight-card">
+        <div class="num">10+</div>
+        <div class="lbl">Real-World Projects</div>
+      </div>
+      <div class="highlight-card">
+        <div class="num">Certificate</div>
+        <div class="lbl">Upon Completion</div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /modal -->
+</body>
+</html>

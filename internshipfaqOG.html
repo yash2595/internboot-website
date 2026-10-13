@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find answers to frequently asked questions about InternBoot internships, certification, training programs, and more.">
+  <meta name="keywords" content="InternBoot FAQ, internship questions, virtual internship help, InternBoot support">
+  <link rel="canonical" href="https://internboot.com/faq.html" />
+  <title>InternBoot FAQ - Frequently Asked Questions</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+    rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="img/logos/internboot-official-logo.jpeg" />
+  <link rel="apple-touch-icon" href="img/logos/internboot-official-logo.jpeg" />
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-8504842908769623" />
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504842908769623"
+    crossorigin="anonymous"
+  ></script>
+
+  <!-- Swiper CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/floating-button.css" />
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/navbar.css">
+
+  <style>
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #6c757d;
+      --accent-color: #c0392b;
+      --dark-color: #212529;
+      --light-bg: #f8f9fa;
+      --success-color: #10b981;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Hero Section */
+    .faq-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: -50px;
+    }
+
+    .faq-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero-content .highlight {
+      color: #ffd700;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto 1.25rem;
+      animation: fadeInUp 0.8s ease 0.2s backwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Stats Section */
+    .quick-stats {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .stat-item {
+      text-align: center;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .stat-item i {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .stat-item h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-color);
+      margin: 0;
+    }
+
+    .stat-item p {
+      color: var(--secondary-color);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Container */
+    .faq-container {
+      max-width: 1000px;
+      margin: 80px auto 50px;
+      background: transparent;
+      padding: 0 20px;
+    }
+
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .category-tab {
+      padding: 12px 30px;
+      background: #fff;
+      border: 2px solid transparent;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      color: var(--secondary-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .category-tab:hover,
+    .category-tab.active {
+      background: linear-gradient(135deg, var(--primary-color), #667eea);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+    }
+
+    /* FAQ Grid */
+    .faq-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    /* FAQ item */
+    .faq-item {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+      border-left: 4px solid transparent;
+      opacity: 0;
+      animation: fadeInItem 0.5s ease forwards;
+    }
+
+    @keyframes fadeInItem {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .faq-item:nth-child(1) { animation-delay: 0.1s; }
+    .faq-item:nth-child(2) { animation-delay: 0.2s; }
+    .faq-item:nth-child(3) { animation-delay: 0.3s; }
+    .faq-item:nth-child(4) { animation-delay: 0.4s; }
+    .faq-item:nth-child(5) { animation-delay: 0.5s; }
+    .faq-item:nth-child(6) { animation-delay: 0.6s; }
+    .faq-item:nth-child(7) { animation-delay: 0.7s; }
+    .faq-item:nth-child(8) { animation-delay: 0.8s; }
+    .faq-item:nth-child(9) { animation-delay: 0.9s; }
+    .faq-item:nth-child(10) { animation-delay: 1s; }
+    .faq-item:nth-child(11) { animation-delay: 1.1s; }
+    .faq-item:nth-child(12) { animation-delay: 1.2s; }
+    .faq-item:nth-child(13) { animation-delay: 1.3s; }
+    .faq-item:nth-child(14) { animation-delay: 1.4s; }
+    .faq-item:nth-child(15) { animation-delay: 1.5s; }
+    .faq-item:nth-child(16) { animation-delay: 1.6s; }
+
+    .faq-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-left-color: var(--primary-color);
+    }
+
+    .faq-item.active {
+      border-left-color: var(--primary-color);
+      box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+    }
+
+    .faq-question {
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      padding-right: 40px;
+      color: var(--dark-color);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .faq-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--primary-color), #667eea);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .faq-question:hover {
+      color: var(--primary-color);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--secondary-color);
+      padding-left: 47px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 600px;
+      padding-top: 15px;
+      padding-bottom: 5px;
+    }
+
+    .faq-answer b {
+      color: var(--primary-color);
+    }
+
+    .faq-answer br {
+      margin-bottom: 5px;
+    }
+
+    /* Toggle Icon */
+    .toggle-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(102, 126, 234, 0.1));
+      border-radius: 50%;
+      transition: var(--transition);
+    }
+
+    .faq-item.active .toggle-icon {
+      background: linear-gradient(135deg, var(--primary-color), #667eea);
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .toggle-icon i {
+      font-size: 1rem;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .faq-item.active .toggle-icon i {
+      color: #fff;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: linear-gradient(135deg, var(--primary-color), #667eea);
+      color: #fff;
+      padding: 50px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 60px;
+      box-shadow: 0 15px 40px rgba(13, 110, 253, 0.3);
+    }
+
+    .contact-cta h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .contact-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      opacity: 0.95;
+    }
+
+    .contact-cta .btn {
+      background: #fff;
+      color: var(--primary-color);
+      padding: 14px 40px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .contact-cta .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      background: #ffd700;
+      color: var(--dark-color);
+    }
+
+    /* Popular Questions Badge */
+    .popular-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-left: 10px;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .faq-question {
+        font-size: 1rem;
+        padding-right: 35px;
+      }
+
+      .faq-answer {
+        font-size: 0.95rem;
+        padding-left: 0;
+      }
+
+      .quick-stats {
+        padding: 20px;
+      }
+
+      .stat-item h3 {
+        font-size: 1.5rem;
+      }
+
+      .contact-cta {
+        padding: 30px 20px;
+      }
+
+      .contact-cta h2 {
+        font-size: 1.5rem;
+      }
+
+      .category-tabs {
+        gap: 10px;
+      }
+
+      .category-tab {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Hidden class for filtering */
+    .hidden {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div id="navbar-container"></div>
+
+  <!-- Hero Section -->
+  <section class="faq-hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Frequently Asked <span class="highlight">Questions</span></h1>
+        <p>Find quick answers to common questions about InternBoot internships, training programs, and certifications.</p>
+
+        <div class="quick-stats">
+          <div class="stat-item">
+            <i class="fas fa-question-circle"></i>
+            <h3>11+</h3>
+            <p>Common Questions</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-clock"></i>
+            <h3>24/7</h3>
+            <p>Support Available</p>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-users"></i>
+            <h3>10K+</h3>
+            <p>Happy Interns</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="faq-container">
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+      <div class="category-tab active" data-category="all">
+        <i class="fas fa-th-large"></i> All Questions
+      </div>
+      <div class="category-tab" data-category="general">
+        <i class="fas fa-info-circle"></i> General
+      </div>
+      <div class="category-tab" data-category="program">
+        <i class="fas fa-graduation-cap"></i> Program Details
+      </div>
+      <div class="category-tab" data-category="technical">
+        <i class="fas fa-cog"></i> Technical
+      </div>
+      <div class="category-tab" data-category="certificate">
+        <i class="fas fa-certificate"></i> Certificates
+      </div>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="faq-grid">
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <span class="faq-number">1</span>
+          <span>What is InternBoot?<span class="popular-badge">Popular</span></span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">InternBoot is a virtual internship platform that helps students and fresh graduates gain real-world industry experience through structured internship programs. It bridges the gap between classroom learning and corporate work environments through practical training and mentorship.</div>
+      </div>
+
+      <div class="faq-item" data-category="program">
+        <div class="faq-question">
+          <span class="faq-number">2</span>
+          <span>What is the internship structure?<span class="popular-badge">Popular</span></span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">The internship has two phases: <br>• <b>Phase 1:</b> 15 days of live training (Mon–Thu, 2 hours/day, Fri for doubt-clearing) <br>• <b>Phase 2:</b> Live project phase with deadlines, focusing on industry-oriented work</div>
+      </div>
+
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <span class="faq-number">3</span>
+          <span>Is InternBoot a remote or online internship program?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">Yes. InternBoot offers 100% virtual internships, allowing students from different locations to participate remotely in training sessions, projects, and mentorship. You can join from anywhere with a stable internet connection.</div>
+      </div>
+
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <span class="faq-number">4</span>
+          <span>Who can apply for InternBoot internships?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">InternBoot internships are suitable for: <br>• College students (all years) <br>• University students <br>• Fresh graduates <br>• Early career professionals <br>No prior experience is required for most programs.</div>
+      </div>
+
+      <div class="faq-item" data-category="program">
+        <div class="faq-question">
+          <span class="faq-number">5</span>
+          <span>What is the duration of InternBoot internship programs?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">InternBoot internship programs typically range from <b>45 days to 6 months</b>, depending on program structure and university requirements. You can choose the duration that best fits your schedule and academic needs.</div>
+      </div>
+
+      <div class="faq-item" data-category="technical">
+        <div class="faq-question">
+          <span class="faq-number">6</span>
+          <span>I couldn't submit the documentation form. What should I do?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">If the form is closed or you're experiencing technical difficulties, please email your issue to <b>info@internboot.com</b> with the subject line "Documentation Form Issue". Our support team will review your case and provide further instructions within 24-48 hours.</div>
+      </div>
+
+      <div class="faq-item" data-category="program">
+        <div class="faq-question">
+          <span class="faq-number">7</span>
+          <span>Can I change my internship domain or duration?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">Yes, change requests can be made via email to <b>info@internboot.com</b> before the program starts. Approval depends on seat availability and program guidelines. Please make requests as early as possible for better chances of accommodation.</div>
+      </div>
+
+      <div class="faq-item" data-category="technical">
+        <div class="faq-question">
+          <span class="faq-number">8</span>
+          <span>Will the sessions be recorded?<span class="popular-badge">Popular</span></span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">Yes, all training sessions are recorded and shared with interns. Recordings and learning materials will be accessible through our learning platform for those who miss live sessions or want to review the content.</div>
+      </div>
+
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <span class="faq-number">9</span>
+          <span>Is there any payment required to join the internship?<span class="popular-badge">Popular</span></span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">No. InternBoot internships are <b>completely free of cost</b>. There are no registration fees, training fees, or certificate charges. We believe in making quality internship opportunities accessible to everyone.</div>
+      </div>
+
+      <div class="faq-item" data-category="certificate">
+        <div class="faq-question">
+          <span class="faq-number">10</span>
+          <span>Do InternBoot interns receive a certificate?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">Yes. <b>Verified internship certificates</b> are provided after successful completion of the program. Certificates include a unique verification code and can be validated through our official verification page. They are recognized by universities and employers.</div>
+      </div>
+
+      <div class="faq-item" data-category="certificate">
+        <div class="faq-question">
+          <span class="faq-number">11</span>
+          <span>When will I receive my certificate?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">Certificates are issued after the successful completion of your internship and verification of all required tasks and activities.</div>
+      </div>
+
+      <div class="faq-item" data-category="certificate">
+        <div class="faq-question">
+          <span class="faq-number">12</span>
+          <span>Where can I download my certificate?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">You can download your certificate from the "Download Certificate" section available inside the Student Portal after logging in with your registered credentials.</div>
+      </div>
+
+      <div class="faq-item" data-category="certificate">
+        <div class="faq-question">
+          <span class="faq-number">13</span>
+          <span>How do I access the Download Certificate section?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">Log in to the Student Portal using your registered email ID and password. Once logged in, navigate to the "Download Certificate" section from the left-side menu.</div>
+      </div>
+
+      <div class="faq-item" data-category="certificate">
+        <div class="faq-question">
+          <span class="faq-number">14</span>
+          <span>Why is my certificate not available yet?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">If your certificate is not yet available, it may still be under review or awaiting approval from the trainer/admin. Please check again later or contact support for assistance.</div>
+      </div>
+
+      <div class="faq-item" data-category="certificate">
+        <div class="faq-question">
+          <span class="faq-number">15</span>
+          <span>Is there any fee for downloading the certificate?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">No. Eligible interns can download their certificates free of charge through the Student Portal.</div>
+      </div>
+
+      <div class="faq-item" data-category="program">
+        <div class="faq-question">
+          <span class="faq-number">16</span>
+          <span>What will be the structure of this Internship?</span>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="faq-answer">After receiving the Letter of Intent (LOI), interns get a pre-joining email containing: <br>• Link to InternBoot Discord channel for communication <br>• Orientation meeting link and schedule <br>• Detailed internship structure and guidelines <br>• Project details and deliverables <br>• Mentor assignment information</div>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-cta">
+      <h2><i class="fas fa-headset"></i> Still Have Questions?</h2>
+      <p>Can't find the answer you're looking for? Our support team is here to help!</p>
+      <a href="contact.html" class="btn">
+        <i class="fas fa-envelope"></i>
+        Contact Support
+      </a>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script>
+    // FAQ toggle script
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        // Close other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+        // Toggle current item
+        item.classList.toggle('active');
+      });
+    });
+
+    // Category filter
+    const categoryTabs = document.querySelectorAll('.category-tab');
+
+    function updateVisibleFaqNumbers() {
+      let visibleIndex = 1;
+
+      faqItems.forEach(item => {
+        const numberBadge = item.querySelector('.faq-number');
+
+        if (!item.classList.contains('hidden') && numberBadge) {
+          numberBadge.textContent = visibleIndex;
+          visibleIndex += 1;
+        }
+      });
+    }
+    
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Filter items
+        const category = tab.getAttribute('data-category');
+        faqItems.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        updateVisibleFaqNumbers();
+      });
+    });
+
+    updateVisibleFaqNumbers();
+
+    // Auto-expand first FAQ
+    if (faqItems.length > 0) {
+      faqItems[0].classList.add('active');
+    }
+  </script>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      let current = "";
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      const navLinks = document.querySelectorAll(".nav-links li a");
+      navLinks.forEach((a) => {
+        a.style.color = "#2c3e50";
+        if (a.getAttribute("href").includes(current)) {
+          a.style.color = "#4a90e2";
+        }
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Image Fallback Handler -->
+    
+
+  <script defer src="js/image-fallback.js"></script>
+  <script defer src="js/components.js"></script>
+  <script defer src="js/script.js"></script>
+  <script defer src="js/ticker.js"></script>
+  <script defer src="js/floating-button.js"></script>
+
+</body>
+</html>

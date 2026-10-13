@@ -1,0 +1,824 @@
+<!-- @format -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meet Our Team - Curve Style</title>
+    <link rel="icon" type="image/jpeg" href="img/logos/internboot-official-logo.jpeg" />
+    <link rel="apple-touch-icon" href="img/logos/internboot-official-logo.jpeg" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-8504842908769623" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8504842908769623"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google search console Site Verification -->
+    <meta
+      name="google-site-verification"
+      content="UPFW7DUzwVYPKXmqt7_lA4u2oHhIStW5bygxBwRDpl0"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/floating-button.css" />
+  <link rel="stylesheet" href="css/navbar.css">
+    <!-- Enhanced Stats CSS -->
+    <link rel="stylesheet" href="css/stats-enhanced.css" />
+    <!-- Partners Carousel CSS -->
+    <link rel="stylesheet" href="css/partners-carousel.css" />
+    <!-- Responsive Fixes CSS -->
+    <link rel="stylesheet" href="css/responsive-fixes.css" />
+
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #f8f9fa 0%, #eef5ff 100%);
+        color: #212529;
+        font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 110px 20px 0;
+        text-align: center;
+        min-height: 100vh;
+      }
+
+      #footer-container {
+        width: calc(100% + 40px);
+        margin: 48px -20px 0;
+        text-align: left;
+      }
+
+      .header-title {
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 800;
+        margin: 0 auto 48px;
+        color: #212529;
+        letter-spacing: 0;
+        line-height: 1.1;
+        position: relative;
+        display: inline-block;
+      }
+
+      .learners-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 34px;
+        max-width: 1200px;
+        margin: 0 auto 60px;
+      }
+
+      .member-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 18px;
+        padding: 24px 18px 22px;
+        box-shadow: 0 10px 28px rgba(13, 110, 253, 0.08);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .member-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: #0d6efd;
+      }
+
+      .member-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 36px rgba(13, 110, 253, 0.14);
+      }
+
+      .member-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid #ffffff;
+        object-fit: cover;
+        z-index: 2;
+        box-shadow: 0 10px 24px rgba(13, 110, 253, 0.18);
+        outline: 2px solid #e9ecef;
+      }
+
+      .info-curve-box {
+        background-color: transparent;
+        width: 100%;
+        padding: 18px 8px 0;
+        margin-top: 0 !important;
+        border-radius: 0;
+        border: 0;
+        z-index: 1;
+      }
+
+      .member-name {
+        font-size: 1.08rem;
+        font-weight: 800;
+        margin-bottom: 8px;
+        color: #212529;
+        line-height: 1.25;
+      }
+
+      .member-domain {
+        font-size: 0.92rem;
+        color: #0d6efd;
+        font-weight: 700;
+        line-height: 1.35;
+      }
+
+      .success-continuation {
+        max-width: 1120px;
+        margin: 0 auto 20px;
+        padding: 38px 30px;
+        background: rgba(255, 255, 255, 0.94);
+        border: 1px solid rgba(13, 110, 253, 0.12);
+        border-radius: 22px;
+        box-shadow: 0 16px 42px rgba(13, 110, 253, 0.09);
+      }
+
+      .success-continuation h2 {
+        margin: 0 0 12px;
+        color: #212529;
+        font-size: clamp(1.7rem, 3vw, 2.35rem);
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .success-continuation-copy {
+        max-width: 790px;
+        margin: 0 auto 28px;
+        color: #667085;
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .success-stats {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .success-stat {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 76px;
+        padding: 14px;
+        color: #1f2937;
+        font-size: 0.92rem;
+        font-weight: 700;
+        line-height: 1.35;
+        background: #f7faff;
+        border: 1px solid rgba(13, 110, 253, 0.11);
+        border-radius: 14px;
+      }
+
+      .success-stat i {
+        margin-right: 8px;
+        color: #0d6efd;
+      }
+
+      .success-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 16px;
+        color: #0d6efd;
+        font-size: 0.86rem;
+        font-weight: 700;
+        background: rgba(13, 110, 253, 0.08);
+        border: 1px solid rgba(13, 110, 253, 0.16);
+        border-radius: 999px;
+      }
+
+      .success-cta {
+        display: block;
+        width: fit-content;
+        margin: 20px auto 0;
+        padding: 11px 24px;
+        color: #ffffff;
+        font-weight: 700;
+        text-decoration: none;
+        background: #0d6efd;
+        border-radius: 999px;
+        box-shadow: 0 10px 24px rgba(13, 110, 253, 0.22);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .success-cta:hover {
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(13, 110, 253, 0.28);
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 600px) {
+        body {
+          padding: 96px 14px 0;
+        }
+        .header-title {
+          font-size: 2rem;
+          margin-bottom: 40px;
+        }
+        .member-img {
+          width: 100px;
+          height: 100px;
+        }
+        .info-curve-box {
+          width: 100%;
+          margin-top: 0 !important;
+        }
+        .success-continuation {
+          padding: 30px 18px;
+        }
+        .success-continuation-copy {
+          font-size: 0.94rem;
+        }
+      }
+
+
+
+/* Mobile view (Tablets and Phones) */
+@media (max-width: 768px) {
+  .learners-grid {
+    /* This creates the 2x2 layout */
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  .success-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Optional: Extra small screens (Standard vertical stack) */
+@media (max-width: 320px) {
+  .learners-grid {
+    grid-template-columns: 1fr;
+  }
+  .success-stats {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
+  </head>
+  <body>
+
+
+    <div id="navbar-container"></div>
+
+
+    <h1 class="header-title">Past Achievers</h1>
+
+    <div class="learners-grid" id="teamContainer"></div>
+
+    <section class="success-continuation" aria-labelledby="successContinuationTitle">
+      <h2 id="successContinuationTitle">1.5 Lakh+ Success Stories and Growing</h2>
+      <p class="success-continuation-copy">
+        Thousands of learners across India and around the world have launched their careers through InternBoot.
+        These achievers represent only a small glimpse of our growing community.
+      </p>
+
+      <div class="success-stats">
+        <div class="success-stat"><i class="fas fa-check-circle" aria-hidden="true"></i>1.5 Lakh+ Learners Trained</div>
+        <div class="success-stat"><i class="fas fa-check-circle" aria-hidden="true"></i>69 Countries Reached</div>
+        <div class="success-stat"><i class="fas fa-check-circle" aria-hidden="true"></i>650+ Corporate Partners</div>
+        <div class="success-stat"><i class="fas fa-check-circle" aria-hidden="true"></i>40+ Job Fairs Conducted</div>
+      </div>
+
+      <div class="success-pill">Many More Success Stories Ahead</div>
+      <a class="success-cta" href="internship.html">Start Your Journey</a>
+    </section>
+
+
+
+            <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            // Get the slider track element
+            const sliderTrack = document.querySelector(".smooth-slider-track");
+            const sliderContainer = document.querySelector(
+              ".smooth-slider-container"
+            );
+
+            // Calculate the width of prepended slides (4 slides * 370px each)
+            const prependedSlidesWidth = 4 * 370; // 4 prepended slides
+
+            // Set initial position to show the original slides (after the prepended ones)
+            let position = -prependedSlidesWidth;
+
+            // Width of a single slide (340px + 30px margin)
+            const slideWidth = 370;
+
+            // Number of original slides (not counting duplicates)
+            const slideCount = 4;
+
+            // Total number of slides including duplicates
+            const totalSlides = 14; // 4 prepended + 4 original + 6 appended
+
+            // Animation speed (pixels per frame)
+            let speed = 0.5; // Match the first carousel speed
+
+            // Adjust speed and visible slides based on screen width
+            function updateSpeed() {
+              const windowWidth = window.innerWidth;
+              if (windowWidth < 768) {
+                // Slower on mobile
+                speed = 0.3;
+              } else if (windowWidth < 1200) {
+                // Medium speed on tablets
+                speed = 0.4;
+              } else {
+                // Default speed on desktops
+                speed = 0.5;
+              }
+            }
+
+            // Set initial speed
+            updateSpeed();
+
+            // Last timestamp for animation
+            let lastTimestamp = 0;
+
+            // Function to animate the slider
+            function animateSlider(timestamp) {
+              // Calculate time difference for smooth animation regardless of frame rate
+              if (!lastTimestamp) lastTimestamp = timestamp;
+              const elapsed = timestamp - lastTimestamp;
+              lastTimestamp = timestamp;
+
+              // Move the slider smoothly (adjust speed based on elapsed time)
+              position -= speed * (elapsed / 16); // Normalize to ~60fps
+
+              // If we've moved a full set of slides, reset to maintain the illusion of infinite scrolling
+              if (
+                position <= -(prependedSlidesWidth + slideWidth * slideCount)
+              ) {
+                // Calculate exact offset to make the jump invisible
+                const offset =
+                  position + prependedSlidesWidth + slideWidth * slideCount;
+                // Reset to the position of the prepended slides plus the offset
+                position = -prependedSlidesWidth + offset;
+
+                // Disable transition, make the jump, then re-enable
+                requestAnimationFrame(() => {
+                  sliderTrack.style.transition = "none";
+                  sliderTrack.style.transform = `translate3d(${position}px, 0, 0)`;
+
+                  // Force reflow to make the transition removal take effect
+                  sliderTrack.offsetHeight;
+
+                  // Re-enable transitions on the next frame
+                  requestAnimationFrame(() => {
+                    sliderTrack.style.transition =
+                      "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
+                  });
+                });
+              }
+
+              // If we've scrolled backward into the prepended slides
+              if (position > -prependedSlidesWidth) {
+                // Calculate exact offset to make the jump invisible
+                const offset = position + prependedSlidesWidth;
+                // Reset to the end of the original slides plus the offset
+                position =
+                  -(prependedSlidesWidth + slideWidth * (slideCount - 1)) +
+                  offset;
+
+                // Disable transition, make the jump, then re-enable
+                requestAnimationFrame(() => {
+                  sliderTrack.style.transition = "none";
+                  sliderTrack.style.transform = `translate3d(${position}px, 0, 0)`;
+
+                  // Force reflow
+                  sliderTrack.offsetHeight;
+
+                  // Re-enable transitions on the next frame
+                  requestAnimationFrame(() => {
+                    sliderTrack.style.transition =
+                      "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
+                  });
+                });
+              }
+
+              // Apply the transform with hardware acceleration for smoother animation
+              sliderTrack.style.transform = `translate3d(${position}px, 0, 0)`;
+              sliderTrack.style.willChange = "transform";
+
+              // Request the next animation frame
+              requestAnimationFrame(animateSlider);
+            }
+
+            // Pause animation on hover
+            document
+              .querySelector(".carousel-container")
+              .addEventListener("mouseenter", function () {
+                speed = 0; // Stop the animation
+              });
+
+            // Resume animation on mouse leave
+            document
+              .querySelector(".carousel-container")
+              .addEventListener("mouseleave", function () {
+                // Resume with the appropriate speed for the current screen size
+                updateSpeed();
+              });
+
+            // Handle window resize to ensure smooth animation continues
+            window.addEventListener("resize", function () {
+              // Update animation speed based on new screen size
+              updateSpeed();
+
+              // Reset position on resize to prevent visual glitches
+              // Reset to the position of the prepended slides
+              position = -prependedSlidesWidth;
+              sliderTrack.style.transition = "none";
+              sliderTrack.style.transform = `translate3d(${position}px, 0, 0)`;
+
+              // Force reflow
+              sliderTrack.offsetHeight;
+
+              // Re-enable transitions
+              sliderTrack.style.transition =
+                "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)";
+            });
+
+            // Start the animation
+            requestAnimationFrame(animateSlider);
+          });
+        </script>
+      </div>
+    </section>
+
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- Image Fallback Handler -->
+    <script src="js/image-fallback.js"></script>
+    <!-- Components JS -->
+    <script src="js/components.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+    <script src="js/ticker.js"></script>
+    <script src="js/floating-button.js"></script>
+
+    <script>
+      const container = document.getElementById("teamContainer");
+
+      // sample data
+      const sampleData = [
+        {
+          name: "Laiba Iqbal",
+          domain: "Web Development",
+          img: "images/Laiba Iqbal Rajpar.jpg",
+        },
+        {
+          name: "Farman Ali",
+          domain: "Data Analyst",
+          img: "images/Farman Ali.jpeg",
+        },
+        {
+          name: "Prachi Yadav",
+          domain: "Human Resource",
+          img: "images/Prachi yadav.jpg",   
+        },
+        {
+          name: "Rahila Khalid",
+          domain: "Data Analyst",
+          img: "images/Rahila Khalid.jpg",
+        },
+        {
+          name: "Jaya Shree",
+          domain: "Data Analyst",
+          img: "images/Jaya Shree.jpg",
+        },
+        {
+          name: "Fahad Shakil",
+          domain: "Digital Marketing",
+          img: "images/FAHAD SHAKIL.jpg",
+        },
+        {
+          name: "Yash Verma",
+          domain: "Business Development",
+          img: "images/Yash Verma.jpg",
+        },
+        {
+          name: "Yakub Yahye",
+          domain: "Sales and Marketing",
+          img: "images/Yakub.jpeg",
+        },
+        {
+          name: "Joseph Pamela",
+          domain: "Data Analyst",
+          img: "images/joseph pamela.jpeg",
+        },
+        {
+          name: "Jaykant Kumar",
+          domain: "Software Development",
+          img: "images/Jaykant Kumar.jpg",
+        },
+        {
+          name: "Victoria Ashley",
+          domain: "Financial Analyst",
+          img: "images/Victoria.jpg",
+        },
+        {
+          name: "Onuchukwu",
+          domain: "Web Development",
+          img: "images/onuchukwu mercy.jpeg",
+        },
+        {
+          name: "Onose bona",
+          domain: "Portfolio",
+          img: "images/Onose bona.jpeg",
+        },
+        {
+          name: "Shalini Singh",
+          domain: "Web Development",
+          img: "images/Shalini Singh.jpg",
+        },
+        {
+          name: "Nweke Isaiah",
+          domain: "Business Development",
+          img: "images/Nweke Isaiah.jpg",
+        },
+        {
+          name: "Etim Peace",
+          domain: "Human Resource",
+          img: "images/Etim Peace.jpg",
+        },
+        {
+          name: "Olaoye Victoria",
+          domain: "Digital Marketing",
+          img: "images/Olaoye Victoria.jpeg",
+        },
+        {
+          name: "Healy Ogutu",
+          domain: "Data Analyst",
+          img: "images/Healy Ogutu.jpg",
+        },
+        {
+          name: "Hamidat Bawan",
+          domain: "Financial Analyst",
+          img: "images/Hamidat Bawan-Allah.jpg",
+        },
+        {
+          name: "Franklin ",
+          domain: "Web Development",
+          img: "images/Franklin Matthew.jpg",
+        },
+        {
+          name: "Fidelis Laxon",
+          domain: "Human Resource",
+          img: "images/Fidelis Laxon Thom.jpg",
+        },
+        {
+          name: "Erena Ebinda",
+          domain: "Business Development",
+          img: "images/erena ebinda.jpg",
+        },
+        {
+          name: "Stanley Uche",
+          domain: "Business Development",
+          img: "images/Stanley Uche.jpg",
+        },
+        {
+          name: "Chima ",
+          domain: "Human Resource",
+          img: "images/Chima Lgochituru Ehoro.jpg",
+        },
+        {
+          name: "Shashank ",
+          domain: "Cyber Security",
+          img: "images/Shashank Kesavamatham.jpeg",
+        },
+        {
+          name: "Keerthana",
+          domain: "Web Development",
+          img: "images/Keerthana B.jpg",
+        },
+        {
+          name: "Ankit Kumar",
+          domain: "Web Development",
+          img: "images/Ankit Kumar.jpg",
+        },
+        {
+          name: "Jinal Solanki",
+          domain: "Data Analyst",
+          img: "images/JINAL SOLANKI(1).jpeg",
+        },
+        {
+          name: "Aditya Kumar",
+          domain: "Cyber Security",
+          img: "images/Aditya Kumar.jpeg",
+        },
+        {
+          name: "Anifat Adeshina",
+          domain: "Data Analyst",
+          img: "images/Anifat Adeshina.png",
+        },
+        {
+          name: "Srinandhinee M",
+          domain: "Web Development",
+          img: "images/Srinandhinee M.jpg",
+        },
+        {
+          name: "Godfred Mensah",
+          domain: "Software Development",
+          img: "images/Godfred Mensah.jpg",
+        },
+        {
+          name: "Solomon",
+          domain: "Software Development",
+          img: "images/Solomon Adeyera.jpeg",
+        },
+        {
+          name: "Ekemini",
+          domain: "Web Development",
+          img: "images/Ekemini Emmanuel.jpg",
+        },
+         {
+          name: "Chiamaka",
+          domain: "Human Resource",
+          img: "images/Chiamaka blessing.jpg",
+        },
+         {
+          name: "Precious Zakari",
+          domain: "Digital Marketting",
+          img: "images/precious.jpeg",
+        },
+         {
+          name: "Saman Ijaz",
+          domain: "Web Development",
+          img: "images/Saman Ijaz.jpg",
+        },
+         {
+          name: "Prince Umrao",
+          domain: "Data Analyst",
+          img: "images/Prince Umrao.png",
+        },
+         {
+          name: "Odupitan",
+          domain: "Human Resource",
+          img: "images/odupitan ifeoluwa.jpg",
+        },
+         {
+          name: "Abhinaya ",
+          domain: "Data Analyst",
+          img: "images/Abinaya Murugan.jpg",
+        },
+         {
+          name: "Aquila Wonder",
+          domain: "Cyber Security",
+          img: "images/Aquila Wonder.jpeg",
+        },
+         {
+          name: "Akshara Meenu",
+          domain: "Data Science",
+          img: "images/Akshara Meenu R.jpg",
+        },
+        {
+          name: "Brandon M",
+          domain: "Data Science",
+          img: "images/Brandon M.png",
+        },
+         {
+          name: "Light Chinwendu",
+          domain: "Business Development",
+          img: "images/Light Chinwendu.PNG",
+        },
+         {
+          name: "Gunapriya R ",
+          domain: "Web Development",
+          img: "images/Gunapriya.jpg",
+        },
+         {
+          name: "Sign Banda",
+          domain: "Web Development",
+          img: "images/SIGN BANDA.jpg",
+        },
+         {
+          name: "Kanishka Rathi",
+          domain: "Human Resource",
+          img: "images/Kanishk.jpg",
+        },
+         {
+          name: "Chinonyerem",
+          domain: "Software Development",
+          img: "images/Chinonyerem Vincent.JPG",
+        },
+         {
+          name: "Chika ",
+          domain: "Cyber Security",
+          img: "images/Chika Triumphant.jpeg",
+        },
+         {
+          name: "Ndulu Matondo",
+          domain: "Digital Marketing",
+          img: "images/NDULU MATONDO.jpg",
+        },
+        {
+          name: "Alice Udoh",
+          domain: "Web Development",
+          img: "images/Alice Udoh.jpg",
+        },
+        {
+          name: "Ujah Rita",
+          domain: "Cyber Security",
+          img: "images/UJAH RITA.jpg",
+        },
+        {
+          name: "Nafisat Kadir",
+          domain: "Human Resource",
+          img: "images/Nafisat Kadir.jpg",
+        },
+        {
+          name: "Sumit Kumar",
+          domain: "Web Development",
+          img: "images/Sumit Kumar.jpg",
+        },
+        {
+          name: "Benita",
+          domain: "Human Resource",
+          img: "images/Benita Benita.jpg",
+        },
+        {
+          name: "Deborah",
+          domain: "Human Resource",
+          img: "images/Deborah Ogundele.jpeg",
+        },
+        {
+          name: "Hippolyte",
+          domain: "Data Analyst",
+          img: "images/Hippolyte Lohaka.jpeg",
+        },
+        {
+          name: "Apara Idowu",
+          domain: "Data Analyst",
+          img: "images/APARA IDOWU BLESSING.jpeg",
+        },
+        {
+          name: "Maxwell Ekuma",
+          domain: "Software Development",
+          img: "images/Maxwell Ekuma.JPG",
+        },
+        {
+          name: "Eze Vivian",
+          domain: "Sales and Marketing",
+          img: "images/Eze Vivian.jpg",
+        },
+
+      ];
+
+      for (let i = 0; i < 60; i++) {
+        const person = sampleData[i] || {
+          name: `Learner ${i + 1}`,
+          domain: "Software Engineer",
+          img: "images/default.jpg",
+        };
+
+        const cardHTML = `
+        <div class="member-card">
+            <img src="${person.img}" alt="${person.name}" class="member-img">
+            <div class="info-curve-box" style="margin-top: -45px;">
+                <div class="member-name">${person.name}</div>
+                <div class="member-domain">${person.domain}</div>
+            </div>
+        </div>
+    `;
+
+        container.innerHTML += cardHTML;
+      }
+    </script>
+  </body>
+</html>

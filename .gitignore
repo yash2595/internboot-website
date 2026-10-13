@@ -1,0 +1,17 @@
+# WordPress & Blog system (1GB+, contains server credentials)
+blogs/
+wp-config.php
+
+# Server & Hosting specific backup/diagnostic files
+.private/
+hostinger-info.php
+DO_NOT_UPLOAD_HERE
+css.6953/
+js.264/
+
+# Operating System & Temporary Files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp

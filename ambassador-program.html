@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternBoot | Campus Ambassador Program</title>
+  <meta
+    name="description"
+    content="Represent InternBoot on your campus, refer students, and earn milestone-based rewards through the Campus Ambassador Program."
+  />
+  <link rel="icon" type="image/jpeg" href="img/logos/internboot-official-logo.jpeg" />
+  <link rel="apple-touch-icon" href="img/logos/internboot-official-logo.jpeg" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/floating-button.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <style>
+    :root {
+      --ib-primary: #0d6efd;
+      --ib-primary-deep: #0757c8;
+      --ib-primary-soft: #eaf3ff;
+      --ib-accent: #667eea;
+      --ib-bg: #f8fafc;
+      --ib-section: #eef5ff;
+      --ib-text: #0f172a;
+      --ib-muted: #64748b;
+      --ib-border: #dbeafe;
+      --ib-card: #ffffff;
+      --ib-shadow: 0 18px 42px rgba(13, 110, 253, 0.08);
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--ib-bg) 0%, var(--ib-section) 100%);
+      color: var(--ib-text);
+      font-family: "Inter", sans-serif;
+    }
+
+    .ambassador-hero {
+      position: relative;
+      padding: 48px 1rem 5rem;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(13, 110, 253, 0.18), transparent 30%),
+        radial-gradient(circle at 88% 0%, rgba(102, 126, 234, 0.18), transparent 32%),
+        linear-gradient(135deg, #ffffff 0%, #f1f7ff 100%);
+      border-bottom: 1px solid var(--ib-border);
+    }
+
+    .ambassador-hero .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.95rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--ib-border);
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--ib-primary);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .ambassador-hero h1 {
+      max-width: 920px;
+      margin: 0 auto 1rem;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-size: clamp(2.3rem, 5vw, 4.35rem);
+      font-weight: 800;
+      line-height: 1.06;
+      color: var(--ib-text);
+    }
+
+    .ambassador-hero h1 span {
+      color: var(--ib-primary);
+    }
+
+    .ambassador-hero .lead {
+      max-width: 760px;
+      margin: 0 auto 1.8rem;
+      color: var(--ib-muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.75;
+      font-weight: 500;
+    }
+
+    .hero-actions,
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.85rem;
+    }
+
+    .ib-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      min-height: 46px;
+      border-radius: 999px;
+      padding: 0.78rem 1.18rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .ib-btn.primary {
+      background: var(--ib-primary);
+      color: #ffffff;
+      box-shadow: 0 12px 28px rgba(13, 110, 253, 0.24);
+    }
+
+    .ib-btn.secondary {
+      background: #ffffff;
+      color: var(--ib-primary);
+      border: 1px solid var(--ib-border);
+    }
+
+    .ib-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(13, 110, 253, 0.2);
+    }
+
+    .ib-btn.primary:hover {
+      color: #ffffff;
+      background: var(--ib-primary-deep);
+    }
+
+    .ambassador-wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 3.5rem 0 4.5rem;
+    }
+
+    .section-card {
+      position: relative;
+      background: var(--ib-card);
+      border: 1px solid var(--ib-border);
+      border-radius: 18px;
+      box-shadow: var(--ib-shadow);
+      padding: 1.55rem;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--ib-primary), var(--ib-accent));
+    }
+
+    .section-card + .section-card,
+    .section-block + .section-block {
+      margin-top: 1.25rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--ib-primary), var(--ib-accent));
+      color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .section-card h2,
+    .section-block h2 {
+      margin: 0;
+      color: var(--ib-text);
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .section-card p,
+    .section-card li,
+    .info-card p,
+    .step-card p {
+      color: var(--ib-muted);
+      line-height: 1.75;
+    }
+
+    .section-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .section-card li + li {
+      margin-top: 0.5rem;
+    }
+
+    .info-grid,
+    .steps-grid,
+    .receive-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .receive-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .info-card,
+    .step-card,
+    .receive-card {
+      height: 100%;
+      background: #ffffff;
+      border: 1px solid var(--ib-border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      box-shadow: 0 12px 30px rgba(13, 110, 253, 0.06);
+    }
+
+    .info-card i,
+    .step-card i,
+    .receive-card i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 0.85rem;
+      border-radius: 50%;
+      background: var(--ib-primary-soft);
+      color: var(--ib-primary);
+      font-size: 1.15rem;
+    }
+
+    .info-card h3,
+    .step-card h3,
+    .receive-card h3 {
+      margin: 0 0 0.45rem;
+      color: var(--ib-text);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .step-card .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 0.75rem;
+      border-radius: 50%;
+      background: var(--ib-primary);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .reward-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .reward-panel {
+      background: #ffffff;
+      border: 1px solid var(--ib-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(13, 110, 253, 0.06);
+    }
+
+    .reward-panel h3 {
+      margin: 0;
+      padding: 1rem 1.15rem;
+      background: var(--ib-primary-soft);
+      color: var(--ib-text);
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .reward-table {
+      overflow-x: auto;
+    }
+
+    .reward-table table {
+      margin: 0;
+      min-width: 500px;
+    }
+
+    .reward-table th {
+      color: var(--ib-text);
+      font-weight: 800;
+      border-color: var(--ib-border);
+    }
+
+    .reward-table td {
+      color: var(--ib-muted);
+      border-color: var(--ib-border);
+      vertical-align: middle;
+    }
+
+    .reward-note {
+      margin: 1rem 0 0;
+      padding: 1rem 1.1rem;
+      border-radius: 14px;
+      background: var(--ib-primary-soft);
+      color: var(--ib-muted);
+      line-height: 1.7;
+    }
+
+    .responsibility-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .responsibility-list li {
+      position: relative;
+      padding: 0.9rem 1rem 0.9rem 2.55rem;
+      border: 1px solid var(--ib-border);
+      border-radius: 14px;
+      background: #ffffff;
+      color: var(--ib-muted);
+    }
+
+    .responsibility-list li::before {
+      content: "\F26E";
+      position: absolute;
+      left: 1rem;
+      top: 0.95rem;
+      font-family: "bootstrap-icons";
+      color: var(--ib-primary);
+      font-weight: 700;
+    }
+
+    .cta-section {
+      margin-top: 1.35rem;
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, var(--ib-primary), var(--ib-accent));
+      color: #ffffff;
+      box-shadow: 0 18px 42px rgba(13, 110, 253, 0.18);
+    }
+
+    .cta-section h2 {
+      margin: 0 0 0.6rem;
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      font-weight: 800;
+    }
+
+    .cta-section p {
+      max-width: 720px;
+      margin: 0 auto 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+    }
+
+    .cta-section .ib-btn.secondary {
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+
+    @media (max-width: 991.98px) {
+      .ambassador-hero {
+        padding: 42px 1rem 4rem;
+      }
+
+      .steps-grid,
+      .receive-grid,
+      .reward-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .ambassador-wrap {
+        width: min(100% - 24px, 1120px);
+        padding: 2.5rem 0 3.5rem;
+      }
+
+      .info-grid,
+      .steps-grid,
+      .receive-grid,
+      .reward-grid,
+      .responsibility-list {
+        grid-template-columns: 1fr;
+      }
+
+      .section-card {
+        padding: 1.25rem;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+
+      .ib-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .ambassador-hero {
+        padding-top: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <header class="ambassador-hero">
+    <div class="eyebrow">
+      <i class="bi bi-megaphone-fill"></i>
+      InternBoot Ambassador Programme
+    </div>
+    <h1>Campus <span>Ambassador</span> Program</h1>
+    <p class="lead">Represent InternBoot on your campus, refer students, and earn milestone-based rewards.</p>
+    <div class="hero-actions">
+      <a class="ib-btn primary" href="https://docs.google.com/forms/d/1fRJgdQ_51iZwaGNiezg06HihyN6mYO2biHnnCOdhHYs/edit?ts=6a33e233">
+        <i class="bi bi-send-fill"></i>
+        Apply Now
+      </a>
+      <a class="ib-btn secondary" href="#reward-structure">
+        <i class="bi bi-table"></i>
+        View Rewards
+      </a>
+    </div>
+  </header>
+
+  <main class="ambassador-wrap">
+    <section class="section-card" id="overview">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-info-lg"></i></span>
+        <h2>What Is the Campus Ambassador Program?</h2>
+      </div>
+      <p>
+        The InternBoot Campus Ambassador Program invites currently enrolled college and university students to represent
+        InternBoot on their campuses and help fellow students discover and enroll in InternBoot's internship offerings.
+        In return for driving verified intern registrations, Ambassadors are recognized with official program
+        merchandise and become eligible for milestone-based monetary rewards.
+      </p>
+      <p class="mb-0">
+        The Program runs on a transparent, performance-based slab structure, with separate reward tiers for Ambassadors
+        who refer Indian candidates and those who refer foreign or international candidates.
+      </p>
+    </section>
+
+    <section class="section-card" id="eligibility">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-person-check-fill"></i></span>
+        <h2>Who Can Become an Ambassador?</h2>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <i class="bi bi-mortarboard-fill"></i>
+          <h3>Eligibility</h3>
+          <p class="mb-0">Open only to individuals currently enrolled in a recognised college or university.</p>
+        </article>
+        <article class="info-card">
+          <i class="bi bi-shield-check"></i>
+          <h3>Verification</h3>
+          <p class="mb-0">Proof of college enrolment may be requested at any stage for verification purposes.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="how-it-works">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-diagram-3-fill"></i></span>
+        <h2>How the Program Works</h2>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">1</span>
+          <i class="bi bi-share-fill"></i>
+          <h3>Promote &amp; Refer</h3>
+          <p class="mb-0">Ambassadors promote InternBoot's internship programs to their peer network and refer candidates for registration.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">2</span>
+          <i class="bi bi-person-workspace"></i>
+          <h3>Onboarding</h3>
+          <p class="mb-0">A referral counts once the candidate has successfully registered, completed onboarding, and participated in the internship program.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">3</span>
+          <i class="bi bi-patch-check-fill"></i>
+          <h3>Verification</h3>
+          <p class="mb-0">InternBoot requires up to 10 business days to verify submitted candidate data after certificates are issued.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">4</span>
+          <i class="bi bi-wallet2"></i>
+          <h3>Reward Payout</h3>
+          <p class="mb-0">Once verification is complete, the Ambassador receives the reward tied to the achieved slab.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="reward-structure">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-trophy-fill"></i></span>
+        <h2>Reward Structure</h2>
+      </div>
+      <p>
+        Rewards scale with the number of verified intern registrations an Ambassador delivers, and the slab thresholds
+        and payouts differ depending on whether the referred candidates are Indian or foreign nationals.
+      </p>
+      <div class="reward-grid">
+        <article class="reward-panel">
+          <h3>Indian Candidates</h3>
+          <div class="reward-table">
+            <table class="table table-bordered align-middle">
+              <thead>
+                <tr>
+                  <th>Slab</th>
+                  <th>Registration &amp; Onboarding Target</th>
+                  <th>Reward Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Slab 1</td>
+                  <td>500+ verified intern registrations &amp; onboarding</td>
+                  <td>USD $100 / INR Equivalent</td>
+                </tr>
+                <tr>
+                  <td>Slab 2</td>
+                  <td>1,000 verified intern registrations &amp; onboarding</td>
+                  <td>USD $300 / INR Equivalent</td>
+                </tr>
+                <tr>
+                  <td>Slab 3</td>
+                  <td>1,500 verified intern registrations &amp; onboarding</td>
+                  <td>USD $500 / INR Equivalent</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+        <article class="reward-panel">
+          <h3>Foreign Candidates</h3>
+          <div class="reward-table">
+            <table class="table table-bordered align-middle">
+              <thead>
+                <tr>
+                  <th>Slab</th>
+                  <th>Registration &amp; Onboarding Target</th>
+                  <th>Reward Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Slab 1</td>
+                  <td>500+ verified intern registrations &amp; onboarding</td>
+                  <td>USD $250 / INR Equivalent</td>
+                </tr>
+                <tr>
+                  <td>Slab 2</td>
+                  <td>1,000 verified intern registrations &amp; onboarding</td>
+                  <td>USD $450 / INR Equivalent</td>
+                </tr>
+                <tr>
+                  <td>Slab 3</td>
+                  <td>2,500 verified intern registrations &amp; onboarding</td>
+                  <td>USD $1,500 / INR Equivalent</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+      <p class="reward-note">
+        Foreign-candidate referrals carry higher payouts at every slab, and the top slab requires 2,500 verified
+        registrations versus 1,500 for Indian candidates.
+      </p>
+    </section>
+
+    <section class="section-card" id="ambassadors-receive">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-gift-fill"></i></span>
+        <h2>What Ambassadors Receive</h2>
+      </div>
+      <div class="receive-grid">
+        <article class="receive-card">
+          <i class="bi bi-award-fill"></i>
+          <h3>Official Campus Ambassador Badge</h3>
+        </article>
+        <article class="receive-card">
+          <i class="bi bi-bag-heart-fill"></i>
+          <h3>Branded Program T-Shirt</h3>
+        </article>
+        <article class="receive-card">
+          <i class="bi bi-file-earmark-medical-fill"></i>
+          <h3>Certificate of Participation</h3>
+        </article>
+        <article class="receive-card">
+          <i class="bi bi-cash-stack"></i>
+          <h3>Monetary Rewards after verification</h3>
+        </article>
+        <article class="receive-card">
+          <i class="bi bi-camera-video-fill"></i>
+          <h3>Training/onboarding access</h3>
+        </article>
+      </div>
+      <p class="reward-note">
+        Monetary rewards are released only after internship completion by registered candidates, certificate issuance,
+        successful document verification, and completion of the 10-business-day verification window.
+      </p>
+    </section>
+
+    <section class="section-card" id="responsibilities">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-clipboard-check-fill"></i></span>
+        <h2>Ambassador Responsibilities</h2>
+      </div>
+      <ul class="responsibility-list">
+        <li>Submit accurate, authentic data for every referred candidate in the approved format.</li>
+        <li>Maintain discipline, professionalism, and integrity while representing InternBoot.</li>
+        <li>Monitor attendance and support retention of interns referred under their batch.</li>
+        <li>Avoid misinformation, fraud, or inappropriate conduct during promotion or data submission.</li>
+        <li>Falsified, manipulated, or duplicated data results in immediate disqualification and forfeiture of rewards.</li>
+      </ul>
+    </section>
+
+    <section class="section-card" id="payment-terms">
+      <div class="section-heading">
+        <span class="section-icon"><i class="bi bi-bank2"></i></span>
+        <h2>Payment &amp; Program Terms</h2>
+      </div>
+      <ul>
+        <li>Payments are transferred only to the bank details provided by the Ambassador after verification is complete.</li>
+        <li>InternBoot is not responsible for delays caused by inaccurate or incomplete banking information.</li>
+        <li>InternBoot reserves the right to modify, suspend, or terminate the Program at any time.</li>
+        <li>Participants will be notified of any major policy updates affecting eligibility or rewards.</li>
+      </ul>
+    </section>
+
+    <section class="cta-section" id="apply">
+      <h2>Ready to Represent InternBoot?</h2>
+      <p>
+        Start with the overview, review the terms that apply to your candidate referrals, and connect with the team to
+        begin your Campus Ambassador journey.
+      </p>
+      <div class="cta-actions">
+        <a class="ib-btn secondary" href="https://docs.google.com/forms/d/1fRJgdQ_51iZwaGNiezg06HihyN6mYO2biHnnCOdhHYs/edit?ts=6a33e233">
+          <i class="bi bi-send-fill"></i>
+          Apply Now
+        </a>
+        <a class="ib-btn secondary" href="ambassador-terms.html">Indian Terms</a>
+        <a class="ib-btn secondary" href="ambassador-terms-foreign.html">Foreign Terms</a>
+        <a class="ib-btn secondary" href="ambassabodorfaq.html">Read FAQ</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="js/image-fallback.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/floating-button.js"></script>
+</body>
+</html>
