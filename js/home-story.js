@@ -83,7 +83,7 @@
         entries.forEach(function (entry) {
           if (entry.isIntersecting) setActive(entry.target.id);
         });
-      }, { threshold: 0.25, rootMargin: "-18% 0px -55% 0px" });
+      }, { threshold: 0.01, rootMargin: "-25% 0px -60% 0px" });
       available.forEach(function (entry) { sectionObserver.observe(entry.element); });
     } else {
       document.querySelectorAll(".ib-reveal").forEach(function (element) { element.classList.add("is-visible"); });
