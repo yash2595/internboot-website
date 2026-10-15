@@ -218,7 +218,7 @@ body::after {
 .categories-section .section-title { max-width:720px; }
 .ib-filter-row { display:flex; justify-content:center; align-items:center; gap:9px; flex-wrap:wrap; margin:-16px 0 32px; }
 .ib-filter-label { margin-right:4px; color:#8790a0; font-size:.8rem; font-weight:700; }
-.ib-filter-button { border:1px solid rgba(35,51,89,.12); border-radius:999px; padding:9px 16px; background:#fff; color:#5d687b; font:700 .82rem inherit; cursor:pointer; transition:all .22s ease; }
+.ib-filter-button { border:1px solid rgba(35,51,89,.12); border-radius:999px; padding:9px 16px; background:#fff; color:#5d687b; font-family:inherit; font-size:.82rem; font-weight:700; cursor:pointer; transition:all .22s ease; }
 .ib-filter-button:hover,.ib-filter-button[aria-pressed="true"] { background:#202b43; border-color:#202b43; color:#fff; box-shadow:0 8px 19px rgba(24,34,53,.14); transform:translateY(-2px); }
 .categories-section .category-card {
   position:relative; min-height:355px; text-align:left; padding:25px 23px 21px !important;
