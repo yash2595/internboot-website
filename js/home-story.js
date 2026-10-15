@@ -13,6 +13,10 @@
     actionRow.innerHTML =
       '<a class="ib-apply-cta" href="#apply-chatbot" data-open-chatbot>Find my internship <i class="fas fa-arrow-right" aria-hidden="true"></i></a>' +
       '<a class="ib-discover-cta" href="#categories">Explore learning paths <i class="fas fa-arrow-down" aria-hidden="true"></i></a>';
+    actionRow.querySelector("[data-open-chatbot]").addEventListener("click", function (event) {
+      event.preventDefault();
+      if (typeof window.openInternChatbot === "function") window.openInternChatbot();
+    });
     var stats = heroCopy && heroCopy.querySelector(".key-stats-row");
     if (heroCopy && stats) heroCopy.insertBefore(actionRow, stats);
 
