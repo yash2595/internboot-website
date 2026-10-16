@@ -148,192 +148,325 @@ free internship online with certificate 2026" />
       box-sizing: border-box;
     }
 
-    .process-bg {
-      background:
-        radial-gradient(circle at 16% 18%, rgba(103, 58, 255, .18), transparent 32%),
-        radial-gradient(circle at 82% 28%, rgba(0, 194, 203, .12), transparent 30%),
-        linear-gradient(180deg, #100a2f 0%, #0b0825 100%);
-    }
-
-    .process-bg .sec-chip {
-      display: table;
-      margin-bottom: 12px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .process-bg .sec-title {
-      margin-bottom: 8px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .process-bg .sec-sub {
-      margin-bottom: 0;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-      line-height: 1.35;
-    }
-
-    .steps-track {
-      --step-circle-size: 84px;
-      display: grid;
-      grid-template-columns: repeat(7, minmax(0, 1fr));
-      gap: 0;
-      margin-top: 34px;
+    /* Light, editorial internship journey */
+    .career-journey {
+      --journey-ink: #183b35;
+      --journey-muted: #63756f;
+      --journey-green: #286b56;
+      --journey-lime: #d6ef76;
+      --journey-line: #d9e5d9;
       position: relative;
-      align-items: start;
+      overflow: hidden;
+      background: #fbf8ef;
+      isolation: isolate;
     }
 
-    .steps-track::before {
-      content: '';
+    .career-journey::before,
+    .career-journey::after {
+      content: "";
       position: absolute;
-      top: calc(var(--step-circle-size) / 2);
-      left: calc(100% / 14);
-      right: calc(100% / 14);
-      height: 3px;
-      background: linear-gradient(90deg, #6b38ff 0%, #335dff 55%, #00c2cb 100%);
-      box-shadow: 0 0 20px rgba(93, 70, 255, .48);
-      transform: translateY(-50%);
-      z-index: 0;
-    }
-
-    .step-node {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      padding: 0 10px;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .step-circle {
-      width: var(--step-circle-size);
-      height: var(--step-circle-size);
+      z-index: -1;
+      pointer-events: none;
       border-radius: 50%;
-      background: linear-gradient(145deg, #6f3cff 0%, #4e20e0 52%, #35139f 100%);
-      border: 1px solid rgba(255, 255, 255, .18);
-      display: flex;
+    }
+
+    .career-journey::before {
+      width: 390px;
+      height: 390px;
+      top: -220px;
+      right: -85px;
+      background: rgba(214, 239, 118, .35);
+    }
+
+    .career-journey::after {
+      width: 250px;
+      height: 250px;
+      bottom: -180px;
+      left: -90px;
+      background: rgba(183, 219, 226, .35);
+    }
+
+    .career-journey .sec-inner {
+      max-width: 1280px;
+      padding: 86px 34px 92px;
+      margin: 0 auto;
+    }
+
+    .journey-layout {
+      display: grid;
+      grid-template-columns: minmax(270px, .82fr) minmax(0, 1.18fr);
+      gap: clamp(36px, 6vw, 88px);
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 12px;
-      position: relative;
-      box-shadow:
-        0 0 0 7px rgba(94, 50, 218, .22),
-        inset 0 0 0 5px rgba(255, 255, 255, .08),
-        0 14px 34px rgba(61, 19, 196, .42);
-      transition: transform .25s ease, box-shadow .25s ease;
     }
 
-    .step-circle::before {
-      content: '';
-      position: absolute;
-      inset: 9px;
-      border-radius: inherit;
-      border: 1px solid rgba(255, 255, 255, .14);
-      background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, .18), transparent 38%);
+    .journey-intro {
+      position: sticky;
+      top: 110px;
+      align-self: start;
+      padding-top: 8px;
     }
 
-    .step-icon {
-      width: 38px;
-      height: 38px;
-      position: relative;
-      z-index: 2;
+    .journey-kicker {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 24px;
-      line-height: 1;
-      text-shadow: 0 6px 16px rgba(0, 0, 0, .24);
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid #d8e4d5;
+      border-radius: 999px;
+      background: rgba(255,255,255,.7);
+      color: var(--journey-green);
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
     }
 
-    .step-node:hover .step-circle {
-      transform: translateY(-4px);
-      box-shadow:
-        0 0 0 8px rgba(94, 50, 218, .32),
-        inset 0 0 0 5px rgba(255, 255, 255, .1),
-        0 18px 42px rgba(61, 19, 196, .52);
+    .journey-kicker i {
+      color: #e2964a;
     }
 
-    .step-num {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      width: 24px;
-      height: 24px;
-      background: #ffb62e;
-      color: #0b0825;
-      font-size: 11px;
-      font-weight: 900;
-      border-radius: 50%;
+    .journey-title {
+      max-width: 510px;
+      margin: 22px 0 16px;
+      color: var(--journey-ink);
+      font-size: clamp(2.3rem, 4.2vw, 4.3rem);
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -.055em;
+    }
+
+    .journey-title span {
+      color: var(--journey-green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      font-style: italic;
+    }
+
+    .journey-description {
+      max-width: 430px;
+      margin: 0;
+      color: var(--journey-muted);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .journey-note {
       display: flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 18px rgba(255, 182, 46, .28);
-      z-index: 3;
+      gap: 12px;
+      margin: 28px 0 30px;
+      color: var(--journey-ink);
+      font-size: .92rem;
+      font-weight: 650;
     }
 
-    .step-node h4 {
-      max-width: 190px;
-      font-size: clamp(.78rem, .78vw, .9rem);
+    .journey-note-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border-radius: 13px;
+      background: #eaf2d9;
+      color: var(--journey-green);
+    }
+
+    .journey-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 20px 14px 23px;
+      background: var(--journey-green);
+      color: #fff !important;
+      font-size: .96rem;
+      font-weight: 750;
+      text-decoration: none;
+      box-shadow: 0 12px 24px rgba(40,107,86,.18);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .journey-cta:hover {
+      transform: translateY(-3px);
+      background: #1d5846;
+      box-shadow: 0 16px 28px rgba(40,107,86,.24);
+    }
+
+    .journey-cta i {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      background: var(--journey-lime);
+      color: var(--journey-ink);
+    }
+
+    .journey-board {
+      position: relative;
+      padding: 24px;
+      border: 1px solid #e4e5d9;
+      border-radius: 30px;
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 26px 70px rgba(39,70,55,.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .journey-board-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: #839087;
+      font-size: .72rem;
       font-weight: 800;
-      color: #fff;
-      margin: 0 0 6px;
-      line-height: 1.25;
-      text-align: center;
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
 
-    .step-node p {
-      max-width: 200px;
-      font-size: .75rem;
-      color: rgba(255, 255, 255, .78);
-      line-height: 1.38;
+    .journey-board-top span:last-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--journey-green);
+      letter-spacing: .04em;
+      text-transform: none;
+    }
+
+    .journey-board-top i {
+      font-size: .55rem;
+    }
+
+    .journey-phases {
+      display: grid;
+      gap: 12px;
+    }
+
+    .journey-phase {
+      --phase-accent: #286b56;
+      position: relative;
+      display: grid;
+      grid-template-columns: 56px minmax(0,1fr) 30px;
+      align-items: center;
+      gap: 16px;
+      min-height: 110px;
+      padding: 17px 18px;
+      border: 1px solid #e9ede4;
+      border-radius: 21px;
+      background: #fff;
+      box-shadow: 0 5px 14px rgba(40,65,52,.035);
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s cubic-bezier(.2,.8,.2,1), border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .journey-phase.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .journey-phase:nth-child(2) { --phase-accent: #5574b7; }
+    .journey-phase:nth-child(3) { --phase-accent: #dc8b42; }
+    .journey-phase:nth-child(4) { --phase-accent: #8068a9; }
+
+    .journey-phase:hover {
+      border-color: #cbd9c7;
+      box-shadow: 0 12px 26px rgba(40,65,52,.08);
+      transform: translateY(-2px);
+    }
+
+    .journey-phase-icon {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      background: color-mix(in srgb, var(--phase-accent) 12%, white);
+      color: var(--phase-accent);
+      font-size: 1.18rem;
+    }
+
+    .journey-phase-copy {
+      min-width: 0;
+    }
+
+    .journey-phase-meta {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--phase-accent);
+      font-size: .68rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .journey-phase h3 {
+      margin: 0 0 5px;
+      color: #1e3931;
+      font-size: 1.04rem;
+      font-weight: 750;
+      line-height: 1.3;
+    }
+
+    .journey-phase p {
       margin: 0;
-      text-align: center;
+      color: #718078;
+      font-size: .84rem;
+      line-height: 1.55;
     }
 
-    @media (max-width: 1199.98px) {
-      .steps-track {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        row-gap: 32px;
-      }
-
-      .steps-track::before {
-        display: none;
-      }
+    .journey-phase-arrow {
+      color: #a2b0a6;
+      font-size: .88rem;
+      transition: transform .2s ease, color .2s ease;
     }
 
-    @media (max-width: 767.98px) {
-      .steps-track {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 28px;
-      }
+    .journey-phase:hover .journey-phase-arrow {
+      color: var(--phase-accent);
+      transform: translateX(3px);
+    }
 
-      .step-node {
-        padding: 0;
-      }
+    .journey-footnote {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 17px 4px 0;
+      color: #849087;
+      font-size: .75rem;
+    }
 
-      .step-circle {
-        width: 76px;
-        height: 76px;
-        margin-bottom: 12px;
-      }
+    .journey-footnote strong {
+      color: var(--journey-ink);
+      font-weight: 750;
+    }
 
-      .step-icon {
-        font-size: 22px;
-      }
+    @media (prefers-reduced-motion: reduce) {
+      .journey-phase, .journey-cta { transition: none; }
+      .journey-phase { opacity: 1; transform: none; }
+    }
 
-      .step-node h4,
-      .step-node p {
-        max-width: 360px;
-      }
+    @media (max-width: 991.98px) {
+      .career-journey .sec-inner { padding: 70px 24px; }
+      .journey-layout { grid-template-columns: 1fr; gap: 34px; }
+      .journey-intro { position: static; }
+      .journey-title { max-width: 680px; }
+      .journey-description { max-width: 650px; }
+      .journey-note { margin: 20px 0 22px; }
+    }
+
+    @media (max-width: 575.98px) {
+      .career-journey .sec-inner { padding: 55px 17px 62px; }
+      .journey-title { font-size: clamp(2.15rem, 11vw, 3.1rem); }
+      .journey-board { padding: 15px; border-radius: 23px; }
+      .journey-phase { grid-template-columns: 45px minmax(0,1fr) 18px; gap: 11px; min-height: 104px; padding: 14px 12px; border-radius: 17px; }
+      .journey-phase-icon { width: 44px; height: 44px; border-radius: 14px; }
+      .journey-phase h3 { font-size: .93rem; }
+      .journey-phase p { font-size: .78rem; }
+      .journey-board-top { font-size: .63rem; }
+      .journey-footnote { align-items: flex-start; flex-direction: column; }
     }
 
     .category-card[data-category="software-development"] .icon-box i {
@@ -2260,55 +2393,78 @@ free internship online with certificate 2026" />
   </script>
 
 
-  <section class="sec process-bg">
-    <div class="sec-inner" style="padding-left: 50px;padding-right: 40px;padding-top: 40px;padding-bottom: 36px;">
-      <div  class="sec-chip light" style="color: white;">How It Works</div>
-      <h2 class="sec-title white" style="color: white;">The <em class="gold" style="color: gold;">7-Step Bridge</em>
-        from Classroom to Corporate</h2>
-      <p class="sec-sub white" style="color: white;">A structured, transparent pipeline &mdash; from registration to
-        Pre-Placement Offers.</p>
-      <div class="steps-track">
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-clipboard-check"></i></span><span class="step-num">1</span></div>
-          <h4>Registration &amp; Online Assessment</h4>
-          <p>Candidates create profiles and undergo aptitude tests to ensure program readiness and fit.</p>
+  <section class="sec career-journey" id="career-journey" aria-labelledby="journey-title">
+    <div class="sec-inner">
+      <div class="journey-layout">
+        <div class="journey-intro">
+          <div class="journey-kicker"><i class="fas fa-compass" aria-hidden="true"></i> How it works</div>
+          <h2 class="journey-title" id="journey-title">Your next step starts in the <span>right direction.</span></h2>
+          <p class="journey-description">
+            A clear path from your first application to real industry experience—with practical learning and career support at every stage.
+          </p>
+          <div class="journey-note">
+            <span class="journey-note-mark"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
+            <span>Designed to work alongside your college journey</span>
+          </div>
+          <a class="journey-cta" href="#apply-chatbot" data-open-chatbot>
+            Find your starting point <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
 
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-bullseye"></i></span><span class="step-num">2</span></div>
-          <h4>15-Day Live Mentor-Led Training</h4>
-          <p>Structured sessions focused on practical industry tools and real-world exposure.</p>
-        </div>
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-tools"></i></span><span class="step-num">3</span></div>
-          <h4>Industrial Project Experience</h4>
-          <p>Working on live projects for up to 6 months based on university policies.</p>
-        </div>
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-medal"></i></span><span class="step-num">4</span></div>
-          <h4>Verifiable Certification &amp; Recognition</h4>
-          <p>Graduates receive digital certificates and performance-based appreciation letters from industry partners.
-          </p>
-        </div>
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-briefcase"></i></span><span class="step-num">5</span></div>
-          <h4>PPO Interviews for Top Performers</h4>
-          <p>High-achieving interns are shortlisted for interviews leading to Pre-Placement Offers.</p>
-        </div>
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-handshake"></i></span><span class="step-num">6</span></div>
-          <h4>Placement Support</h4>
-          <p>Direct connections with 650+ companies. Dedicated job fairs and platform support for every candidate.</p>
-        </div>
-        <div class="step-node">
-          <div class="step-circle"><span class="step-icon" aria-hidden="true"><i class="fas fa-rocket"></i></span><span class="step-num">7</span></div>
-          <h4>Career Launch</h4>
-          <p>Over 2 Lacs+ candidates have successfully secured positions through InternBoot's ecosystem.</p>
+        <div class="journey-board">
+          <div class="journey-board-top">
+            <span>From classroom to career</span>
+            <span><i class="fas fa-circle" aria-hidden="true"></i> Your journey, step by step</span>
+          </div>
+          <div class="journey-phases">
+            <article class="journey-phase">
+              <span class="journey-phase-icon"><i class="fas fa-clipboard-check" aria-hidden="true"></i></span>
+              <div class="journey-phase-copy">
+                <span class="journey-phase-meta">Phase 01 · Get ready</span>
+                <h3>Register &amp; find your fit</h3>
+                <p>Create your profile and take the online assessment to identify your readiness and direction.</p>
+              </div>
+              <i class="journey-phase-arrow fas fa-arrow-right" aria-hidden="true"></i>
+            </article>
+
+            <article class="journey-phase">
+              <span class="journey-phase-icon"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i></span>
+              <div class="journey-phase-copy">
+                <span class="journey-phase-meta">Phase 02 · Build skills</span>
+                <h3>Learn with live mentors</h3>
+                <p>Start with 15 days of guided training in practical tools and real-world work habits.</p>
+              </div>
+              <i class="journey-phase-arrow fas fa-arrow-right" aria-hidden="true"></i>
+            </article>
+
+            <article class="journey-phase">
+              <span class="journey-phase-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></span>
+              <div class="journey-phase-copy">
+                <span class="journey-phase-meta">Phase 03 · Do real work</span>
+                <h3>Build experience you can show</h3>
+                <p>Work on an industrial project for up to 6 months, subject to your university policy, then earn verifiable recognition.</p>
+              </div>
+              <i class="journey-phase-arrow fas fa-arrow-right" aria-hidden="true"></i>
+            </article>
+
+            <article class="journey-phase">
+              <span class="journey-phase-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+              <div class="journey-phase-copy">
+                <span class="journey-phase-meta">Phase 04 · Take the next step</span>
+                <h3>Turn your work into opportunity</h3>
+                <p>Top performers may interview for PPOs, with placement support and job-fair connections across 650+ companies.</p>
+              </div>
+              <i class="journey-phase-arrow fas fa-arrow-right" aria-hidden="true"></i>
+            </article>
+          </div>
+          <div class="journey-footnote">
+            <span><strong>Learn.</strong> Make. Move forward.</span>
+            <span>Career support continues beyond the internship.</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- Certificate Showcase Section -->
   <section id="certificates" class="certificates-section py-5 bg-light">
@@ -3794,6 +3950,28 @@ free internship online with certificate 2026" />
     </div>
   </section>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const phases = document.querySelectorAll(".journey-phase");
+      if (!phases.length) return;
+
+      if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        phases.forEach((phase) => phase.classList.add("is-visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const index = Array.from(phases).indexOf(entry.target);
+          window.setTimeout(() => entry.target.classList.add("is-visible"), index * 90);
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+
+      phases.forEach((phase) => observer.observe(phase));
+    });
+  </script>
   <!-- Footer Container -->
   <div id="footer-container"></div>
 
