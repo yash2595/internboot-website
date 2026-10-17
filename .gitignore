@@ -13,5 +13,6 @@ js.264/
 .DS_Store
 Thumbs.db
 desktop.ini
+scratch/
 *.log
 *.tmp

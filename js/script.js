@@ -887,93 +887,96 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Initialize Certificate Slider with enhanced 3D effect
-  new Swiper(".certificate-slider", {
-    slidesPerView: "auto",
-    centeredSlides: true,
-    spaceBetween: 40,
-    grabCursor: true,
-    loop: true,
-    speed: 400, // Reduced from 600 to make transitions faster
-    effect: "coverflow",
-    coverflowEffect: {
-      rotate: 5,
-      stretch: 0,
-      depth: 100,
-      modifier: 1.5,
-      slideShadows: false,
-    },
-    autoplay: {
-      delay: 1500, // Reduced from 2000 for faster sliding
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".certificate-pagination",
-      clickable: true,
-      dynamicBullets: true,
-      renderBullet: function (_, className) {
-        return '<span class="' + className + '"></span>';
+  const certSliderEl = document.querySelector(".certificate-slider");
+  if (certSliderEl) {
+    new Swiper(certSliderEl, {
+      slidesPerView: "auto",
+      centeredSlides: true,
+      spaceBetween: 40,
+      grabCursor: true,
+      loop: true,
+      speed: 400, // Reduced from 600 to make transitions faster
+      effect: "coverflow",
+      coverflowEffect: {
+        rotate: 5,
+        stretch: 0,
+        depth: 100,
+        modifier: 1.5,
+        slideShadows: false,
       },
-    },
-    navigation: {
-      nextEl: ".certificate-button-next",
-      prevEl: ".certificate-button-prev",
-    },
-    on: {
-      init: function () {
-        setTimeout(() => {
-          document
-            .querySelectorAll(".certificate-slider .swiper-slide")
-            .forEach((slide) => {
-              slide.style.transition =
-                "all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)";
-            });
+      autoplay: {
+        delay: 1500, // Reduced from 2000 for faster sliding
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".certificate-pagination",
+        clickable: true,
+        dynamicBullets: true,
+        renderBullet: function (_, className) {
+          return '<span class="' + className + '"></span>';
+        },
+      },
+      navigation: {
+        nextEl: ".certificate-button-next",
+        prevEl: ".certificate-button-prev",
+      },
+      on: {
+        init: function () {
+          setTimeout(() => {
+            document
+              .querySelectorAll(".certificate-slider .swiper-slide")
+              .forEach((slide) => {
+                slide.style.transition =
+                  "all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1)";
+              });
 
-          // Check if images are loaded correctly
-          document
-            .querySelectorAll(".certificate-slider img")
-            .forEach((img) => {
-              if (!img.complete) {
-                img.addEventListener("load", function () {
-                  console.log("Image loaded successfully:", img.src);
-                });
-              }
-            });
-        }, 100);
-      },
-    },
-    breakpoints: {
-      320: {
-        spaceBetween: 20,
-        coverflowEffect: {
-          rotate: 2,
-          depth: 50,
-          modifier: 1,
+            // Check if images are loaded correctly
+            document
+              .querySelectorAll(".certificate-slider img")
+              .forEach((img) => {
+                if (!img.complete) {
+                  img.addEventListener("load", function () {
+                    console.log("Image loaded successfully:", img.src);
+                  });
+                }
+              });
+          }, 100);
         },
       },
-      576: {
-        spaceBetween: 25,
-        coverflowEffect: {
-          rotate: 3,
-          depth: 70,
-          modifier: 1.2,
+      breakpoints: {
+        320: {
+          spaceBetween: 20,
+          coverflowEffect: {
+            rotate: 2,
+            depth: 50,
+            modifier: 1,
+          },
+        },
+        576: {
+          spaceBetween: 25,
+          coverflowEffect: {
+            rotate: 3,
+            depth: 70,
+            modifier: 1.2,
+          },
+        },
+        768: {
+          spaceBetween: 30,
+          coverflowEffect: {
+            rotate: 4,
+            depth: 80,
+            modifier: 1.3,
+          },
+        },
+        992: {
+          spaceBetween: 40,
+          coverflowEffect: {
+            rotate: 5,
+            depth: 100,
+            modifier: 1.5,
+          },
         },
       },
-      768: {
-        spaceBetween: 30,
-        coverflowEffect: {
-          rotate: 4,
-          depth: 80,
-          modifier: 1.3,
-        },
-      },
-      992: {
-        spaceBetween: 40,
-        coverflowEffect: {
-          rotate: 5,
-          depth: 100,
-          modifier: 1.5,
-        },
-      },
-    },
-  });
+    });
+  }
 });
